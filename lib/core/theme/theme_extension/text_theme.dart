@@ -5,55 +5,55 @@ import 'package:flutter/material.dart';
 
 class AppTextTheme {
   static TextTheme darkTextTheme = TextTheme(
-    headlineLarge: GoogleFonts.roboto(
+    headlineLarge: GoogleFonts.ubuntuSans(
       fontSize: 32.sp,
       fontWeight: FontWeight.w700,
     ),
-    headlineMedium: GoogleFonts.roboto(
+    headlineMedium: GoogleFonts.ubuntuSans(
       fontSize: 26.sp,
       fontWeight: FontWeight.w400,
     ),
-    headlineSmall: GoogleFonts.roboto(
+    headlineSmall: GoogleFonts.ubuntuSans(
       fontSize: 24.sp,
 
       fontWeight: FontWeight.w400,
 
     ),
-    titleLarge: GoogleFonts.roboto(
+    titleLarge: GoogleFonts.ubuntuSans(
       fontSize: 22.sp,
       fontWeight: FontWeight.w600,
     ),
-    titleMedium: GoogleFonts.roboto(
+    titleMedium: GoogleFonts.ubuntuSans(
       fontSize: 20.sp,
       fontWeight: FontWeight.w500,
     ),
-    titleSmall: GoogleFonts.roboto(
+    titleSmall: GoogleFonts.ubuntuSans(
       fontSize: 18.sp,
       fontWeight: FontWeight.w500,
     ),
 
-    bodyLarge: GoogleFonts.roboto(
+    bodyLarge: GoogleFonts.ubuntuSans(
       fontSize: 18.sp,
       fontWeight: FontWeight.w500,
     ),
-    bodyMedium: GoogleFonts.roboto(
+    bodyMedium: GoogleFonts.inter(
       fontSize: 16.sp,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
     ),
-    bodySmall: GoogleFonts.roboto(
+    bodySmall: GoogleFonts.inter(
       fontSize: 14.sp,
       fontWeight: FontWeight.w400,
     ),
 
-    labelLarge: GoogleFonts.roboto(
+    labelLarge: GoogleFonts.ubuntuSans(
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
     ),
-    labelMedium: GoogleFonts.roboto(
+    labelMedium: GoogleFonts.ubuntuSans(
       fontSize: 12.sp,
       fontWeight: FontWeight.w500,
     ),
-    labelSmall: GoogleFonts.roboto(
+    labelSmall: GoogleFonts.ubuntuSans(
       fontSize: 11.sp,
       fontWeight: FontWeight.w400,
     ),

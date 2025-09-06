@@ -67,13 +67,13 @@ class RouteConfig {
         return const MaterialPage(child: SplashScreen());
       },
     ),
-//       GoRoute(
-//         name: RouteName.paymentIntro,
-//         path: RouteName.paymentIntro,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: PaymentIntroScreen());
-//         },
-//       ),
+      GoRoute(
+        name: RouteName.splashScreen2,
+        path: RouteName.splashScreen2,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: SplashScreen2());
+        },
+      ),
 //  GoRoute(
 //         name: RouteName.signInScreen,
 //         path: RouteName.signInScreen,
