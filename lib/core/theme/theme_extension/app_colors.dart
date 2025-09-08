@@ -16,6 +16,7 @@ class AppColors {
   static const Color onPrimary = Color(0xffE9E9EA);
   static const Color bgColor1 = Color(0xffFF6B6B);
   static const Color bgColor2 = Color(0xffFFA726);
+  static const Color bgColor3 = Color(0xffFFF0F0);
 
 
 
@@ -24,6 +25,8 @@ class AppColors {
   static const Color greyTextColor = Color(0xff6B7280);
   static const Color redTextColor = Color(0xffFF6B6B);
   static const Color whiteTextColor = Color(0xffFFFFFF);
+
+
 
 
 

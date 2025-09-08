@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:metal_head/core/constant/icons.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/screen/splash/presentation/widgets/custom_button.dart';
+import 'package:metal_head/features/screen/splash/provider/toggleProvider.dart';
 
-class SplashScreen2 extends StatelessWidget {
+class SplashScreen2 extends ConsumerWidget {
   const SplashScreen2({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final nextState = ref.watch(toggleNext);
     final style = Theme.of(context).textTheme;
     return Scaffold(
       body: Stack(
@@ -25,7 +28,7 @@ class SplashScreen2 extends StatelessWidget {
             child: Align(
               alignment: Alignment.center,
               child: SvgPicture.asset(
-                AppIcons.businessLogo,
+                (nextState == 0) ? AppIcons.businessLogo : AppIcons.transferMoney,
                 fit: BoxFit.cover,
                 height: 250.h, // Adjust this height as per your requirement
               ),
@@ -60,18 +63,16 @@ class SplashScreen2 extends StatelessWidget {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [AppColors.bgColor1, AppColors.bgColor2],
-                            ),
+                            color: AppColors.bgColor1,
+                              borderRadius: BorderRadius.circular(100.r)
                           ),
                           child: SizedBox(height: 16.h, width: 16.w),
                         ),
                         SizedBox(width: 10.w),
                         Container(
                           decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [AppColors.bgColor1, AppColors.bgColor2],
-                            ),
+                            color: (nextState == 0) ? AppColors.bgColor3 : AppColors.bgColor1,
+                            borderRadius: BorderRadius.circular(100.r)
                           ),
                           child: SizedBox(height: 16.h, width: 16.w),
                         ),
@@ -102,7 +103,7 @@ class SplashScreen2 extends StatelessWidget {
                           borderColor: AppColors.bgColor1,
                           textColor: AppColors.bgColor1,
                           onPressed: () {
-                            print("Skip Button Pressed!");
+                            debugPrint("Skip Button Pressed!");
                           },
                         ),
                         SizedBox(width: 8.w),
@@ -111,7 +112,13 @@ class SplashScreen2 extends StatelessWidget {
                           containerColor: AppColors.bgColor1,
                           textColor: Colors.white,
                           onPressed: () {
-                            print("Next Button Pressed!");
+                            if(ref.read(toggleNext.notifier).state == 1){
+                              //Next screen
+                              ref.read(toggleNext.notifier).state = 0;
+                            }
+                            else {
+                              ref.read(toggleNext.notifier).state++;
+                            }
                           },
                         ),
                       ],
