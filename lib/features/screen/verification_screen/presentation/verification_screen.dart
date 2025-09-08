@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:metal_head/features/screen/splash/presentation/widgets/custom_button.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+import '../../../../core/routes/route_name.dart';
 import '../../../../core/theme/theme_extension/app_colors.dart';
 
 class VerificationScreen extends StatefulWidget {
@@ -85,7 +87,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 padding: EdgeInsets.symmetric(vertical: 32.h,horizontal: 16.w),
                 child: Column(
                   children: [
-                    CustomButton(text: 'Verify',onPressed: (){},isBig: true,),
+                    CustomButton(text: 'Verify',onPressed: (){
+                      context.push(RouteName.completeProfileSetupScreen);
+                    },isBig: true,),
                     SizedBox(height: 8.w,),
                     TextButton(onPressed: (){}, child: Text('Resend code',style: style.bodySmall?.copyWith(
                       color: AppColors.redTextColor,
