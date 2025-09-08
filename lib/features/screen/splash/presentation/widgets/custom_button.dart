@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -29,25 +30,21 @@ class CustomButton extends StatelessWidget {
       child: Container(
         width: (isBig ?? false) ? 327.w : 160.w,
         decoration: BoxDecoration(
-          color: containerColor ?? Colors.blue,  // Default container color
-          border: Border.all(
-            color: borderColor ?? Colors.transparent,  // Default to transparent if no border color is provided
-          ),
+          color: containerColor ?? AppColors.bgColor1,
+          border: Border.all(color: borderColor ?? Colors.transparent),
           borderRadius: BorderRadius.circular(100.r),
         ),
         child: Center(
           child: Padding(
-            padding: padding ??
-                EdgeInsets.symmetric(
-                  vertical: 14.h,
-                  horizontal: 24.w,
-                ),
+            padding:
+                padding ??
+                EdgeInsets.symmetric(vertical: 14.h, horizontal: 24.w),
             child: Text(
               text,
-              style: textStyle ??
-                  TextStyle(
-                    fontSize: 16.sp,  // Default font size
-                    color: textColor ?? Colors.white,  // Default text color
+              style:
+                  textStyle ??
+                  Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.w500
                   ),
             ),
           ),

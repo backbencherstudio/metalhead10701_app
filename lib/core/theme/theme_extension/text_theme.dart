@@ -10,29 +10,29 @@ class AppTextTheme {
       fontWeight: FontWeight.w700,
     ),
     headlineMedium: GoogleFonts.ubuntuSans(
-      fontSize: 26.sp,
-      fontWeight: FontWeight.w400,
+      fontSize: 28.sp,
+      fontWeight: FontWeight.w600,
     ),
     headlineSmall: GoogleFonts.ubuntuSans(
       fontSize: 24.sp,
 
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w700,
 
     ),
-    titleLarge: GoogleFonts.ubuntuSans(
+    titleLarge: GoogleFonts.inter(
       fontSize: 22.sp,
       fontWeight: FontWeight.w600,
     ),
-    titleMedium: GoogleFonts.ubuntuSans(
+    titleMedium: GoogleFonts.inter(
       fontSize: 20.sp,
       fontWeight: FontWeight.w500,
     ),
-    titleSmall: GoogleFonts.ubuntuSans(
+    titleSmall: GoogleFonts.inter(
       fontSize: 18.sp,
       fontWeight: FontWeight.w500,
     ),
 
-    bodyLarge: GoogleFonts.ubuntuSans(
+    bodyLarge: GoogleFonts.inter(
       fontSize: 18.sp,
       fontWeight: FontWeight.w500,
     ),
@@ -42,18 +42,18 @@ class AppTextTheme {
     ),
     bodySmall: GoogleFonts.inter(
       fontSize: 14.sp,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
     ),
 
-    labelLarge: GoogleFonts.ubuntuSans(
+    labelLarge: GoogleFonts.inter(
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
     ),
-    labelMedium: GoogleFonts.ubuntuSans(
+    labelMedium: GoogleFonts.inter(
       fontSize: 12.sp,
       fontWeight: FontWeight.w500,
     ),
-    labelSmall: GoogleFonts.ubuntuSans(
+    labelSmall: GoogleFonts.inter(
       fontSize: 11.sp,
       fontWeight: FontWeight.w400,
     ),
