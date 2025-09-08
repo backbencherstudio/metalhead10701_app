@@ -2,7 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.createAccountScreen,
 
     routes: [
       //Bottom NavBar
@@ -74,13 +74,13 @@ class RouteConfig {
           return const MaterialPage(child: SplashScreen2());
         },
       ),
-//  GoRoute(
-//         name: RouteName.signInScreen,
-//         path: RouteName.signInScreen,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: SignInScreen());
-//         },
-//       ),
+ GoRoute(
+        name: RouteName.createAccountScreen,
+        path: RouteName.createAccountScreen,
+        pageBuilder: (context, state) {
+          return MaterialPage(child: CreateAccountScreen());
+        },
+      ),
 //        GoRoute(
 //         name: RouteName.acountCreatedScreen,
 //         path: RouteName.acountCreatedScreen,
