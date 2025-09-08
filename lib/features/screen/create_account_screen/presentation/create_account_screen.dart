@@ -32,7 +32,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               SizedBox(height: 50.h),
               Padding(
                 padding: EdgeInsets.all(8.r),
-                child: Icon(Icons.arrow_back_ios_new_rounded),
+                child: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.headlineTextColor,),
               ),
               SizedBox(height: 8.h),
               Text(
@@ -174,16 +174,17 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   });
                 },
                 child: Row(
-                  //mainAxisSize: MainAxisSize.min,
+                 // mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Container(
-                      width: 185.w,
+                      width: 170.w,
                       decoration: BoxDecoration(
                         color: AppColors.bgColor4,
                         borderRadius: BorderRadius.circular(100.r),
                       ),
                       child: ListTile(
+                        horizontalTitleGap: 0,
                         title: Text(
                           'Job Poster',
                           style: style.bodyMedium?.copyWith(
@@ -194,20 +195,22 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           value: SingingCharacter.lafayette,
                           fillColor: WidgetStateProperty.resolveWith<Color>((Set<MaterialState> states) {
                             if (states.contains(WidgetState.selected)) {
-                              return AppColors.bgColor5;
+                              return AppColors.bgColor6;
                             }
-                            return AppColors.bgColor5;
+                            return AppColors.bgColor6;
                           }),
                         ),
                       ),
                     ),
+
                     Container(
-                      width: 153.w,
+                      width: 170.w,
                       decoration: BoxDecoration(
                         color: AppColors.bgColor4,
                         borderRadius: BorderRadius.circular(100.r),
                       ),
                       child: ListTile(
+                        horizontalTitleGap: 0,
                         title: Text(
                           'Helper',
                           style: style.bodyMedium?.copyWith(
@@ -220,9 +223,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             Set<WidgetState> states,
                           ) {
                             if (states.contains(WidgetState.selected)) {
-                              return AppColors.bgColor5;
+                              return AppColors.bgColor6;
                             }
-                            return AppColors.bgColor5;
+                            return AppColors.bgColor6;
                           }),
                         ),
                       ),
@@ -253,7 +256,28 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
               
               SizedBox(height: 20.h),
-              CustomButton(text: 'Sign UP',onPressed: (){},)
+              Center(child: CustomButton(text: 'Sign Up',onPressed: (){},isBig: true,)),
+              SizedBox(height: 20.h),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Have an account?',style: style.bodySmall?.copyWith(
+                    color: AppColors.headlineTextColor,
+                    fontWeight: FontWeight.w500
+                  ),),
+                  SizedBox(width: 4.w),
+                  Text(
+                    'Log In',
+                    style: style.labelMedium?.copyWith(
+                      color: AppColors.bgColor6,
+                      fontWeight: FontWeight.w600
+                    ),
+                  ),
+
+                ]
+              ),
+              SizedBox(height: 20.h),
             ],
           ),
         ),

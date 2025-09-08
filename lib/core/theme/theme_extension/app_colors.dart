@@ -19,14 +19,17 @@ class AppColors {
   static const Color bgColor3 = Color(0xffFFF0F0);
   static const Color bgColor4 = Color(0xffF9FAFB);
   static const Color bgColor5 = Color(0xffFFCC00);
+  static const Color bgColor6 = Color(0xffF05D29);
 
 
 
   //text colors
   static const Color headlineTextColor = Color(0xff2F2A29);
   static const Color headlineTextColor2 = Color(0xff071731);
+  static const Color headlineTextColor3 = Color(0xff000000);
   static const Color greyTextColor = Color(0xff6B7280);
   static const Color lightGreyTextColor = Color(0xff6B7280);
+  static const Color greyTextColor2 = Color(0xff5B5F5F);
   static const Color redTextColor = Color(0xffFF6B6B);
   static const Color redTextColor2 = Color(0xffE3342F);
   static const Color whiteTextColor = Color(0xffFFFFFF);

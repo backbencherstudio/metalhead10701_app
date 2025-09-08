@@ -4,4 +4,6 @@ import 'package:metal_head/core/routes/route_name.dart';
 import '../../features/screen/create_account_screen/presentation/create_account_screen.dart';
 import '../../features/screen/splash/presentation/splash_screen.dart';
 import '../../features/screen/splash/presentation/splash_screen_2.dart';
+import '../../features/screen/success_screen/presentation/success_screen.dart';
+import '../../features/screen/verification_screen/presentation/verification_screen.dart';
 part 'route_config.dart';

@@ -16,7 +16,7 @@ class AppTextTheme {
     headlineSmall: GoogleFonts.ubuntuSans(
       fontSize: 24.sp,
 
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w700,
 
     ),
     titleLarge: GoogleFonts.inter(
@@ -42,7 +42,7 @@ class AppTextTheme {
     ),
     bodySmall: GoogleFonts.inter(
       fontSize: 14.sp,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
     ),
 
     labelLarge: GoogleFonts.inter(
