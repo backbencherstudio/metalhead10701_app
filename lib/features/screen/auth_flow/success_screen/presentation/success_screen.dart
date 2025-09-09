@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:metal_head/core/constant/icons.dart';
-import 'package:metal_head/features/screen/splash/presentation/widgets/custom_button.dart';
-
-import '../../../../core/theme/theme_extension/app_colors.dart';
+import '../../../../../core/theme/theme_extension/app_colors.dart';
+import '../../splash/presentation/widgets/custom_button.dart';
 
 class SuccessScreen extends StatefulWidget {
   const SuccessScreen({super.key});

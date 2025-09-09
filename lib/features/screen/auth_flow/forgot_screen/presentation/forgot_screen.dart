@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../core/routes/route_name.dart';
-import '../../../../core/theme/theme_extension/app_colors.dart';
+import '../../../../../core/routes/route_name.dart';
+import '../../../../../core/theme/theme_extension/app_colors.dart';
 import '../../create_account_screen/presentation/widgets/input_label_text.dart';
 import '../../splash/presentation/widgets/custom_button.dart';
 

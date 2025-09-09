@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:metal_head/features/screen/splash/presentation/widgets/custom_button.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import '../../../../core/routes/route_name.dart';
-import '../../../../core/theme/theme_extension/app_colors.dart';
-class VerificationScreen extends StatefulWidget {
-  const VerificationScreen({super.key});
+import '../../../../../core/routes/route_name.dart';
+import '../../../../../core/theme/theme_extension/app_colors.dart';
+import '../../splash/presentation/widgets/custom_button.dart';
+class RestoreScreen extends StatefulWidget {
+  final bool isUser;
+  const RestoreScreen({
+    super.key,
+    required this.isUser
+  });
 
   @override
-  State<VerificationScreen> createState() => _VerificationScreenState();
+  State<RestoreScreen> createState() => _RestoreScreenState();
 }
 
-class _VerificationScreenState extends State<VerificationScreen> {
+class _RestoreScreenState extends State<RestoreScreen> {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -34,14 +38,14 @@ class _VerificationScreenState extends State<VerificationScreen> {
               ),
               SizedBox(height: 8.h),
               Text(
-                "Verify Your Account!",
+                "Enter the 4-digit code",
                 style: style.headlineMedium?.copyWith(
                   color: AppColors.headlineTextColor2,
                 ),
               ),
               SizedBox(height: 6.h),
               Text(
-                'A verification code has been sent to your phone number: Josephine_Towne@hotmail.com. This code will expire in 1 minutes.',
+                'We\'ve sent the code to your email, check your inbox.',
                 style: style.bodySmall?.copyWith(color: AppColors.greyTextColor),
               ),
               SizedBox(height: 24.h),
@@ -77,8 +81,8 @@ class _VerificationScreenState extends State<VerificationScreen> {
               SizedBox(height: 8.h),
               Center(
                 child: Text('This OTP will be available during 00:59sec',style: style.bodySmall?.copyWith(
-                  color: AppColors.greyTextColor,
-                  fontWeight: FontWeight.w400
+                    color: AppColors.greyTextColor,
+                    fontWeight: FontWeight.w400
                 ),),
               ),
               Center(child: Padding(
@@ -86,15 +90,17 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 child: Column(
                   children: [
                     CustomButton(
-                      text: 'Verify',
+                      text: widget.isUser ? 'Reset Username' : 'Reset Password',
                       textColor: AppColors.onPrimary,
-                      onPressed: ()=>context.go(RouteName.successScreen),
+                      onPressed: ()=>widget.isUser ? context.go(RouteName.newUserScreen) : context.go(RouteName.newPasswordScreen),
                       isBig: true,
                     ),
                     SizedBox(height: 8.w,),
-                    TextButton(onPressed: (){}, child: Text('Resend code',style: style.bodySmall?.copyWith(
-                      color: AppColors.redTextColor,
-                      fontWeight: FontWeight.w500
+                    TextButton(onPressed: (){
+                      //Resend Code API
+                    }, child: Text('Resend code',style: style.bodySmall?.copyWith(
+                        color: AppColors.redTextColor,
+                        fontWeight: FontWeight.w500
                     ),))
                   ],
                 ),

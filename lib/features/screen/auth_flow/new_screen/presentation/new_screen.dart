@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
-import 'package:metal_head/features/screen/create_account_screen/presentation/widgets/input_label_text.dart';
-import 'package:metal_head/features/screen/login_screen/presentation/widgets/check_box.dart';
-import 'package:metal_head/features/screen/splash/presentation/widgets/custom_button.dart';
-import '../../../../core/routes/route_name.dart';
+import '../../../../../core/routes/route_name.dart';
+import '../../create_account_screen/presentation/widgets/input_label_text.dart';
+import '../../login_screen/presentation/widgets/check_box.dart';
+import '../../splash/presentation/widgets/custom_button.dart';
 
 class NewScreen extends StatefulWidget {
   final bool isUser;
