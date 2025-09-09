@@ -16,5 +16,6 @@ class RouteName {
   static const String restoreUserScreen = "/RestoreUserScreen";
   static const String restorePassScreen = "/RestorePassScreen";
 
-  // HOME FLOW
+  // DASHBOARD FLOW
+  static const String homeScreen = "/HomeScreen";
 }

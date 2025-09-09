@@ -2,7 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.homeScreen,
 
     routes: [
       //Bottom NavBar
@@ -141,6 +141,14 @@ class RouteConfig {
         path: RouteName.restorePasswordScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: RestoreScreen(isUser: false));
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.homeScreen,
+        path: RouteName.homeScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: HomeScreen());
         },
       ),
 
