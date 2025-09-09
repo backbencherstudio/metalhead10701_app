@@ -44,7 +44,10 @@ class _SuccessScreenState extends State<SuccessScreen> {
           SizedBox(height: 20.h),
           CustomButton(
             text: 'Complete Profile Setup',
-            onPressed: () {},
+            textColor: AppColors.onPrimary,
+            onPressed: () {
+              // Profile Setup Section
+            },
             isBig: true,
           ),
         ],

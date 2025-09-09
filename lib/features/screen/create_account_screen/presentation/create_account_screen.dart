@@ -259,7 +259,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
               
               SizedBox(height: 20.h),
-              Center(child: CustomButton(text: 'Sign Up',onPressed: ()=>context.go(RouteName.verificationScreen),isBig: true,)),
+              Center(child: CustomButton(
+                text: 'Sign Up',
+                textColor: AppColors.onPrimary,
+                onPressed: ()=>context.go(RouteName.verificationScreen),
+                isBig: true,)),
               SizedBox(height: 20.h),
 
               Row(
@@ -270,12 +274,13 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     fontWeight: FontWeight.w500
                   ),),
                   SizedBox(width: 4.w),
-                  Text(
-                    'Log In',
-                    style: style.labelMedium?.copyWith(
-                      color: AppColors.bgColor6,
-                      fontWeight: FontWeight.w600
-                    ),
+                  TextButton(
+                    child: Text('Log In',
+                      style: style.labelMedium?.copyWith(
+                          color: AppColors.bgColor6,
+                          fontWeight: FontWeight.w600
+                      ),),
+                    onPressed: ()=>context.go(RouteName.loginScreen),
                   ),
 
                 ]

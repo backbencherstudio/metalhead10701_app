@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/routes/route_name.dart';
+import 'package:metal_head/features/screen/forgot_screen/presentation/forgot_screen.dart';
 import 'package:metal_head/features/screen/login_screen/presentation/login_screen.dart';
+import 'package:metal_head/features/screen/new_screen/presentation/new_screen.dart';
 import '../../features/screen/create_account_screen/presentation/create_account_screen.dart';
+import '../../features/screen/restore_screen/presentation/restore_screen.dart';
 import '../../features/screen/splash/presentation/splash_screen.dart';
 import '../../features/screen/splash/presentation/splash_screen_2.dart';
 import '../../features/screen/success_screen/presentation/success_screen.dart';

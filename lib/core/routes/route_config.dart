@@ -2,7 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.loginScreen,
+    initialLocation: RouteName.splashScreen,
 
     routes: [
       //Bottom NavBar
@@ -102,40 +102,47 @@ class RouteConfig {
           return const MaterialPage(child: LoginScreen());
         },
       ),
-//        GoRoute(
-//         name: RouteName.signupIntroScreen,
-//         path: RouteName.signupIntroScreen,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: SignupIntroScreen());
-//         },),
-//        GoRoute(
-//         name: RouteName.successScreen,
-//         path: RouteName.successScreen,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: SuccessScreen());
-//         },
-//       ),
-//        GoRoute(
-//         name: RouteName.forgetOtpScreen,
-//         path: RouteName.forgetOtpScreen,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: ForgetOtpScreen());
-//         },
-//       ),
-//        GoRoute(
-//         name: RouteName.resetPassScreen,
-//         path: RouteName.resetPassScreen,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: ResetPassScreen());
-//         },
-//       ),
-//        GoRoute(
-//         name: RouteName.signupScreen,
-//         path: RouteName.signupScreen,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: SignupScreen());
-//         },
-//       ),
+       GoRoute(
+        name: RouteName.forgotUserScreen,
+        path: RouteName.forgotUserScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ForgotScreen(isUser: true));
+        },),
+       GoRoute(
+        name: RouteName.forgotPassScreen,
+        path: RouteName.forgotPassScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ForgotScreen(isUser: false));
+        },
+      ),
+       GoRoute(
+        name: RouteName.newUserScreen,
+        path: RouteName.newUserScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: NewScreen(isUser: true));
+        },
+      ),
+       GoRoute(
+        name: RouteName.newPasswordScreen,
+        path: RouteName.newPasswordScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: NewScreen(isUser: false));
+        },
+      ),
+       GoRoute(
+        name: RouteName.restoreUserScreen,
+        path: RouteName.restoreUserScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: RestoreScreen(isUser: true));
+        },
+      ),
+      GoRoute(
+        name: RouteName.restorePasswordScreen,
+        path: RouteName.restorePasswordScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: RestoreScreen(isUser: false));
+        },
+      ),
 
       // GoRoute(
       //   name: RouteName.ebookPlay,
