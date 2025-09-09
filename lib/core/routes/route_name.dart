@@ -6,6 +6,6 @@ class RouteName {
   static const String successScreen = "/SuccessScreen";
   static const String helpScreen = "/HelpScreen";
   static const String moreScreen = "/MoreScreen";
-  // static const String importExportScreen = "/ImportExportScreen";
+  static const String loginScreen = "/LoginScreen";
   // static const String addPlayerScreen = "/AddPlayerScreen";
 }

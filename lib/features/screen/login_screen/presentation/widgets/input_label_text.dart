@@ -24,7 +24,7 @@ class InputLabel extends StatelessWidget {
         children: [
           TextSpan(text: labelText),
           TextSpan(
-            text: optional ?? "",
+            text: optional,
             style: style.labelLarge?.copyWith(
               color: color ?? AppColors.redTextColor2,
             ),
