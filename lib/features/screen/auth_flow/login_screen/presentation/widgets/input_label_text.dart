@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/theme/theme_extension/app_colors.dart';
+import '../../../../../../core/theme/theme_extension/app_colors.dart';
 
 class InputLabel extends StatelessWidget {
   const InputLabel({
