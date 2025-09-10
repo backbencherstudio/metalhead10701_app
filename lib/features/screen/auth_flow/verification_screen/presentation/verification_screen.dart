@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+
 import '../../../../../core/routes/route_name.dart';
 import '../../../../../core/theme/theme_extension/app_colors.dart';
 import '../../splash/presentation/widgets/custom_button.dart';
+
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
 
@@ -42,12 +44,14 @@ class _VerificationScreenState extends State<VerificationScreen> {
               SizedBox(height: 6.h),
               Text(
                 'A verification code has been sent to your phone number: Josephine_Towne@hotmail.com. This code will expire in 1 minutes.',
-                style: style.bodySmall?.copyWith(color: AppColors.greyTextColor),
+                style: style.bodySmall?.copyWith(
+                  color: AppColors.greyTextColor,
+                ),
               ),
               SizedBox(height: 24.h),
 
               Padding(
-                padding:  EdgeInsets.symmetric(vertical: 16.h),
+                padding: EdgeInsets.symmetric(vertical: 16.h),
                 child: PinCodeTextField(
                   textStyle: style.headlineSmall?.copyWith(
                     color: AppColors.headlineTextColor,
@@ -76,30 +80,43 @@ class _VerificationScreenState extends State<VerificationScreen> {
               ),
               SizedBox(height: 8.h),
               Center(
-                child: Text('This OTP will be available during 00:59sec',style: style.bodySmall?.copyWith(
-                  color: AppColors.greyTextColor,
-                  fontWeight: FontWeight.w400
-                ),),
-              ),
-              Center(child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 32.h,horizontal: 16.w),
-                child: Column(
-                  children: [
-                    CustomButton(
-                      text: 'Verify',
-                      textColor: AppColors.onPrimary,
-                      onPressed: ()=>context.go(RouteName.successScreen),
-                      isBig: true,
-                    ),
-                    SizedBox(height: 8.w,),
-                    TextButton(onPressed: (){}, child: Text('Resend code',style: style.bodySmall?.copyWith(
-                      color: AppColors.redTextColor,
-                      fontWeight: FontWeight.w500
-                    ),))
-                  ],
+                child: Text(
+                  'This OTP will be available during 00:59sec',
+                  style: style.bodySmall?.copyWith(
+                    color: AppColors.greyTextColor,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-              )),
-
+              ),
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 32.h,
+                    horizontal: 16.w,
+                  ),
+                  child: Column(
+                    children: [
+                      CustomButton(
+                        text: 'Verify',
+                        textColor: AppColors.onPrimary,
+                        onPressed: () => context.go(RouteName.successScreen),
+                        isBig: true,
+                      ),
+                      SizedBox(height: 8.w),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Resend code',
+                          style: style.bodySmall?.copyWith(
+                            color: AppColors.redTextColor,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

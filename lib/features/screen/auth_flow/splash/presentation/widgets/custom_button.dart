@@ -12,7 +12,8 @@ class CustomButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final bool? isBig;
 
-  const CustomButton({super.key,
+  const CustomButton({
+    super.key,
     required this.text,
     this.containerColor,
     this.borderColor,
@@ -45,7 +46,7 @@ class CustomButton extends StatelessWidget {
                   textStyle ??
                   Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.w500,
-                    color: textColor ?? Colors.transparent,
+                    color: textColor ?? AppColors.headlineTextColor,
                   ),
             ),
           ),
