@@ -32,7 +32,7 @@ class CustomJobCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(job.name,
-            style: style.bodyMedium,
+            style: style.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8.h,),
           //Text("\$${job.price} | ${job.type} | ${job.bargainStatus}"),

@@ -7,11 +7,13 @@ class SectionTitle extends StatelessWidget {
   const SectionTitle({
     super.key,
     required this.style,
-    this.showViewAll = true, // default true
+    this.showViewAll = true,
+    required this.title,
   });
 
   final TextTheme style;
   final bool showViewAll;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class SectionTitle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Job Categories',
+            title,
             style: style.bodyLarge?.copyWith(
               color: AppColors.headlineTextColor,
             ),
@@ -39,4 +41,3 @@ class SectionTitle extends StatelessWidget {
     );
   }
 }
-
