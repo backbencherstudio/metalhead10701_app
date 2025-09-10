@@ -13,4 +13,5 @@ class AppIcons {
   static const String flowerSvg = '$iconPath/flower.svg';
   static const String movingSvg = '$iconPath/package_moving.svg';
   static const String cleaningSvg = '$iconPath/cleaning_bucket.svg';
+  static const String notificationSvg = '$iconPath/notification.svg';
 }

@@ -29,7 +29,11 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
               SizedBox(height: 20.h),
               PostJobSection(style: style),
               SizedBox(height: 24.h),
-              SectionTitle(title: 'Job Categories',style: style, showViewAll: true),
+              SectionTitle(
+                title: 'Job Categories',
+                style: style,
+                showViewAll: true,
+              ),
               SizedBox(height: 12.h),
               ...List.generate(jobs.length, (index) {
                 return Column(
@@ -41,7 +45,11 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
               }),
 
               SizedBox(height: 24.h),
-              SectionTitle(title: 'Jobs Near By You',style: style, showViewAll: true),
+              SectionTitle(
+                title: 'Jobs Near By You',
+                style: style,
+                showViewAll: true,
+              ),
             ],
           ),
         ),
