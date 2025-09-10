@@ -5,10 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/constant/icons.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
-import 'package:metal_head/features/screen/splash/presentation/widgets/custom_button.dart';
-import 'package:metal_head/features/screen/splash/provider/toggleProvider.dart';
-
-import '../../../../core/routes/route_name.dart';
+import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
+import '../../../../../core/routes/route_name.dart';
+import '../provider/toggleProvider.dart';
 
 class SplashScreen2 extends ConsumerWidget {
   const SplashScreen2({super.key});
@@ -150,18 +149,17 @@ class SplashScreen2 extends ConsumerWidget {
                           textColor: AppColors.bgColor1,
                           isBig: true,
                           onPressed: () {
-                            debugPrint("Account Created!");
-                            context.push(RouteName.createAccountScreen);
+                            context.go(RouteName.createAccountScreen);
                           },
                         ),
                         SizedBox(height: 12.h),
                         CustomButton(
                           text: 'Log in',
                           containerColor: AppColors.bgColor1,
-                          textColor: Colors.white,
+                          textColor: AppColors.onPrimary,
                           isBig: true,
                           onPressed: () {
-                            debugPrint("Log in!");
+                            context.go(RouteName.loginScreen);
                           },
                         ),
                       ],

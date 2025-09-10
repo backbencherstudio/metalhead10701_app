@@ -4,10 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/constant/icons.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
-import 'package:metal_head/features/screen/create_account_screen/presentation/widgets/input_label_text.dart';
-import 'package:metal_head/features/screen/splash/presentation/widgets/custom_button.dart';
+import '../../../../../core/routes/route_name.dart';
+import '../../login_screen/presentation/widgets/input_label_text.dart';
+import '../../splash/presentation/widgets/custom_button.dart';
 
-import '../../../../core/routes/route_name.dart';
 
 enum SingingCharacter { lafayette, jefferson }
 
@@ -200,7 +200,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         ),
                         leading: Radio<SingingCharacter>(
                           value: SingingCharacter.lafayette,
-                          fillColor: WidgetStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+                          fillColor: WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
                             if (states.contains(WidgetState.selected)) {
                               return AppColors.bgColor6;
                             }
@@ -263,9 +263,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
               
               SizedBox(height: 20.h),
-              Center(child: CustomButton(text: 'Sign Up',onPressed: (){
-                context.push(RouteName.verificationScreen);
-              },isBig: true,)),
+
+              Center(child: CustomButton(
+                text: 'Sign Up',
+                textColor: AppColors.onPrimary,
+                onPressed: ()=>context.go(RouteName.verificationScreen),
+                isBig: true,)),
               SizedBox(height: 20.h),
 
               Row(
@@ -276,12 +279,13 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     fontWeight: FontWeight.w500
                   ),),
                   SizedBox(width: 4.w),
-                  Text(
-                    'Log In',
-                    style: style.labelMedium?.copyWith(
-                      color: AppColors.bgColor6,
-                      fontWeight: FontWeight.w600
-                    ),
+                  TextButton(
+                    child: Text('Log In',
+                      style: style.labelMedium?.copyWith(
+                          color: AppColors.bgColor6,
+                          fontWeight: FontWeight.w600
+                      ),),
+                    onPressed: ()=>context.go(RouteName.loginScreen),
                   ),
 
                 ]

@@ -2,7 +2,9 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
+
     initialLocation: RouteName.splashScreen,
+
 
     routes: [
       //Bottom NavBar
@@ -129,6 +131,70 @@ class RouteConfig {
 //           return const MaterialPage(child: SignupScreen());
 //         },
 //       ),
+      GoRoute(
+        name: RouteName.loginScreen,
+        path: RouteName.loginScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: LoginScreen());
+        },
+      ),
+       GoRoute(
+        name: RouteName.forgotUserScreen,
+        path: RouteName.forgotUserScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ForgotScreen(isUser: true));
+        },),
+       GoRoute(
+        name: RouteName.forgotPassScreen,
+        path: RouteName.forgotPassScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ForgotScreen(isUser: false));
+        },
+      ),
+       GoRoute(
+        name: RouteName.newUserScreen,
+        path: RouteName.newUserScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: NewScreen(isUser: true));
+        },
+      ),
+       GoRoute(
+        name: RouteName.newPasswordScreen,
+        path: RouteName.newPasswordScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: NewScreen(isUser: false));
+        },
+      ),
+       GoRoute(
+        name: RouteName.restoreUserScreen,
+        path: RouteName.restoreUserScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: RestoreScreen(isUser: true));
+        },
+      ),
+      GoRoute(
+        name: RouteName.restorePasswordScreen,
+        path: RouteName.restorePasswordScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: RestoreScreen(isUser: false));
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.userHomeScreen,
+        path: RouteName.userHomeScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: UserHomeScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.helperHomeScreen,
+        path: RouteName.helperHomeScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: HelperHomeScreen());
+        },
+      ),
 
       // GoRoute(
       //   name: RouteName.ebookPlay,
