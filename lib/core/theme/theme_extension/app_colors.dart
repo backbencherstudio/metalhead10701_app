@@ -46,6 +46,8 @@ class AppColors {
 //Border colors
 
 static const Color borderColor = Color(0xffE1E1E1);
+static const Color jobCardBorderColor = Color.fromRGBO(255, 107, 107, 0.13);
+static const Color jobCardColor = Color(0xFFFFF8F8);
 
 
 
