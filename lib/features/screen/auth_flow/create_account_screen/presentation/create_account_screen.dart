@@ -8,6 +8,7 @@ import '../../../../../core/routes/route_name.dart';
 import '../../login_screen/presentation/widgets/input_label_text.dart';
 import '../../splash/presentation/widgets/custom_button.dart';
 
+
 enum SingingCharacter { lafayette, jefferson }
 
 class CreateAccountScreen extends StatefulWidget {
@@ -34,7 +35,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               SizedBox(height: 50.h),
               Padding(
                 padding: EdgeInsets.all(8.r),
-                child: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.headlineTextColor,),
+                child: GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.headlineTextColor,)),
               ),
               SizedBox(height: 8.h),
               Text(
@@ -195,7 +200,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         ),
                         leading: Radio<SingingCharacter>(
                           value: SingingCharacter.lafayette,
-                          fillColor: WidgetStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+                          fillColor: WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
                             if (states.contains(WidgetState.selected)) {
                               return AppColors.bgColor6;
                             }
@@ -258,6 +263,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
               
               SizedBox(height: 20.h),
+
               Center(child: CustomButton(
                 text: 'Sign Up',
                 textColor: AppColors.onPrimary,

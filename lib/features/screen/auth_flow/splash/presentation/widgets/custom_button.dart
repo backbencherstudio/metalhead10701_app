@@ -11,8 +11,11 @@ class CustomButton extends StatelessWidget {
   final TextStyle? textStyle;
   final VoidCallback? onPressed;
   final bool? isBig;
+  final double? width;
+  final BorderRadius? radius;
 
-  const CustomButton({super.key,
+  const CustomButton({
+    super.key,
     required this.text,
     this.containerColor,
     this.borderColor,
@@ -21,6 +24,8 @@ class CustomButton extends StatelessWidget {
     this.textStyle,
     this.onPressed,
     this.isBig,
+    this.width,
+    this.radius,
   });
 
   @override
@@ -28,11 +33,11 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        width: (isBig ?? false) ? 327.w : 160.w,
+        width: (isBig ?? false) ? 327.w : width,
         decoration: BoxDecoration(
           color: containerColor ?? AppColors.bgColor1,
           border: Border.all(color: borderColor ?? Colors.transparent),
-          borderRadius: BorderRadius.circular(100.r),
+          borderRadius: radius ?? BorderRadius.circular(100.r),
         ),
         child: Center(
           child: Padding(
@@ -45,7 +50,7 @@ class CustomButton extends StatelessWidget {
                   textStyle ??
                   Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.w500,
-                    color: textColor ?? Colors.transparent,
+                    color: textColor ?? AppColors.headlineTextColor,
                   ),
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
+import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 import 'package:metal_head/features/screen/dashboard_flow/data/model/job_model.dart';
 
 import '../../core/theme/theme_extension/app_colors.dart';
@@ -49,7 +50,10 @@ class CustomJobCard extends StatelessWidget {
             ],
           ),
 
-          Custombutton()
+          CustomButton(
+            text: "Counter Offer",
+
+          )
         ],
       ),
     );

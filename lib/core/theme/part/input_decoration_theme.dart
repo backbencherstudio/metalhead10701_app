@@ -13,7 +13,7 @@ class AppInputDecorationTheme {
 
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(100.r),
-        borderSide: BorderSide(color: AppColors.borderColor,),
+        // borderSide: BorderSide(color: AppColors.borderColor,),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(100.r),
@@ -21,16 +21,16 @@ class AppInputDecorationTheme {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(100.r),
-        borderSide: BorderSide(color: AppColors.borderColor),
+        // borderSide: BorderSide(color: AppColors.borderColor),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(100.r),
-        borderSide: BorderSide(color: AppColors.borderColor),
+        // borderSide: BorderSide(color: AppColors.borderColor),
       ),
 
       disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(100.r),
-        borderSide: BorderSide(color: AppColors.borderColor,),
+        // borderSide: BorderSide(color: AppColors.borderColor,),
       ),
 
       contentPadding: EdgeInsets.symmetric(

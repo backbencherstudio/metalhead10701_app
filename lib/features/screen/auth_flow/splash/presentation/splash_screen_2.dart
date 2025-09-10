@@ -151,6 +151,7 @@ class SplashScreen2 extends ConsumerWidget {
                           onPressed: () {
                             context.go(RouteName.createAccountScreen);
                           },
+                          width: 160.w,
                         ),
                         SizedBox(height: 12.h),
                         CustomButton(
@@ -161,6 +162,7 @@ class SplashScreen2 extends ConsumerWidget {
                           onPressed: () {
                             context.go(RouteName.loginScreen);
                           },
+                          width: 160.w,
                         ),
                       ],
                     ),

@@ -10,7 +10,7 @@ class AppColors {
     error: Color.fromRGBO(235, 61, 77, 0.09),
     onError: Color(0xffEB3D4D),
     surface: Color(0xff161721),
-    onSurface: Color(0xffF9FAFB),
+    onSurface: Color(0xff2F2A29),
   );
   static const Color primary = Color(0xff031445);
   static const Color onPrimary = Color(0xffE9E9EA);
@@ -27,6 +27,7 @@ class AppColors {
   static const Color headlineTextColor = Color(0xff2F2A29);
   static const Color headlineTextColor2 = Color(0xff071731);
   static const Color headlineTextColor3 = Color(0xff000000);
+  static const Color blackHeadline = Color(0xff2F3131);
   static const Color greyTextColor = Color(0xff6B7280);
   static const Color lightGreyTextColor = Color(0xff6B7280);
   static const Color greyTextColor2 = Color(0xff5B5F5F);
@@ -48,6 +49,7 @@ class AppColors {
 static const Color borderColor = Color(0xffE1E1E1);
 static const Color jobCardBorderColor = Color.fromRGBO(255, 107, 107, 0.13);
 static const Color jobCardColor = Color(0xFFFFF8F8);
+static const Color iconBorderColor = Color(0xff28303F);
 
 
 
