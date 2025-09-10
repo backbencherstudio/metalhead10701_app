@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/constant/icons.dart';
+import '../../../../../core/routes/route_name.dart';
 import '../../../../../core/theme/theme_extension/app_colors.dart';
 import '../../splash/presentation/widgets/custom_button.dart';
 
@@ -45,7 +47,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
             text: 'Complete Profile Setup',
             textColor: AppColors.onPrimary,
             onPressed: () {
-              // Profile Setup Section
+             context.go(RouteName.completeProfileSetupScreen);
             },
             isBig: true,
           ),

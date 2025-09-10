@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/theme/theme_extension/app_colors.dart';
-import '../../auth_flow/create_account_screen/presentation/widgets/input_label_text.dart';
-import '../../auth_flow/splash/presentation/widgets/custom_button.dart';
+
+import '../../../../../core/theme/theme_extension/app_colors.dart';
+import '../../create_account_screen/presentation/widgets/input_label_text.dart';
+import '../../splash/presentation/widgets/custom_button.dart';
+
 
 
 class CompleteProfileSetupScreen extends StatefulWidget {
