@@ -5,8 +5,6 @@ class RouteName {
   static const String createAccountScreen = '/CreateAccountScreen';
   static const String verificationScreen  = "/VerificationScreen";
   static const String successScreen = "/SuccessScreen";
-  static const String helpScreen = "/HelpScreen";
-  static const String moreScreen = "/MoreScreen";
   static const String loginScreen = "/LoginScreen";
   static const String forgotUserScreen = "/ForgotUserScreen";
   static const String forgotPassScreen = "/ForgotPassScreen";
@@ -16,5 +14,7 @@ class RouteName {
   static const String restoreUserScreen = "/RestoreUserScreen";
   static const String restorePassScreen = "/RestorePassScreen";
 
-  // HOME FLOW
+  // DASHBOARD FLOW
+  static const String userHomeScreen = "/UserHomeScreen";
+  static const String helperHomeScreen = "/HelperHomeScreen";
 }

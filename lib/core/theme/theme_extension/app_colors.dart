@@ -36,6 +36,12 @@ class AppColors {
   static const Color inputTextColor = Color(0xffAEB2B2);
 
 
+  //Graph Colors
+  static const Color graphTextColor = Color(0xff848A9C);
+  static const Color curve1Color = Color(0xff04BFDA);
+  static const Color pointerColor = Color(0xffFFA84A);
+
+
 
 //Border colors
 
