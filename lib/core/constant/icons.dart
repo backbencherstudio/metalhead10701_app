@@ -9,6 +9,8 @@ class AppIcons {
   static const String useSvg = '$iconPath/usa.svg';
   static const String searchSvg = '$iconPath/search.svg';
   static const String resumeSvg = '$iconPath/undraw_resume.svg';
-
-
+  static const String vanSvg = '$iconPath/van.svg';
+  static const String flowerSvg = '$iconPath/flower.svg';
+  static const String movingSvg = '$iconPath/package_moving.svg';
+  static const String cleaningSvg = '$iconPath/cleaning_bucket.svg';
 }
