@@ -9,11 +9,13 @@ class SectionTitle extends StatelessWidget {
     required this.style,
     this.showViewAll = true,
     required this.title,
+    this.onTap,
   });
 
   final TextTheme style;
   final bool showViewAll;
   final String title;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class SectionTitle extends StatelessWidget {
           ),
           if (showViewAll)
             TextButton(
-              onPressed: () {},
+              onPressed: onTap,
               child: Text(
                 'View All',
                 style: style.bodySmall?.copyWith(color: AppColors.bgColor1),

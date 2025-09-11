@@ -3,64 +3,56 @@ part of 'part_of_import.dart';
 class RouteConfig {
   GoRouter goRouter = GoRouter(
 
-    initialLocation: RouteName.helperHomeScreen,
+    initialLocation: RouteName.splashScreen,
 
 
     routes: [
       //Bottom NavBar
-      // StatefulShellRoute.indexedStack(
-      //   builder: (context, state, navigationShell) =>
-      //       BottomBarWidget(navigationShell: navigationShell),
-      //   branches: [
-      //     StatefulShellBranch(
-      //       routes: [
-      //         GoRoute(
-      //           path: RouteName.homeScreen,
-      //           pageBuilder: (context, state) {
-      //             return buildPageWithTransition(
-      //               context: context,
-      //               state: state,
-      //               transitionType: PageTransitionType.slideRightToLeft,
-      //               child: HomeScreen(),
-      //             );
-      //           },
-      //         ),
-      //       ],
-      //     ),
-      //     StatefulShellBranch(
-      //       routes: [
-      //         GoRoute(
-      //           path: RouteName.paymentsScreen,
-      //           builder: (context, state) => const HomeScreen(),
-      //         ),
-      //       ],
-      //     ),
-      //     StatefulShellBranch(
-      //       routes: [
-      //         GoRoute(
-      //           path: RouteName.productsScreen,
-      //           builder: (context, state) => const HomeScreen(),
-      //         ),
-      //       ],
-      //     ),
-      //     StatefulShellBranch(
-      //       routes: [
-      //         GoRoute(
-      //           path: RouteName.helpScreen,
-      //           builder: (context, state) => const HomeScreen(),
-      //         ),
-      //       ],
-      //     ),
-      //     StatefulShellBranch(
-      //       routes: [
-      //         GoRoute(
-      //           path: RouteName.moreScreen,
-      //           builder: (context, state) => const HomeScreen(),
-      //         ),
-      //       ],
-      //     ),
-      //   ],
-      // ),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) =>
+            BottomBarWidget(navigationShell: navigationShell),
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteName.userHomeScreen,
+                pageBuilder: (context, state) {
+                  return buildPageWithTransition(
+                    context: context,
+                    state: state,
+                    transitionType: PageTransitionType.slideRightToLeft,
+                    child: UserHomeScreen(),
+                  );
+                },
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteName.helperJobScreen,
+                builder: (context, state) => const UserHomeScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteName.helperMsgScreen,
+                builder: (context, state) => const UserHomeScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteName.helperProfileScreen,
+                builder: (context, state) => const UserHomeScreen(),
+              ),
+            ],
+          ),
+        ],
+      ),
 
     GoRoute(
       name: RouteName.splashScreen,

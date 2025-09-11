@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Center(child: CustomButton(text: 'Log In',
               textColor: AppColors.onPrimary,
               onPressed: () {
-                // HOME
+                context.go(RouteName.userHomeScreen);
               },
               isBig: true,)),
             SizedBox(height: 24.h),

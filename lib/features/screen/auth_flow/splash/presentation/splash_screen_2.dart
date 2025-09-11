@@ -121,6 +121,7 @@ class SplashScreen2 extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         CustomButton(
+                          width: 160.w,
                           text: 'Skip',
                           containerColor: AppColors.onPrimary,
                           borderColor: AppColors.bgColor1,
@@ -131,6 +132,7 @@ class SplashScreen2 extends ConsumerWidget {
                         ),
                         SizedBox(width: 8.w),
                         CustomButton(
+                          width: 160.w,
                           text: 'Next',
                           containerColor: AppColors.bgColor1,
                           textColor: Colors.white,
