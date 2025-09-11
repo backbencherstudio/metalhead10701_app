@@ -32,7 +32,7 @@ class CustomJobCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(job.name,
-            style: style.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+            style: style.bodySmall?.copyWith(fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8.h,),
           //Text("\$${job.price} | ${job.type} | ${job.bargainStatus}"),
@@ -41,13 +41,13 @@ class CustomJobCard extends StatelessWidget {
               children: [
                 TextSpan(
                   text: "\$${job.price} ",
-                  style: style.bodyMedium?.copyWith(
+                  style: style.bodySmall?.copyWith(
                     fontWeight: FontWeight.bold
                   ),
                 ),
                 TextSpan(
                   text: "| ${job.type} | ${job.bargainStatus}",
-                  style: style.bodyMedium?.copyWith(
+                  style: style.bodySmall?.copyWith(
                       color: AppColors.greyTextColor
                   ),
                 )
@@ -55,12 +55,14 @@ class CustomJobCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: 12.h,),
-          (job.urgency != null) ? Text("Urgency: ${job.urgency}") : const SizedBox(),
+          (job.urgency != null) ? Text("Urgency: ${job.urgency}",
+            style: style.bodySmall,
+          ) : const SizedBox(),
           SizedBox(height: 10.h,),
           Row(
             children: [
               Icon(Icons.watch_later_outlined, color: AppColors.greyTextColor),
-              Text("$startTime - $endTime", style: style.bodyMedium?.copyWith(
+              Text("$startTime - $endTime", style: style.bodySmall?.copyWith(
                 color: AppColors.greyTextColor
               ),),
             ],
@@ -69,7 +71,7 @@ class CustomJobCard extends StatelessWidget {
           Row(
             children: [
               Icon(Icons.location_on_outlined, color: AppColors.greyTextColor,),
-              Text(job.location, style: style.bodyMedium?.copyWith(
+              Text(job.location, style: style.bodySmall?.copyWith(
                   color: AppColors.greyTextColor
               ),),
             ],
@@ -80,20 +82,20 @@ class CustomJobCard extends StatelessWidget {
             children: [
               CustomButton(
                 text: "Counter Offer",
+                textStyle: style.bodySmall?.copyWith(color: AppColors.bgColor1, fontWeight: FontWeight.bold),
                 containerColor: AppColors.bgColor4,
                 borderColor: AppColors.bgColor1,
                 textColor: AppColors.bgColor1,
-                width: 160.w,
                 onPressed: (){
 
                 },
               ),
               CustomButton(
                 text: 'Accept',
+                textStyle: style.bodySmall?.copyWith(color: AppColors.bgColor4, fontWeight: FontWeight.bold),
                 containerColor: AppColors.bgColor1,
                 textColor: AppColors.onPrimary,
                 isBig: false,
-                width: 110.w,
                 onPressed: () {
                   // LOGIC
                 },

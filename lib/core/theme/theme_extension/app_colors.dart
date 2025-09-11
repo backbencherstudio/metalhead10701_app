@@ -51,6 +51,9 @@ static const Color jobCardBorderColor = Color.fromRGBO(255, 107, 107, 0.13);
 static const Color jobCardColor = Color(0xFFFFF8F8);
 static const Color iconBorderColor = Color(0xff28303F);
 
+// bottom navbar color
+static const Color bottomNavBarBackground = Color(0xFF011547);
+
 
 
 
@@ -60,7 +63,7 @@ static const Color iconBorderColor = Color(0xff28303F);
   // static const Color onError = Color(0xffEB3D4D);
   // static const Color surface = Color(0xff161721);
   // static const Color onSurface = Color(0xffFFF6E4);
-  // static const Color bottomNavBarBackground = Color(0xFF011547);
+
   // static const Color secondaryTextColor = Color(0xff777980);
   // static const Color deActiveTextColor = Color(0xff777980);
   // static const Color primaryContainer = Color(0xff191C31);

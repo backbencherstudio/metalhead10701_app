@@ -13,4 +13,6 @@ import '../../features/screen/auth_flow/splash/presentation/splash_screen.dart';
 import '../../features/screen/auth_flow/splash/presentation/splash_screen_2.dart';
 import '../../features/screen/auth_flow/success_screen/presentation/success_screen.dart';
 import '../../features/screen/auth_flow/verification_screen/presentation/verification_screen.dart';
+import '../utils/common_widget/nav_bar/bottom_navbar.dart';
+import 'build_page_with_transition.dart';
 part 'route_config.dart';

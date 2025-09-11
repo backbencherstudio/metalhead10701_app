@@ -49,7 +49,15 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                   padding: EdgeInsets.all(12.r),
                   child: CustomJobCard(job: dummyJobs[jobIndex]),
                 )),
-              )
+              ),
+              SizedBox(height: 24.h),
+              SectionTitle(title: 'Urgent and High-priority',style: style, showViewAll: true),
+              Column(
+                children: List.generate(dummyUrgentJobs.length, (jobIndex)=>Padding(
+                  padding: EdgeInsets.all(12.r),
+                  child: CustomJobCard(job: dummyUrgentJobs[jobIndex]),
+                )),
+              ),
             ],
           ),
         ),
