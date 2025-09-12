@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 import 'package:metal_head/features/screen/dashboard_flow/data/model/job_model.dart';
-
 import '../../core/theme/theme_extension/app_colors.dart';
 
 class CustomJobCard extends StatelessWidget {
@@ -16,10 +15,9 @@ class CustomJobCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
-    final timeFormat1 = DateFormat('dd MMM, hh:mm');
-    final timeFormat2 = DateFormat('hh:mm a');
-    final startTime = timeFormat1.format(job.startTime);
-    final endTime = timeFormat2.format(job.endTime);
+    final timeFormat = DateFormat('dd MMM, hh:mm a');
+    final startTime = timeFormat.format(job.startTime);
+    final endTime = timeFormat.format(job.endTime);
     return Container(
       padding: EdgeInsets.all(16.r),
       width: 350.w,
@@ -32,10 +30,9 @@ class CustomJobCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(job.name,
-            style: style.bodySmall?.copyWith(fontWeight: FontWeight.bold),
+            style: style.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8.h,),
-          //Text("\$${job.price} | ${job.type} | ${job.bargainStatus}"),
           RichText(
             text: TextSpan(
               children: [
@@ -60,11 +57,26 @@ class CustomJobCard extends StatelessWidget {
           ) : const SizedBox(),
           SizedBox(height: 10.h,),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(Icons.watch_later_outlined, color: AppColors.greyTextColor),
-              Text("$startTime - $endTime", style: style.bodySmall?.copyWith(
-                color: AppColors.greyTextColor
-              ),),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Start Time", style: style.bodySmall?.copyWith(fontWeight: FontWeight.bold),),
+                  Text(startTime, style: style.bodySmall?.copyWith(
+                    color: AppColors.greyTextColor
+                  ),),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("End Time", style: style.bodySmall?.copyWith(fontWeight: FontWeight.bold),),
+                  Text(endTime, style: style.bodySmall?.copyWith(
+                      color: AppColors.greyTextColor
+                  ),),
+                ],
+              ),
             ],
           ),
           SizedBox(height: 10.h,),
@@ -78,9 +90,12 @@ class CustomJobCard extends StatelessWidget {
           ),
           SizedBox(height: 16.h,),
           Row(
+            //mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomButton(
+                padding: EdgeInsets.all(12.r),
+                width: 135.w,
                 text: "Counter Offer",
                 textStyle: style.bodySmall?.copyWith(color: AppColors.bgColor1, fontWeight: FontWeight.bold),
                 containerColor: AppColors.bgColor4,
@@ -91,6 +106,8 @@ class CustomJobCard extends StatelessWidget {
                 },
               ),
               CustomButton(
+                padding: EdgeInsets.all(12.r),
+                width: 135.w,
                 text: 'Accept',
                 textStyle: style.bodySmall?.copyWith(color: AppColors.bgColor4, fontWeight: FontWeight.bold),
                 containerColor: AppColors.bgColor1,

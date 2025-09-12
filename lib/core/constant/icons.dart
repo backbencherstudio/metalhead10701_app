@@ -18,4 +18,12 @@ class AppIcons {
   static const String jobIcon = '$iconPath/doc.svg';
   static const String msgIcon = '$iconPath/gmail.svg';
   static const String profileIcon = '$iconPath/user.svg';
+
+  //job details
+  static const String summeryIcon = '$iconPath/checkMark.svg';
+  static const String descriptionIcon = '$iconPath/description.svg';
+  static const String contactIcon = '$iconPath/contact.svg';
+  static const String requirementIcon = '$iconPath/checkList.svg';
+  static const String noteIcon = '$iconPath/note.svg';
+  static const String photoIcon = '$iconPath/album.svg';
 }

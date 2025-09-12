@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../../../core/theme/theme_extension/app_colors.dart';
-import '../../models/job_model.dart';
+import '../../models/job_type_model.dart';
 
 class JobItems extends StatelessWidget {
   const JobItems({super.key, required this.style, required this.job});
 
   final TextTheme style;
-  final JobModel job;
+  final JobTypeModel job;
 
   @override
   Widget build(BuildContext context) {

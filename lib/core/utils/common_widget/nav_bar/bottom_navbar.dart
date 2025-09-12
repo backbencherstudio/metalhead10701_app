@@ -22,12 +22,7 @@ class BottomBarWidget extends ConsumerWidget {
         currentIndex: navigationShell.currentIndex,
         onTap: (index) => navigationShell.goBranch(index),
         type: BottomNavigationBarType.fixed,
-        backgroundColor: AppColors.bgColor4,
         elevation: 0,
-        showUnselectedLabels: true,
-        showSelectedLabels: true,
-        selectedLabelStyle: style.bodySmall?.copyWith(color: AppColors.bgColor1),
-        unselectedLabelStyle: style.bodySmall?.copyWith(color: AppColors.greyTextColor),
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
@@ -52,6 +47,7 @@ class BottomBarWidget extends ConsumerWidget {
               ),
             ),
             label: "Job",
+            //backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(

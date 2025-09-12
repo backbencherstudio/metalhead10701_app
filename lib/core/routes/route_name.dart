@@ -19,6 +19,8 @@ class RouteName {
   // DASHBOARD FLOW
   static const String userHomeScreen = "/UserHomeScreen";
   static const String helperHomeScreen = "/HelperHomeScreen";
+  static const String jobDetailsScreen = "/JobDetailsScreen";
+
 
   static const String helperJobScreen = "/HelperHomeScreen";
   static const String helperMsgScreen = "/HelperMsgScreen";

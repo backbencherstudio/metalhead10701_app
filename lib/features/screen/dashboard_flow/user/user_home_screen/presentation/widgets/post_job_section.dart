@@ -54,7 +54,7 @@ class PostJobSection extends StatelessWidget {
                 ),
               ],
             ),
-            SvgPicture.asset(AppIcons.resumeSvg, width: 98.w, height: 93.h),
+            SvgPicture.asset(AppIcons.resumeSvg, width: 97.w, height: 93.h),
           ],
         ),
       ),

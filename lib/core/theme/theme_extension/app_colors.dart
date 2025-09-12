@@ -35,6 +35,8 @@ class AppColors {
   static const Color redTextColor2 = Color(0xffE3342F);
   static const Color whiteTextColor = Color(0xffFFFFFF);
   static const Color inputTextColor = Color(0xffAEB2B2);
+  static const Color greenTextColor = Color(0xFF38C172);
+  static const Color yellowTextColor = Color(0xFFFFCC00);
 
 
   //Graph Colors
@@ -53,6 +55,10 @@ static const Color iconBorderColor = Color(0xff28303F);
 
 // bottom navbar color
 static const Color bottomNavBarBackground = Color(0xFF011547);
+
+
+// container colors
+  static const Color statusContainerColor = Color(0xFF3182CE);
 
 
 
