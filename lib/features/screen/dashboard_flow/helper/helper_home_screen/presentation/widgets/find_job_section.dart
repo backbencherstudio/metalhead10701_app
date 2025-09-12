@@ -50,7 +50,7 @@ class FindJobSection extends StatelessWidget {
                   text: 'Find a job',
                   width: 204.w,
                   onPressed: () {
-                    onConfirmationTap(context);
+                    onMarkJobCompletedTap(context);
                   },
                   padding: EdgeInsets.symmetric(
                     vertical: 10.h,
