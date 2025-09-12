@@ -28,5 +28,13 @@ class AppTheme {
     colorScheme: AppColors.darkColorScheme,
     timePickerTheme: CustomTimePickerTheme.timePickerTheme,
     datePickerTheme: CustomDatePickerTheme.datePickerTheme,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: AppColors.bgColor4,
+      selectedItemColor: AppColors.bgColor1,
+      unselectedItemColor: AppColors.greyTextColor,
+      selectedIconTheme: IconThemeData(size: 28),
+      unselectedIconTheme: IconThemeData(size: 24),
+      showUnselectedLabels: true,
+    ),
   );
 }

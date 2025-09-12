@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/routes/route_name.dart';
-import 'package:metal_head/features/screen/dashboard_flow/helper/home_screen/presentation/helper_home_screen.dart';
+import 'package:metal_head/features/screen/dashboard_flow/helper/job_details_screen/presentation/job_details_screen.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/user_home_screen.dart';
 import '../../features/screen/auth_flow/complete_profile_setup_screen/presentation/complete_profile_setup_screen.dart';
 import '../../features/screen/auth_flow/create_account_screen/presentation/create_account_screen.dart';
@@ -13,8 +13,7 @@ import '../../features/screen/auth_flow/splash/presentation/splash_screen.dart';
 import '../../features/screen/auth_flow/splash/presentation/splash_screen_2.dart';
 import '../../features/screen/auth_flow/success_screen/presentation/success_screen.dart';
 import '../../features/screen/auth_flow/verification_screen/presentation/verification_screen.dart';
-import '../../features/screen/user/presentation/client.dart';
-import '../../features/screen/user/presentation/user_screen.dart';
+import '../../features/screen/dashboard_flow/helper/helper_home_screen/presentation/helper_home_screen.dart';
 import '../utils/common_widget/nav_bar/bottom_navbar.dart';
 import 'build_page_with_transition.dart';
 part 'route_config.dart';

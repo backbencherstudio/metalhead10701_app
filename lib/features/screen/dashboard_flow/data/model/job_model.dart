@@ -1,142 +1,55 @@
 class JobModel{
   final String id;
+  final String clientId;
   final String name;
   final String type;
-  final String? urgency;
   final String bargainStatus;
   final DateTime startTime;
   final DateTime endTime;
   final double price;
   final String location;
+  final String? urgency;
+  final String status;
+  final String? description;
+  final String? experience;
+  final String? tools;
+  final String? instruction;
+  final List<String>? imgUrl;
+  final String? note;
 
   const JobModel({
     required this.id,
+    required this.clientId,
     required this.name,
     required this.type,
-    this.urgency,
     required this.bargainStatus,
     required this.startTime,
     required this.endTime,
     required this.price,
     required this.location,
+    this.urgency,
+    this.status = "Running",
+    this.description,
+    this.experience,
+    this.tools,
+    this.instruction,
+    this.imgUrl,
+    this.note
 });
 }
 
-
-
 // Dummies
-final List<JobModel> dummyJobs = [
-  JobModel(
-    id: 'job001',
-    name: 'Plumbing Fix',
-    type: 'Home Repair',
-    //urgency: 'High',
-    bargainStatus: 'Negotiable',
-    startTime: DateTime(2025, 9, 10, 9, 0),
-    endTime: DateTime(2025, 9, 10, 12, 0),
-    price: 150.0,
-    location: 'New York, NY',
-  ),
-  JobModel(
-    id: 'job002',
-    name: 'Graphic Design',
-    type: 'Creative',
-    //urgency: 'Medium',
-    bargainStatus: 'Fixed',
-    startTime: DateTime(2025, 9, 12, 10, 0),
-    endTime: DateTime(2025, 9, 12, 18, 0),
-    price: 300.0,
-    location: 'San Francisco, CA',
-  ),
-  JobModel(
-    id: 'job003',
-    name: 'Mobile App Development',
-    type: 'IT & Software',
-    //urgency: 'Low',
-    bargainStatus: 'Negotiable',
-    startTime: DateTime(2025, 9, 15, 8, 0),
-    endTime: DateTime(2025, 9, 20, 17, 0),
-    price: 1200.0,
-    location: 'Remote',
-  ),
-  JobModel(
-    id: 'job004',
-    name: 'Event Planning',
-    type: 'Management',
-    //urgency: 'High',
-    bargainStatus: 'Fixed',
-    startTime: DateTime(2025, 9, 25, 14, 0),
-    endTime: DateTime(2025, 9, 25, 22, 0),
-    price: 500.0,
-    location: 'Chicago, IL',
-  ),
-  JobModel(
-    id: 'job005',
-    name: 'House Cleaning',
-    type: 'Maintenance',
-    //urgency: 'Medium',
-    bargainStatus: 'Negotiable',
-    startTime: DateTime(2025, 9, 18, 9, 0),
-    endTime: DateTime(2025, 9, 18, 13, 0),
-    price: 100.0,
-    location: 'Austin, TX',
-  ),
+final jobs = <JobModel>[
+  JobModel(id: 'job1', clientId: 'client1', name: 'Plumbing', type: 'Repair', bargainStatus: 'Fixed', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 3)), price: 100.0, location: 'LA'),
+  JobModel(id: 'job2', clientId: 'client1', name: 'Painting', type: 'Service', bargainStatus: 'Hourly', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 2)), price: 200.0, location: 'NY'),
+  JobModel(id: 'job3', clientId: 'client2', name: 'Cleaning', type: 'Routine', bargainStatus: 'Hourly', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 1)), price: 80.0, location: 'TX'),
+  JobModel(id: 'job6', clientId: 'client4', name: 'Gardening', type: 'Outdoor', bargainStatus: 'Fixed', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 4)), price: 110.0, location: 'NV', urgency: "high"),
+  JobModel(id: 'job7', clientId: 'client5', name: 'Cooking', type: 'Catering', bargainStatus: 'Hourly', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 1)), price: 120.0, location: 'MS', urgency: "Very High"),
+  JobModel(id: 'job8', clientId: 'client6', name: 'Dog Walking', type: 'Pet', bargainStatus: 'Fixed', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 1)), price: 50.0, location: 'IL', urgency: "Very High"),
+  JobModel(id: 'job9', clientId: 'client7', name: 'Babysitting', type: 'Childcare', bargainStatus: 'Hourly', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 6)), price: 180.0, location: 'NJ', urgency: "Very High"),
+  JobModel(id: 'job4', clientId: 'client3', name: 'Moving', type: 'Transport', bargainStatus: 'Fixed', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 5)), price: 300.0, location: 'FL'),
+  JobModel(id: 'job5', clientId: 'client3', name: 'Tutoring', type: 'Lesson', bargainStatus: 'Hourly', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 2)), price: 150.0, location: 'WA'),
+  JobModel(id: 'job10', clientId: 'client8', name: 'IT Support', type: 'Tech', bargainStatus: 'Fixed', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 5)), price: 250.0, location: 'CA', urgency: "Very High"),
 ];
 
-final List<JobModel> dummyUrgentJobs = [
-  JobModel(
-    id: 'job001',
-    name: 'Plumbing Fix',
-    type: 'Home Repair',
-    urgency: 'High',
-    bargainStatus: 'Negotiable',
-    startTime: DateTime(2025, 9, 10, 9, 0),
-    endTime: DateTime(2025, 9, 10, 12, 0),
-    price: 150.0,
-    location: 'New York, NY',
-  ),
-  JobModel(
-    id: 'job002',
-    name: 'Graphic Design',
-    type: 'Creative',
-    urgency: 'Medium',
-    bargainStatus: 'Fixed',
-    startTime: DateTime(2025, 9, 12, 10, 0),
-    endTime: DateTime(2025, 9, 12, 18, 0),
-    price: 300.0,
-    location: 'San Francisco, CA',
-  ),
-  JobModel(
-    id: 'job003',
-    name: 'Mobile App Development',
-    type: 'IT & Software',
-    urgency: 'Low',
-    bargainStatus: 'Negotiable',
-    startTime: DateTime(2025, 9, 15, 8, 0),
-    endTime: DateTime(2025, 9, 20, 17, 0),
-    price: 1200.0,
-    location: 'Remote',
-  ),
-  JobModel(
-    id: 'job004',
-    name: 'Event Planning',
-    type: 'Management',
-    urgency: 'High',
-    bargainStatus: 'Fixed',
-    startTime: DateTime(2025, 9, 25, 14, 0),
-    endTime: DateTime(2025, 9, 25, 22, 0),
-    price: 500.0,
-    location: 'Chicago, IL',
-  ),
-  JobModel(
-    id: 'job005',
-    name: 'House Cleaning',
-    type: 'Maintenance',
-    urgency: 'Medium',
-    bargainStatus: 'Negotiable',
-    startTime: DateTime(2025, 9, 18, 9, 0),
-    endTime: DateTime(2025, 9, 18, 13, 0),
-    price: 100.0,
-    location: 'Austin, TX',
-  ),
-];
+final urgentJobs = jobs.where((job) => job.urgency != null).toList();
