@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:metal_head/core/constant/icons.dart';
 import '../../../../../../../core/theme/theme_extension/app_colors.dart';
 import '../../../../../../common_widgets/common_search_bar.dart';
 import '../../../../../auth_flow/splash/presentation/widgets/custom_button.dart';
@@ -51,10 +53,7 @@ class HeaderSection extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 12.w),
-              Icon(
-                Icons.notifications_none_outlined,
-                color: AppColors.iconBorderColor,
-              ),
+             SvgPicture.asset(AppIcons.notificationSvg,height: 24.h,width: 24.w,)
             ],
           ),
         ),

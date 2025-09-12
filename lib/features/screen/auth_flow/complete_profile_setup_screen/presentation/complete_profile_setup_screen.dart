@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:metal_head/core/routes/route_name.dart';
 
 import '../../../../../core/theme/theme_extension/app_colors.dart';
 import '../../create_account_screen/presentation/widgets/input_label_text.dart';
@@ -36,15 +38,25 @@ class _CompleteProfileSetupScreenState
                   children: [
                     Padding(
                       padding: EdgeInsets.all(8.r),
-                      child: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: AppColors.headlineTextColor,
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: AppColors.headlineTextColor,
+                        ),
                       ),
                     ),
-                    Text(
-                      'Skip',
-                      style: style.bodySmall?.copyWith(
-                        color: AppColors.headlineTextColor,
+                    GestureDetector(
+                      onTap: (){
+                        context.go(RouteName.userHomeScreen);
+                      },
+                      child: Text(
+                        'Skip',
+                        style: style.bodySmall?.copyWith(
+                          color: AppColors.headlineTextColor,
+                        ),
                       ),
                     ),
                   ],
@@ -197,7 +209,10 @@ class _CompleteProfileSetupScreenState
 
               SizedBox(height: 24.h),
 
-              Center(child: CustomButton(text: 'Complete',onPressed: (){},isBig: true,)),
+              Center(child: CustomButton(text: 'Complete',onPressed: (){},isBig: true,textStyle: style.bodyMedium?.copyWith(
+                color: AppColors.whiteTextColor,
+                fontWeight: FontWeight.w500
+              ),)),
               SizedBox(height: 20.h),
             ],
           ),

@@ -20,7 +20,8 @@ class RouteName {
   static const String userHomeScreen = "/UserHomeScreen";
   static const String helperHomeScreen = "/HelperHomeScreen";
 
-  static const String helperJobScreen = "/HelperHomeScreen";
   static const String helperMsgScreen = "/HelperMsgScreen";
   static const String helperProfileScreen = "/HelperProfileScreen";
+  static const String userScreen = "/UserScreen";
+  static const String client = "/Client";
 }

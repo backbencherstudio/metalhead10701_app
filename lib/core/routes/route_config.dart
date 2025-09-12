@@ -2,7 +2,8 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.splashScreen,
+
+    initialLocation: RouteName.helperHomeScreen,
 
 
     routes: [
@@ -29,8 +30,8 @@ class RouteConfig {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RouteName.helperJobScreen,
-                builder: (context, state) => const UserHomeScreen(),
+                path: RouteName.helperHomeScreen,
+                builder: (context, state) => const HelperHomeScreen(),
               ),
             ],
           ),
@@ -88,19 +89,31 @@ class RouteConfig {
           return const MaterialPage(child: SuccessScreen());
         },
       ),
+
+
        GoRoute(
         name: RouteName.completeProfileSetupScreen,
         path: RouteName.completeProfileSetupScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: CompleteProfileSetupScreen());
         },),
-//        GoRoute(
-//         name: RouteName.successScreen,
-//         path: RouteName.successScreen,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: SuccessScreen());
-//         },
-//       ),
+
+
+       GoRoute(
+        name: RouteName.userScreen,
+        path: RouteName.userScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: UserScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.client,
+        path: RouteName.client,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Client());
+        },
+      ),
 //        GoRoute(
 //         name: RouteName.forgetOtpScreen,
 //         path: RouteName.forgetOtpScreen,
