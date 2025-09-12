@@ -2,10 +2,10 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.jobDetailsScreen,
+    initialLocation: RouteName.splashScreen,
 
     routes: [
-      //Bottom NavBar
+      //Bottom NavBar USER
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
             BottomBarWidget(navigationShell: navigationShell),
@@ -28,24 +28,72 @@ class RouteConfig {
           StatefulShellBranch(
             routes: [
               GoRoute(
+                path: RouteName.jobScreen1,
+                builder: (context, state) => const UserHomeScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteName.msgScreen1,
+                builder: (context, state) => const UserHomeScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteName.profileScreen1,
+                builder: (context, state) => const UserHomeScreen(),
+              ),
+            ],
+          ),
+        ],
+      ),
+
+
+      //Bottom NavBar Helper
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) =>
+            BottomBarWidget(navigationShell: navigationShell),
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
                 path: RouteName.helperHomeScreen,
-                builder: (context, state) => const UserHomeScreen(),
+                pageBuilder: (context, state) {
+                  return buildPageWithTransition(
+                    context: context,
+                    state: state,
+                    transitionType: PageTransitionType.slideRightToLeft,
+                    child: HelperHomeScreen(),
+                  );
+                },
               ),
             ],
           ),
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RouteName.helperMsgScreen,
-                builder: (context, state) => const UserHomeScreen(),
+                path: RouteName.jobScreen2,
+                builder: (context, state) => const HelperHomeScreen(),
               ),
             ],
           ),
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RouteName.helperProfileScreen,
-                builder: (context, state) => const UserHomeScreen(),
+                path: RouteName.msgScreen2,
+                builder: (context, state) => const HelperHomeScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteName.profileScreen2,
+                builder: (context, state) => const HelperHomeScreen(),
               ),
             ],
           ),

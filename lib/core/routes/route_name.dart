@@ -21,9 +21,12 @@ class RouteName {
   static const String helperHomeScreen = "/HelperHomeScreen";
   static const String jobDetailsScreen = "/JobDetailsScreen";
 
+  //Navbar Flow
+  static const String jobScreen1 = "/jobScreen1";
+  static const String msgScreen1 = "/MsgScreen1";
+  static const String profileScreen1 = "/ProfileScreen1";
 
-  static const String helperMsgScreen = "/HelperMsgScreen";
-  static const String helperProfileScreen = "/HelperProfileScreen";
-  static const String userScreen = "/UserScreen";
-  static const String client = "/Client";
+  static const String jobScreen2 = "/jobScreen2";
+  static const String msgScreen2 = "/MsgScreen2";
+  static const String profileScreen2 = "/ProfileScreen2";
 }

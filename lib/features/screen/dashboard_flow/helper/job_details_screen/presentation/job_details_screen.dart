@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/common_widgets/common_custom_header.dart';
@@ -10,13 +11,15 @@ import 'package:metal_head/features/screen/dashboard_flow/helper/job_details_scr
 import 'package:metal_head/features/screen/dashboard_flow/helper/job_details_screen/presentation/widget/job_summery.dart';
 import 'package:metal_head/features/screen/dashboard_flow/helper/job_details_screen/presentation/widget/photo_section.dart';
 import '../../../../auth_flow/splash/presentation/widgets/custom_button.dart';
+import '../data/provider/selectedJobProvider.dart';
 
-class JobDetailsScreen extends StatelessWidget {
+class JobDetailsScreen extends ConsumerWidget {
   const JobDetailsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final style = Theme.of(context).textTheme;
+    final currentJob = ref.watch(selectedJob) ?? jobs[0];
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -34,7 +37,7 @@ class JobDetailsScreen extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(8.r),
-                  child: Text(jobs[0].name, style: style.headlineSmall,),
+                  child: Text(currentJob.name, style: style.headlineSmall,),
                 ),
               ),
               SizedBox(height: 16.h,),
@@ -46,7 +49,7 @@ class JobDetailsScreen extends StatelessWidget {
                       color: AppColors.greyTextColor.withValues(alpha: 0.05),
                       borderRadius: BorderRadius.circular(16.r)
                     ),
-                    child: Text("job ID: ${jobs[0].id}", style: style.bodySmall,),
+                    child: Text("job ID: ${currentJob.id}", style: style.bodySmall,),
                   ),
                   SizedBox(width: 8.w,),
                   Container(
@@ -55,22 +58,22 @@ class JobDetailsScreen extends StatelessWidget {
                         color: AppColors.statusContainerColor.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(16.r)
                     ),
-                    child: Text(jobs[0].status, style: style.bodySmall?.copyWith(color: AppColors.statusContainerColor),),
+                    child: Text(currentJob.status, style: style.bodySmall?.copyWith(color: AppColors.statusContainerColor),),
                   ),
                 ],
               ),
               SizedBox(height: 44.h,),
-              JobSummery(job: jobs[0]),
+              JobSummery(job: currentJob),
               SizedBox(height: 32.h,),
-              JobDescription(job: jobs[0],),
+              JobDescription(job: currentJob,),
               SizedBox(height: 32.h,),
-              ContactInfo(job: jobs[0],),
+              ContactInfo(job: currentJob,),
               SizedBox(height: 32.h,),
-              JobRequirements(job: jobs[0],),
+              JobRequirements(job: currentJob,),
               SizedBox(height: 32.h,),
-              ImportantNotes(job: jobs[0],),
+              ImportantNotes(job: currentJob,),
               SizedBox(height: 32.h,),
-              PhotoSection(job: jobs[0],),
+              PhotoSection(job: currentJob,),
               SizedBox(height: 100.h,)
             ],
           ),

@@ -39,6 +39,18 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
               PostJobSection(style: style),
               SizedBox(height: 24.h),
               SectionTitle(
+                style: style,
+                title: 'Upcoming Appointments',
+                showViewAll: false,
+              ),
+              Column(
+                children: List.generate(1, (jobIndex)=>Padding(
+                  padding: EdgeInsets.all(12.r),
+                  child: CustomJobCard(job: jobs[jobIndex]),
+                )),
+              ),
+              SizedBox(height: 24.h),
+              SectionTitle(
                 title: 'Job Categories',
                 style: style,
                 showViewAll: true,

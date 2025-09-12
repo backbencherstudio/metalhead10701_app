@@ -38,8 +38,6 @@ class JobModel{
 });
 }
 
-
-
 // Dummies
 final jobs = <JobModel>[
   JobModel(id: 'job1', clientId: 'client1', name: 'Plumbing', type: 'Repair', bargainStatus: 'Fixed', startTime: DateTime.now(), endTime: DateTime.now().add(Duration(hours: 3)), price: 100.0, location: 'LA'),
