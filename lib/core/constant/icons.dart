@@ -13,6 +13,13 @@ class AppIcons {
   static const String flowerSvg = '$iconPath/flower.svg';
   static const String movingSvg = '$iconPath/package_moving.svg';
   static const String cleaningSvg = '$iconPath/cleaning_bucket.svg';
+  static const String notificationSvg = '$iconPath/notification.svg';
+  static const String moneySvg = '$iconPath/money_bag.svg';
+  static const String starSvg = '$iconPath/star.svg';
+  static const String filesSvg = '$iconPath/files.svg';
+  static const String alertSvg = '$iconPath/alert_circle.svg';
+
+
   // bottom navbar
   static const String homeIcon = '$iconPath/home.svg';
   static const String jobIcon = '$iconPath/doc.svg';

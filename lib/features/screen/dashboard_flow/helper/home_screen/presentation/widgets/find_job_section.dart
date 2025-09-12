@@ -4,10 +4,11 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../../core/constant/icons.dart';
 import '../../../../../../../core/theme/theme_extension/app_colors.dart';
+import '../../../../../../common_widgets/alert_dialogs/accept_counter_dialog.dart';
 import '../../../../../auth_flow/splash/presentation/widgets/custom_button.dart';
 
-class PostJobSection extends StatelessWidget {
-  const PostJobSection({super.key, required this.style});
+class FindJobSection extends StatelessWidget {
+  const FindJobSection({super.key, required this.style});
 
   final TextTheme style;
 
@@ -40,9 +41,11 @@ class PostJobSection extends StatelessWidget {
                 ),
                 SizedBox(height: 24.h),
                 CustomButton(
-                  text: 'Post a job',
+                  text: 'Find a job',
                   width: 204.w,
-                  onPressed: () {},
+                  onPressed: () {
+                    onAcceptCounterTap(context);
+                  },
                   padding: EdgeInsets.symmetric(
                     vertical: 10.h,
                     horizontal: 20.w,
@@ -54,7 +57,7 @@ class PostJobSection extends StatelessWidget {
                 ),
               ],
             ),
-            SvgPicture.asset(AppIcons.resumeSvg, width: 97.w, height: 93.h),
+            SvgPicture.asset(AppIcons.resumeSvg, width: 98.w, height: 93.h),
           ],
         ),
       ),

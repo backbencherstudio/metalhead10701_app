@@ -22,7 +22,8 @@ class RouteName {
   static const String jobDetailsScreen = "/JobDetailsScreen";
 
 
-  static const String helperJobScreen = "/HelperHomeScreen";
   static const String helperMsgScreen = "/HelperMsgScreen";
   static const String helperProfileScreen = "/HelperProfileScreen";
+  static const String userScreen = "/UserScreen";
+  static const String client = "/Client";
 }

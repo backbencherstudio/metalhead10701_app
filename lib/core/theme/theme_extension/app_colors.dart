@@ -12,6 +12,8 @@ class AppColors {
     surface: Color(0xff161721),
     onSurface: Color(0xff2F2A29),
   );
+
+  //container colors
   static const Color primary = Color(0xff031445);
   static const Color onPrimary = Color(0xffE9E9EA);
   static const Color bgColor1 = Color(0xffFF6B6B);
@@ -20,6 +22,10 @@ class AppColors {
   static const Color bgColor4 = Color(0xffF9FAFB);
   static const Color bgColor5 = Color(0xffFFCC00);
   static const Color bgColor6 = Color(0xffF05D29);
+  static const Color bgColor7 = Color(0xff38C172);
+  static const Color bgColor8 = Color(0xff3182CE);
+  static const Color bgColor9 = Color(0xffE3342F);
+  static const Color bgTransparent = Colors.transparent;
 
 
 
@@ -43,6 +49,10 @@ class AppColors {
   static const Color graphTextColor = Color(0xff848A9C);
   static const Color curve1Color = Color(0xff04BFDA);
   static const Color pointerColor = Color(0xffFFA84A);
+
+
+
+
 
 
 

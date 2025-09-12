@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/common_widgets/custom_counter_offer_card.dart';
 import 'package:metal_head/features/screen/dashboard_flow/data/model/job_model.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/widgets/header_sction.dart';
@@ -39,7 +38,11 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
               ),
               PostJobSection(style: style),
               SizedBox(height: 24.h),
-              SectionTitle(title: 'Job Categories',style: style, showViewAll: true),
+              SectionTitle(
+                title: 'Job Categories',
+                style: style,
+                showViewAll: true,
+              ),
               SizedBox(height: 12.h),
               ...List.generate(3, (index) {
                 return Column(
@@ -51,6 +54,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
               }),
 
               SizedBox(height: 24.h),
+
               SectionTitle(title: 'Jobs Near By You',style: style, showViewAll: true),
               Column(
                 children: List.generate(3, (jobIndex)=>Padding(
@@ -65,6 +69,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                   padding: EdgeInsets.all(12.r),
                   child: CustomJobCard(job: urgentJobs[jobIndex]),
                 )),
+
               ),
             ],
           ),

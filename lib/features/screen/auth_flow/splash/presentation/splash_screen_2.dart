@@ -143,28 +143,33 @@ class SplashScreen2 extends ConsumerWidget {
                         ),
                       ],
                     ) : Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        CustomButton(
-                          text: 'Create an Account',
-                          containerColor: AppColors.onPrimary,
-                          borderColor: AppColors.bgColor1,
-                          textColor: AppColors.bgColor1,
-                          isBig: true,
-                          onPressed: () {
-                            context.go(RouteName.createAccountScreen);
-                          },
-                          width: 160.w,
+                        Center(
+                          child: CustomButton(
+                            text: 'Create an Account',
+                            containerColor: AppColors.onPrimary,
+                            borderColor: AppColors.bgColor1,
+                            textColor: AppColors.bgColor1,
+                            isBig: true,
+                            onPressed: () {
+                              context.go(RouteName.createAccountScreen);
+                            },
+                            width: 160.w,
+                          ),
                         ),
                         SizedBox(height: 12.h),
-                        CustomButton(
-                          text: 'Log in',
-                          containerColor: AppColors.bgColor1,
-                          textColor: AppColors.onPrimary,
-                          isBig: true,
-                          onPressed: () {
-                            context.go(RouteName.loginScreen);
-                          },
-                          width: 160.w,
+                        Center(
+                          child: CustomButton(
+                            text: 'Log in',
+                            containerColor: AppColors.bgColor1,
+                            textColor: AppColors.onPrimary,
+                            isBig: true,
+                            onPressed: () {
+                              context.go(RouteName.loginScreen);
+                            },
+                            width: 160.w,
+                          ),
                         ),
                       ],
                     ),

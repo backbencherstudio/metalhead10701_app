@@ -4,7 +4,6 @@ class RouteConfig {
   GoRouter goRouter = GoRouter(
     initialLocation: RouteName.jobDetailsScreen,
 
-
     routes: [
       //Bottom NavBar
       StatefulShellRoute.indexedStack(
@@ -29,7 +28,7 @@ class RouteConfig {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RouteName.helperJobScreen,
+                path: RouteName.helperHomeScreen,
                 builder: (context, state) => const UserHomeScreen(),
               ),
             ],
@@ -53,13 +52,13 @@ class RouteConfig {
         ],
       ),
 
-    GoRoute(
-      name: RouteName.splashScreen,
-      path: RouteName.splashScreen,
-      pageBuilder: (context, state) {
-        return const MaterialPage(child: SplashScreen());
-      },
-    ),
+      GoRoute(
+        name: RouteName.splashScreen,
+        path: RouteName.splashScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: SplashScreen());
+        },
+      ),
       GoRoute(
         name: RouteName.splashScreen2,
         path: RouteName.splashScreen2,
@@ -67,61 +66,63 @@ class RouteConfig {
           return const MaterialPage(child: SplashScreen2());
         },
       ),
- GoRoute(
+      GoRoute(
         name: RouteName.createAccountScreen,
         path: RouteName.createAccountScreen,
         pageBuilder: (context, state) {
           return MaterialPage(child: CreateAccountScreen());
         },
       ),
-       GoRoute(
+      GoRoute(
         name: RouteName.verificationScreen,
         path: RouteName.verificationScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: VerificationScreen());
         },
       ),
-          GoRoute(
+      GoRoute(
         name: RouteName.successScreen,
         path: RouteName.successScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: SuccessScreen());
         },
       ),
-       GoRoute(
+
+      GoRoute(
         name: RouteName.completeProfileSetupScreen,
         path: RouteName.completeProfileSetupScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: CompleteProfileSetupScreen());
-        },),
-       GoRoute(
+        },
+      ),
+      GoRoute(
         name: RouteName.jobDetailsScreen,
         path: RouteName.jobDetailsScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: JobDetailsScreen());
         },
       ),
-//        GoRoute(
-//         name: RouteName.forgetOtpScreen,
-//         path: RouteName.forgetOtpScreen,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: ForgetOtpScreen());
-//         },
-//       ),
-//        GoRoute(
-//         name: RouteName.resetPassScreen,
-//         path: RouteName.resetPassScreen,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: ResetPassScreen());
-//         },
-//       ),
-//        GoRoute(
-//         name: RouteName.signupScreen,
-//         path: RouteName.signupScreen,
-//         pageBuilder: (context, state) {
-//           return const MaterialPage(child: SignupScreen());
-//         },
-//       ),
+      //        GoRoute(
+      //         name: RouteName.forgetOtpScreen,
+      //         path: RouteName.forgetOtpScreen,
+      //         pageBuilder: (context, state) {
+      //           return const MaterialPage(child: ForgetOtpScreen());
+      //         },
+      //       ),
+      //        GoRoute(
+      //         name: RouteName.resetPassScreen,
+      //         path: RouteName.resetPassScreen,
+      //         pageBuilder: (context, state) {
+      //           return const MaterialPage(child: ResetPassScreen());
+      //         },
+      //       ),
+      //        GoRoute(
+      //         name: RouteName.signupScreen,
+      //         path: RouteName.signupScreen,
+      //         pageBuilder: (context, state) {
+      //           return const MaterialPage(child: SignupScreen());
+      //         },
+      //       ),
       GoRoute(
         name: RouteName.loginScreen,
         path: RouteName.loginScreen,
@@ -129,34 +130,35 @@ class RouteConfig {
           return const MaterialPage(child: LoginScreen());
         },
       ),
-       GoRoute(
+      GoRoute(
         name: RouteName.forgotUserScreen,
         path: RouteName.forgotUserScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: ForgotScreen(isUser: true));
-        },),
-       GoRoute(
+        },
+      ),
+      GoRoute(
         name: RouteName.forgotPassScreen,
         path: RouteName.forgotPassScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: ForgotScreen(isUser: false));
         },
       ),
-       GoRoute(
+      GoRoute(
         name: RouteName.newUserScreen,
         path: RouteName.newUserScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: NewScreen(isUser: true));
         },
       ),
-       GoRoute(
+      GoRoute(
         name: RouteName.newPasswordScreen,
         path: RouteName.newPasswordScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: NewScreen(isUser: false));
         },
       ),
-       GoRoute(
+      GoRoute(
         name: RouteName.restoreUserScreen,
         path: RouteName.restoreUserScreen,
         pageBuilder: (context, state) {
@@ -200,6 +202,6 @@ class RouteConfig {
       //     );
       //   },
       // ),
-    ]);
-
+    ],
+  );
 }
