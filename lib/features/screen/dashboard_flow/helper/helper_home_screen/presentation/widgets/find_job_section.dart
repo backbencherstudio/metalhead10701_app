@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../../../../../../core/constant/icons.dart';
 import '../../../../../../../core/theme/theme_extension/app_colors.dart';
 import '../../../../../../common_widgets/alert_dialogs/accept_counter_dialog.dart';
+import '../../../../../../common_widgets/alert_dialogs/cancel_confirmation_dialog.dart';
+import '../../../../../../common_widgets/alert_dialogs/confirm_job_completion_dialog.dart';
+import '../../../../../../common_widgets/alert_dialogs/mark_job_complete_dialog.dart';
+import '../../../../../../common_widgets/alert_dialogs/start_confirmation_dialog.dart';
+import '../../../../../../common_widgets/alert_dialogs/start_job_dialog.dart';
 import '../../../../../auth_flow/splash/presentation/widgets/custom_button.dart';
-
 class FindJobSection extends StatelessWidget {
-  const FindJobSection({super.key, required this.style});
+  const FindJobSection({
+    super.key,
+    required this.style,
+  });
 
   final TextTheme style;
 
@@ -44,7 +50,7 @@ class FindJobSection extends StatelessWidget {
                   text: 'Find a job',
                   width: 204.w,
                   onPressed: () {
-                    onAcceptCounterTap(context);
+                    onConfirmationTap(context);
                   },
                   padding: EdgeInsets.symmetric(
                     vertical: 10.h,

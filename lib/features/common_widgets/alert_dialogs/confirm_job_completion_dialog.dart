@@ -13,13 +13,15 @@ void onConfirmJobCompletionTap(BuildContext context) {
       return Dialog(
         backgroundColor: Colors.white,
         elevation: 1,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(16.r),
+        ),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.h, vertical: 24.h),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 24.h),
               Container(
                 height: 64.h,
                 width: 64.w,
@@ -72,7 +74,7 @@ void onConfirmJobCompletionTap(BuildContext context) {
                       Navigator.of(context, rootNavigator: true).pop();
                     },
                   ),
-                  SizedBox(height: 5.w),
+                  SizedBox(height: 6.w),
                   CustomButton(
                     text: 'Confirm & Release Payment',
                     width: double.infinity,
@@ -91,7 +93,6 @@ void onConfirmJobCompletionTap(BuildContext context) {
                   ),
                 ],
               ),
-              SizedBox(height: 24.h),
             ],
           ),
         ),
