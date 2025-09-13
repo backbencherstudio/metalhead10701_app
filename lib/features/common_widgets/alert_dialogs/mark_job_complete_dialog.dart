@@ -11,6 +11,9 @@ void onMarkJobCompletedTap(BuildContext context) {
     builder: (_) {
       final style = Theme.of(context).textTheme;
       return Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(16.r),
+        ),
         backgroundColor: Colors.white,
         elevation: 1,
         child: Padding(
@@ -19,7 +22,6 @@ void onMarkJobCompletedTap(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 24.h),
               Container(
                 height: 64.h,
                 width: 64.w,
@@ -84,7 +86,6 @@ void onMarkJobCompletedTap(BuildContext context) {
                   ),
                 ],
               ),
-              SizedBox(height: 24.h),
             ],
           ),
         ),

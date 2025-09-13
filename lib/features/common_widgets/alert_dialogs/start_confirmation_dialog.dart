@@ -11,6 +11,9 @@ void onConfirmationTap(BuildContext context) {
     builder: (_) {
       final style = Theme.of(context).textTheme;
       return Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(16.r),
+        ),
         backgroundColor: Colors.white,
         elevation: 1,
         child: Padding(
@@ -19,7 +22,6 @@ void onConfirmationTap(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 24.h),
               Container(
                 height: 64.h,
                 width: 64.w,
@@ -61,7 +63,7 @@ void onConfirmationTap(BuildContext context) {
                       },
                     ),
                   ),
-                  SizedBox(width: 5.w),
+                  SizedBox(width: 6.w),
                   Expanded(
                     child: CustomButton(
                       text: 'Confirm',
@@ -76,7 +78,6 @@ void onConfirmationTap(BuildContext context) {
                   ),
                 ],
               ),
-              SizedBox(height: 24.h),
             ],
           ),
         ),
