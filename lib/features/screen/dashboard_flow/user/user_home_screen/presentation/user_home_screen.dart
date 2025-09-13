@@ -80,8 +80,8 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                 children: List.generate(3, (jobIndex)=>Padding(
                   padding: EdgeInsets.all(12.r),
                   child: CustomJobCard(job: urgentJobs[jobIndex]),
-                )),
-
+                )
+                ),
               ),
             ],
           ),
