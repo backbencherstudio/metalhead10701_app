@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metal_head/core/constant/icons.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
-import 'package:metal_head/features/screen/dashboard_flow/helper/home_screen/presentation/widgets/container_box.dart';
-import 'package:metal_head/features/screen/dashboard_flow/helper/home_screen/presentation/widgets/find_job_section.dart';
-import 'package:metal_head/features/screen/dashboard_flow/helper/home_screen/presentation/widgets/helper_header_section.dart';
-import 'package:metal_head/features/screen/dashboard_flow/helper/home_screen/presentation/widgets/line_graph.dart';
-import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/models/job_model.dart';
+import 'package:metal_head/features/screen/dashboard_flow/helper/helper_home_screen/presentation/widgets/container_box.dart';
+import 'package:metal_head/features/screen/dashboard_flow/helper/helper_home_screen/presentation/widgets/find_job_section.dart';
+import 'package:metal_head/features/screen/dashboard_flow/helper/helper_home_screen/presentation/widgets/helper_header_section.dart';
+import 'package:metal_head/features/screen/dashboard_flow/helper/helper_home_screen/presentation/widgets/line_graph.dart';
+import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/models/job_type_model.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/widgets/job_items.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/widgets/section_title.dart';
+
+import '../../../../../common_widgets/custom_job_card.dart';
+import '../../../data/model/job_model.dart';
 
 class HelperHomeScreen extends StatelessWidget {
   const HelperHomeScreen({super.key});
@@ -71,8 +74,14 @@ class HelperHomeScreen extends StatelessWidget {
               SizedBox(height: 16.h),
               SectionTitle(
                 style: style,
-                title: 'Upcoming Appointments',
+                title: 'Upcoming Jobs',
                 showViewAll: false,
+              ),
+              Column(
+                children: List.generate(1, (jobIndex)=>Padding(
+                  padding: EdgeInsets.all(12.r),
+                  child: CustomJobCard(job: jobs[jobIndex]),
+                )),
               ),
               SizedBox(height: 12.h),
 
@@ -82,10 +91,10 @@ class HelperHomeScreen extends StatelessWidget {
                 showViewAll: true,
               ),
               SizedBox(height: 12.h),
-              ...List.generate(jobs.length, (index) {
+              ...List.generate(jobTypes.length, (index) {
                 return Column(
                   children: [
-                    JobItems(style: style, job: jobs[index]),
+                    JobItems(style: style, job: jobTypes[index]),
                     if (index != jobs.length - 1) SizedBox(height: 12.h),
                   ],
                 );
@@ -96,6 +105,25 @@ class HelperHomeScreen extends StatelessWidget {
                 title: 'Jobs Near By You',
                 style: style,
                 showViewAll: true,
+              ),
+              Column(
+                children: List.generate(3, (jobIndex)=>Padding(
+                  padding: EdgeInsets.all(12.r),
+                  child: CustomJobCard(job: jobs[jobIndex]),
+                )),
+              ),
+              SizedBox(height: 24.h,),
+              SectionTitle(
+                title: 'Urgent and High-priority',
+                style: style,
+                showViewAll: true,
+              ),
+              Column(
+                children: List.generate(3, (jobIndex)=>Padding(
+                  padding: EdgeInsets.all(12.r),
+                  child: CustomJobCard(job: urgentJobs[jobIndex]),
+                )),
+
               ),
             ],
           ),
