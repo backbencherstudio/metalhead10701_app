@@ -1,0 +1,238 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:metal_head/core/constant/icons.dart';
+import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
+import 'package:metal_head/features/screen/after_accept_counter_offer/presentation/widgets/custom_job_title.dart';
+import 'package:metal_head/features/screen/auth_flow/create_account_screen/presentation/widgets/input_label_text.dart';
+
+class JobPostScreen extends StatefulWidget {
+  const JobPostScreen({super.key});
+
+  @override
+  State<JobPostScreen> createState() => _JobPostScreenState();
+}
+
+class _JobPostScreenState extends State<JobPostScreen> {
+  @override
+  Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme;
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 50.h,),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.h),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back_ios),
+              ),
+            ),
+            SizedBox(height: 16.h),
+
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Post a New Job',
+                      style: style.headlineSmall?.copyWith(
+                        color: AppColors.headlineTextColor,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+
+                    SizedBox(height: 8.h),
+
+                    Text(
+                      "Need help? Post a job and get connected with nearby helpers.",
+                      style: style.bodyMedium?.copyWith(
+                        color: AppColors.greyTextColor,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(height: 16.h),
+
+                    CustomJobTitle(style: style),
+                    Divider(height: 1.h, color: AppColors.borderColor),
+                    SizedBox(height: 12),
+
+                    InputLabel(labelText: 'Job Title',style: style),
+                    SizedBox(height: 8.h),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter Job Title',
+                        hintStyle: style.bodyMedium?.copyWith(
+                          color: AppColors.inputTextColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 14.h),
+
+                    InputLabel(labelText: 'Category',style: style),
+                    SizedBox(height: 8.h),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Select category',
+                        suffixIcon: Icon(Icons.keyboard_arrow_down,color: AppColors.inputTextColor),
+                        hintStyle: style.bodyMedium?.copyWith(
+                          color: AppColors.inputTextColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 14.h),
+
+                    InputLabel(labelText: 'Start Time',style: style),
+                    SizedBox(height: 8.h),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Select your preferred date',
+                        suffixIcon: Icon(Icons.calendar_today_outlined,color: AppColors.inputTextColor),
+                        hintStyle: style.bodyMedium?.copyWith(
+                          color: AppColors.inputTextColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 14.h),
+
+                    InputLabel(labelText: 'End Time',style: style),
+                    SizedBox(height: 8.h),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Select your preferred date',
+                        suffixIcon: Icon(Icons.calendar_today_outlined,color: AppColors.inputTextColor),
+                        hintStyle: style.bodyMedium?.copyWith(
+                          color: AppColors.inputTextColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 14.h),
+
+                    InputLabel(labelText: 'Price',style: style),
+                    SizedBox(height: 8.h),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter you price',
+                        hintStyle: style.bodyMedium?.copyWith(
+                          color: AppColors.inputTextColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 14.h),
+
+                    InputLabel(labelText: 'Payment Type',style: style),
+                    SizedBox(height: 8.h),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Select payment type',
+                        suffixIcon: Icon(Icons.keyboard_arrow_down,color: AppColors.inputTextColor),
+                        hintStyle: style.bodyMedium?.copyWith(
+                          color: AppColors.inputTextColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 14.h),
+
+                    InputLabel(labelText: 'Location',style: style),
+                    SizedBox(height: 8.h),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter your location',
+                        hintStyle: style.bodyMedium?.copyWith(
+                          color: AppColors.inputTextColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 14.h),
+
+                    Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.bgColor4,
+                        border: Border.all(color: AppColors.borderColor),
+                        borderRadius: BorderRadius.circular(8.r),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(14.r),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.add_location_alt_outlined,color: AppColors.headlineTextColor),
+                            SizedBox(width: 8.w),
+                            Text('Use Current Location',style: style.bodyMedium?.copyWith(
+                              color: AppColors.headlineTextColor,
+                              fontWeight: FontWeight.w500,
+                            ),)
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 14.h),
+
+                    InputLabel(labelText: 'Estimated Time',optional: ' (Optional)',color: AppColors.greyTextColor,style: style),
+                    SizedBox(height: 8.h),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter estimated time',
+                        hintStyle: style.bodyMedium?.copyWith(
+                          color: AppColors.inputTextColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 14.h),
+
+                    CustomJobTitle(
+                      icon: SvgPicture.asset(
+                        AppIcons.descriptionIcon,
+                        height: 24,
+                        width: 24,
+                      ),
+                      title: 'Job Description',
+                      style: style,
+                    ),
+                    Divider(height: 1.h, color: AppColors.borderColor),
+                    SizedBox(height: 12.h),
+
+
+
+
+
+                    SizedBox(height: 28.h),
+                    CustomJobTitle(
+                      icon: SvgPicture.asset(
+                        AppIcons.noteIcon,
+                        height: 24,
+                        width: 24,
+                      ),
+                      title: 'Notes',
+                      style: style,
+                    ),
+                    Divider(height: 1.h, color: AppColors.borderColor),
+                    SizedBox(height: 12.h),
+
+
+
+                  ],
+                ),
+              ),
+            ),
+
+          ],
+        ),
+      ),
+    );
+  }
+}

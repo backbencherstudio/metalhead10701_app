@@ -29,5 +29,10 @@ class RouteName {
   static const String jobScreen2 = "/jobScreen2";
   static const String msgScreen2 = "/MsgScreen2";
   static const String profileScreen2 = "/ProfileScreen2";
+
+
   static const String jobCounterOfferOfferScreen = "/JobCounterOfferOfferScreen";
+  static const String afterAcceptCounterOffer = "/AfterAcceptCounterOffer";
+  static const String afterAcceptJobUserSide = "/AfterAcceptJobUserSide";
+  static const String jobPostScreen = "/JobPostScreen";
 }

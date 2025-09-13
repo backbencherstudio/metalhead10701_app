@@ -2,7 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.jobCounterOfferOfferScreen,
+    initialLocation: RouteName.jobPostScreen,
 
     routes: [
       //Bottom NavBar USER
@@ -157,20 +157,20 @@ class RouteConfig {
                 return const MaterialPage(child: JobCounterOfferOfferScreen());
               },
             ),
-      //        GoRoute(
-      //         name: RouteName.resetPassScreen,
-      //         path: RouteName.resetPassScreen,
-      //         pageBuilder: (context, state) {
-      //           return const MaterialPage(child: ResetPassScreen());
-      //         },
-      //       ),
-      //        GoRoute(
-      //         name: RouteName.signupScreen,
-      //         path: RouteName.signupScreen,
-      //         pageBuilder: (context, state) {
-      //           return const MaterialPage(child: SignupScreen());
-      //         },
-      //       ),
+             GoRoute(
+              name: RouteName.afterAcceptCounterOffer,
+              path: RouteName.afterAcceptCounterOffer,
+              pageBuilder: (context, state) {
+                return const MaterialPage(child: AfterAcceptCounterOffer());
+              },
+            ),
+             GoRoute(
+              name: RouteName.afterAcceptJobUserSide,
+              path: RouteName.afterAcceptJobUserSide,
+              pageBuilder: (context, state) {
+                return const MaterialPage(child: AfterAcceptJobUserSide());
+              },
+            ),
       GoRoute(
         name: RouteName.loginScreen,
         path: RouteName.loginScreen,
@@ -234,6 +234,14 @@ class RouteConfig {
         path: RouteName.helperHomeScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: HelperHomeScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.jobPostScreen,
+        path: RouteName.jobPostScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: JobPostScreen());
         },
       ),
 
