@@ -153,7 +153,7 @@ class SplashScreen2 extends ConsumerWidget {
                             textColor: AppColors.bgColor1,
                             isBig: true,
                             onPressed: () {
-                              context.go(RouteName.createAccountScreen);
+                              context.push(RouteName.createAccountScreen);
                             },
                             width: 160.w,
                           ),
@@ -166,7 +166,7 @@ class SplashScreen2 extends ConsumerWidget {
                             textColor: AppColors.onPrimary,
                             isBig: true,
                             onPressed: () {
-                              context.go(RouteName.loginScreen);
+                              context.push(RouteName.loginScreen);
                             },
                             width: 160.w,
                           ),

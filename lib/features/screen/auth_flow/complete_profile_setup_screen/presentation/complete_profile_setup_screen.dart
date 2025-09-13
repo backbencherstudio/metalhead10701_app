@@ -77,17 +77,17 @@ class _CompleteProfileSetupScreenState
                 ),
               ),
 
-              SizedBox(height: 16.h),
-              InputLabel(style: style, labelText: 'Email', optional: ' *'),
-              SizedBox(height: 8.h),
-              TextFormField(
-                style: style.bodyMedium?.copyWith(
-                  color: AppColors.headlineTextColor,
-                ),
-                decoration: InputDecoration(
-                  hintText: 'e.g., example@gmail.com',
-                ),
-              ),
+              // SizedBox(height: 16.h),
+              // InputLabel(style: style, labelText: 'Email', optional: ' *'),
+              // SizedBox(height: 8.h),
+              // TextFormField(
+              //   style: style.bodyMedium?.copyWith(
+              //     color: AppColors.headlineTextColor,
+              //   ),
+              //   decoration: InputDecoration(
+              //     hintText: 'e.g., example@gmail.com',
+              //   ),
+              // ),
 
               SizedBox(height: 16.h),
               InputLabel(style: style, labelText: 'Address', optional: ' *'),
