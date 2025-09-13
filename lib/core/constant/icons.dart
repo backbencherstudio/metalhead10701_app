@@ -18,6 +18,7 @@ class AppIcons {
   static const String starSvg = '$iconPath/star.svg';
   static const String filesSvg = '$iconPath/files.svg';
   static const String alertSvg = '$iconPath/alert_circle.svg';
+  static const String dollarSvg = '$iconPath/dollar.svg';
 
 
   // bottom navbar

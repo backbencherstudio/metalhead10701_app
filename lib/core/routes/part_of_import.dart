@@ -15,6 +15,7 @@ import '../../features/screen/auth_flow/success_screen/presentation/success_scre
 import '../../features/screen/auth_flow/verification_screen/presentation/verification_screen.dart';
 import '../../features/screen/dashboard_flow/helper/helper_home_screen/presentation/helper_home_screen.dart';
 import '../../features/screen/dashboard_flow/helper/helper_home_screen/presentation/widgets/find_job_section.dart';
+import '../../features/screen/job_counter_offer_screen/presentation/job_counter_offer_offer_screen.dart';
 import '../utils/common_widget/nav_bar/bottom_navbar.dart';
 import 'build_page_with_transition.dart';
 part 'route_config.dart';

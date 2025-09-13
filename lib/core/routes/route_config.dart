@@ -2,7 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.jobCounterOfferOfferScreen,
 
     routes: [
       //Bottom NavBar USER
@@ -150,13 +150,13 @@ class RouteConfig {
           return const MaterialPage(child: JobDetailsScreen());
         },
       ),
-            //  GoRoute(
-            //   name: RouteName.forgetOtpScreen,
-            //   path: RouteName.forgetOtpScreen,
-            //   pageBuilder: (context, state) {
-            //     return const MaterialPage(child: FindJobSection());
-            //   },
-            // ),
+             GoRoute(
+              name: RouteName.jobCounterOfferOfferScreen,
+              path: RouteName.jobCounterOfferOfferScreen,
+              pageBuilder: (context, state) {
+                return const MaterialPage(child: JobCounterOfferOfferScreen());
+              },
+            ),
       //        GoRoute(
       //         name: RouteName.resetPassScreen,
       //         path: RouteName.resetPassScreen,
