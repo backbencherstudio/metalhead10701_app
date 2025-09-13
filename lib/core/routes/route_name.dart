@@ -29,4 +29,7 @@ class RouteName {
   static const String jobScreen2 = "/jobScreen2";
   static const String msgScreen2 = "/MsgScreen2";
   static const String profileScreen2 = "/ProfileScreen2";
+
+  //Search Flow
+  static const String searchScreen = "/SearchScreen";
 }

@@ -33,4 +33,9 @@ class AppIcons {
   static const String requirementIcon = '$iconPath/checkList.svg';
   static const String noteIcon = '$iconPath/note.svg';
   static const String photoIcon = '$iconPath/album.svg';
+
+  //search Flow
+  static const String searchIcon = '$iconPath/search.svg';
+  static const String filterIcon = '$iconPath/filter.svg';
+  static const String connectionIcon = '$iconPath/connection.svg';
 }
