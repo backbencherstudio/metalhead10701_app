@@ -9,6 +9,7 @@ import '../../core/routes/route_name.dart';
 import '../../core/theme/theme_extension/app_colors.dart';
 import '../screen/dashboard_flow/common/job_details_screen/data/provider/selectedJobProvider.dart';
 import 'alert_dialogs/accept_counter_dialog.dart';
+import 'alert_dialogs/confirm_job_acceptance_dialog.dart';
 
 class CustomJobCard extends ConsumerWidget {
   final JobModel job;
@@ -137,7 +138,7 @@ class CustomJobCard extends ConsumerWidget {
                   borderColor: AppColors.bgColor1,
                   textColor: AppColors.bgColor1,
                   onPressed: () {
-                    onAcceptCounterTap(context);
+                    context.push(RouteName.jobCounterOfferOfferScreen);
                   },
                 ),
                 CustomButton(
@@ -152,7 +153,7 @@ class CustomJobCard extends ConsumerWidget {
                   textColor: AppColors.onPrimary,
                   isBig: false,
                   onPressed: () {
-                    onAcceptCounterTap(context);
+                    onConfirmAcceptanceTap(context);
                   },
                 ),
               ],

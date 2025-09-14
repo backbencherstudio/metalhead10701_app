@@ -9,7 +9,7 @@ import '../../../../../../common_widgets/alert_dialogs/confirm_job_completion_di
 import '../../../../../../common_widgets/alert_dialogs/mark_job_complete_dialog.dart';
 import '../../../../../../common_widgets/alert_dialogs/start_confirmation_dialog.dart';
 import '../../../../../../common_widgets/alert_dialogs/start_job_dialog.dart';
-import '../../../../../../common_widgets/alert_dialogs/widgets/confirm_job_acceptance_dialog.dart';
+import '../../../../../../common_widgets/alert_dialogs/confirm_job_acceptance_dialog.dart';
 import '../../../../../auth_flow/splash/presentation/widgets/custom_button.dart';
 class FindJobSection extends StatelessWidget {
   const FindJobSection({
