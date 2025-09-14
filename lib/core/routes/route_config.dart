@@ -2,7 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.counterOfferAcceptedScreen,
+    initialLocation: RouteName.splashScreen,
 
     routes: [
       //Bottom NavBar USER
@@ -51,7 +51,6 @@ class RouteConfig {
           ),
         ],
       ),
-
 
       //Bottom NavBar Helper
       StatefulShellRoute.indexedStack(
@@ -150,27 +149,28 @@ class RouteConfig {
           return const MaterialPage(child: JobDetailsScreen());
         },
       ),
-             GoRoute(
-              name: RouteName.jobCounterOfferOfferScreen,
-              path: RouteName.jobCounterOfferOfferScreen,
-              pageBuilder: (context, state) {
-                return const MaterialPage(child: JobCounterOfferOfferScreen());
-              },
-            ),
-             GoRoute(
-              name: RouteName.afterAcceptCounterOffer,
-              path: RouteName.afterAcceptCounterOffer,
-              pageBuilder: (context, state) {
-                return const MaterialPage(child: AfterAcceptCounterOffer());
-              },
-            ),
-             GoRoute(
-              name: RouteName.afterAcceptJobUserSide,
-              path: RouteName.afterAcceptJobUserSide,
-              pageBuilder: (context, state) {
-                return const MaterialPage(child: AfterAcceptJobUserSide());
-              },
-            ),
+      GoRoute(
+        name: RouteName.jobCounterOfferOfferScreen,
+        path: RouteName.jobCounterOfferOfferScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: JobCounterOfferOfferScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.afterAcceptCounterOffer,
+        path: RouteName.afterAcceptCounterOffer,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AfterAcceptCounterOffer());
+        },
+      ),
+      GoRoute(
+        name: RouteName.afterAcceptJobUserSide,
+        path: RouteName.afterAcceptJobUserSide,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AfterAcceptJobUserSide());
+        },
+      ),
+
       GoRoute(
         name: RouteName.loginScreen,
         path: RouteName.loginScreen,
@@ -250,6 +250,22 @@ class RouteConfig {
         path: RouteName.counterOfferAcceptedScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: CounterOfferAcceptedScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.searchScreen,
+        path: RouteName.searchScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: SearchScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.filterScreen,
+        path: RouteName.filterScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: FilterScreen());
         },
       ),
 

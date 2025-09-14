@@ -5,10 +5,9 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 import 'package:metal_head/features/screen/dashboard_flow/data/model/job_model.dart';
-import 'package:metal_head/features/screen/dashboard_flow/helper/job_details_screen/data/provider/selectedJobProvider.dart';
-import 'package:metal_head/features/screen/dashboard_flow/helper/job_details_screen/presentation/job_details_screen.dart';
 import '../../core/routes/route_name.dart';
 import '../../core/theme/theme_extension/app_colors.dart';
+import '../screen/dashboard_flow/common/job_details_screen/data/provider/selectedJobProvider.dart';
 import 'alert_dialogs/accept_counter_dialog.dart';
 
 class CustomJobCard extends ConsumerWidget {

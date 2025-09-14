@@ -70,7 +70,6 @@ class HeaderSection extends StatelessWidget {
           ),
         ),
         SizedBox(height: 16.h),
-        CommonSearchBar(style: style),
       ],
     );
   }
