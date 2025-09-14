@@ -4,6 +4,7 @@ import 'package:metal_head/core/routes/route_name.dart';
 import 'package:metal_head/features/screen/after_accept_counter_offer/presentation/after_accept_counter_offer.dart';
 import 'package:metal_head/features/screen/dashboard_flow/helper/job_details_screen/presentation/job_details_screen.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/user_home_screen.dart';
+import 'package:metal_head/features/screen/job_counter_offer_screen/presentation/counter_offer_accepted_screen.dart';
 import 'package:metal_head/features/screen/job_post_screen/presentation/job_post_screen.dart';
 import '../../features/screen/after_accept_counter_offer/presentation/after_accept_job_user_side.dart';
 import '../../features/screen/auth_flow/complete_profile_setup_screen/presentation/complete_profile_setup_screen.dart';

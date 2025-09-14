@@ -35,4 +35,5 @@ class RouteName {
   static const String afterAcceptCounterOffer = "/AfterAcceptCounterOffer";
   static const String afterAcceptJobUserSide = "/AfterAcceptJobUserSide";
   static const String jobPostScreen = "/JobPostScreen";
+  static const String counterOfferAcceptedScreen = "/CounterOfferAcceptedScreen";
 }

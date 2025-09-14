@@ -2,7 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.jobPostScreen,
+    initialLocation: RouteName.counterOfferAcceptedScreen,
 
     routes: [
       //Bottom NavBar USER
@@ -242,6 +242,14 @@ class RouteConfig {
         path: RouteName.jobPostScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: JobPostScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.counterOfferAcceptedScreen,
+        path: RouteName.counterOfferAcceptedScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: CounterOfferAcceptedScreen());
         },
       ),
 

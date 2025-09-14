@@ -33,6 +33,7 @@ class AppColors {
   static const Color headlineTextColor = Color(0xff2F2A29);
   static const Color headlineTextColor2 = Color(0xff071731);
   static const Color headlineTextColor3 = Color(0xff000000);
+  static const Color headlineTextColor4 = Color(0xff0B0B0B);
   static const Color blackHeadline = Color(0xff2F3131);
   static const Color greyTextColor = Color(0xff6B7280);
   static const Color lightGreyTextColor = Color(0xff6B7280);
@@ -62,6 +63,7 @@ static const Color borderColor = Color(0xffE1E1E1);
 static const Color jobCardBorderColor = Color.fromRGBO(255, 107, 107, 0.13);
 static const Color jobCardColor = Color(0xFFFFF8F8);
 static const Color iconBorderColor = Color(0xff28303F);
+static const Color uploadBorderColor = Color(0xff1849D6);
 
 // bottom navbar color
 static const Color bottomNavBarBackground = Color(0xFF011547);
