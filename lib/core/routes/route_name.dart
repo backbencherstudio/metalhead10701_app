@@ -32,4 +32,5 @@ class RouteName {
 
   //Search Flow
   static const String searchScreen = "/SearchScreen";
+  static const String filterScreen = "/FilterScreen";
 }
