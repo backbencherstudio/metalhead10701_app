@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:metal_head/core/routes/route_name.dart';
 
 import '../../../../../../../core/constant/icons.dart';
 import '../../../../../../../core/theme/theme_extension/app_colors.dart';
@@ -42,7 +44,9 @@ class PostJobSection extends StatelessWidget {
                 CustomButton(
                   text: 'Post a job',
                   width: 204.w,
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push(RouteName.jobPostScreen);
+                  },
                   padding: EdgeInsets.symmetric(
                     vertical: 10.h,
                     horizontal: 20.w,
