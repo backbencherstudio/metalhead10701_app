@@ -7,6 +7,7 @@ import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/common_widgets/common_search_bar.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 import '../../../../core/constant/icons.dart';
+import '../../../../core/routes/route_name.dart';
 import '../../../common_widgets/custom_job_card.dart';
 import '../data/provider/search_controller.dart';
 
@@ -144,7 +145,10 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                         ),
                         Text("Sort By", style: style.bodyMedium?.copyWith(color: AppColors.greyTextColor),),
                         SizedBox(width: 176.w,),
-                        SvgPicture.asset(AppIcons.filterIcon, height: 24.h, width: 24.w, colorFilter: ColorFilter.mode(AppColors.bgColor1, BlendMode.srcIn),)
+                        InkWell(
+                            child: SvgPicture.asset(AppIcons.filterIcon, height: 24.h, width: 24.w, colorFilter: ColorFilter.mode(AppColors.bgColor1, BlendMode.srcIn),),
+                          onTap: ()=>context.push(RouteName.filterScreen),
+                        )
                       ],
                     ),
                     Expanded(

@@ -223,6 +223,12 @@ class RouteConfig {
         pageBuilder: (context, state) {
           return const MaterialPage(child: SearchScreen());
         },
+      ),GoRoute(
+        name: RouteName.filterScreen,
+        path: RouteName.filterScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: FilterScreen());
+        },
       ),
 
       // GoRoute(

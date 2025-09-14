@@ -14,6 +14,7 @@ import '../../features/screen/auth_flow/success_screen/presentation/success_scre
 import '../../features/screen/auth_flow/verification_screen/presentation/verification_screen.dart';
 import '../../features/screen/dashboard_flow/common/job_details_screen/presentation/job_details_screen.dart';
 import '../../features/screen/dashboard_flow/helper/helper_home_screen/presentation/helper_home_screen.dart';
+import '../../features/screen/search_flow/presentation/filter_screen.dart';
 import '../../features/screen/search_flow/presentation/search_screen.dart';
 import '../utils/common_widget/nav_bar/bottom_navbar.dart';
 import 'build_page_with_transition.dart';
