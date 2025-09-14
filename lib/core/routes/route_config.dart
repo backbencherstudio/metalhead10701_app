@@ -150,27 +150,7 @@ class RouteConfig {
           return const MaterialPage(child: JobDetailsScreen());
         },
       ),
-      //        GoRoute(
-      //         name: RouteName.forgetOtpScreen,
-      //         path: RouteName.forgetOtpScreen,
-      //         pageBuilder: (context, state) {
-      //           return const MaterialPage(child: ForgetOtpScreen());
-      //         },
-      //       ),
-      //        GoRoute(
-      //         name: RouteName.resetPassScreen,
-      //         path: RouteName.resetPassScreen,
-      //         pageBuilder: (context, state) {
-      //           return const MaterialPage(child: ResetPassScreen());
-      //         },
-      //       ),
-      //        GoRoute(
-      //         name: RouteName.signupScreen,
-      //         path: RouteName.signupScreen,
-      //         pageBuilder: (context, state) {
-      //           return const MaterialPage(child: SignupScreen());
-      //         },
-      //       ),
+
       GoRoute(
         name: RouteName.loginScreen,
         path: RouteName.loginScreen,
@@ -234,6 +214,14 @@ class RouteConfig {
         path: RouteName.helperHomeScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: HelperHomeScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.searchScreen,
+        path: RouteName.searchScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: SearchScreen());
         },
       ),
 

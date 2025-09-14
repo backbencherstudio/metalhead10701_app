@@ -79,7 +79,6 @@ class HelperHeaderSection extends StatelessWidget {
             ],
           ),
           SizedBox(height: 16.h),
-          CommonSearchBar(style: style),
         ],
       ),
     );
