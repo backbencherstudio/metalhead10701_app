@@ -25,6 +25,7 @@ class AppColors {
   static const Color bgColor7 = Color(0xff38C172);
   static const Color bgColor8 = Color(0xff3182CE);
   static const Color bgColor9 = Color(0xffE3342F);
+  static const Color bgColor10 = Color(0xffEDF4FE);
   static const Color bgTransparent = Colors.transparent;
 
 
@@ -34,12 +35,14 @@ class AppColors {
   static const Color headlineTextColor2 = Color(0xff071731);
   static const Color headlineTextColor3 = Color(0xff000000);
   static const Color headlineTextColor4 = Color(0xff0B0B0B);
+  static const Color headlineTextColor5 = Color(0xff202020);
   static const Color blackHeadline = Color(0xff2F3131);
   static const Color greyTextColor = Color(0xff6B7280);
   static const Color lightGreyTextColor = Color(0xff6B7280);
   static const Color greyTextColor2 = Color(0xff5B5F5F);
   static const Color redTextColor = Color(0xffFF6B6B);
   static const Color redTextColor2 = Color(0xffE3342F);
+  static const Color redTextColor3 = Color(0xffD53636);
   static const Color whiteTextColor = Color(0xffFFFFFF);
   static const Color inputTextColor = Color(0xffAEB2B2);
   static const Color greenTextColor = Color(0xFF38C172);

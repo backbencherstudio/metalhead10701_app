@@ -7,6 +7,7 @@ class AppImages {
   static const String imageTwo = '$imagePath/imageTwo.png';
   static const String logowhite = '$imagePath/logowhite.png';
   static const String mainLogoWhite = '$imagePath/mainLogo_white.png';
+  static const String profilePng = '$imagePath/profile.png';
 
   //Navbar Icons
   static const String connection = '$imagePath/connection.png';
