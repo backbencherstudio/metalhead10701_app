@@ -44,8 +44,8 @@ class RouteConfig {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RouteName.profileScreen1,
-                builder: (context, state) => const UserHomeScreen(),
+                path: RouteName.profileScreen,
+                builder: (context, state) => const ProfileScreen(),
               ),
             ],
           ),
@@ -266,6 +266,14 @@ class RouteConfig {
         path: RouteName.filterScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: FilterScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.personalInfoEditingScreen,
+        path: RouteName.personalInfoEditingScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: PersonalInfoEditingScreen());
         },
       ),
 
