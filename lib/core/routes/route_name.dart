@@ -38,6 +38,7 @@ class RouteName {
   static const String counterOfferAcceptedScreen = "/CounterOfferAcceptedScreen";
   static const String profileScreen = "/ProfileScreen";
   static const String personalInfoEditingScreen = "/PersonalInfoEditingScreen";
+  static const String browseJobScreen = "/BrowseJobScreen";
 
 
   //Search Flow

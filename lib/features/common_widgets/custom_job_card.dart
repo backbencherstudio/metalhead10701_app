@@ -124,37 +124,42 @@ class CustomJobCard extends ConsumerWidget {
             SizedBox(height: 16.h),
             Row(
               //mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomButton(
-                  padding: EdgeInsets.all(12.r),
-                  width: 135.w,
-                  text: "Counter Offer",
-                  textStyle: style.bodySmall?.copyWith(
-                    color: AppColors.bgColor1,
-                    fontWeight: FontWeight.bold,
+                Expanded(
+                  child: CustomButton(
+                    padding: EdgeInsets.all(12.r),
+                    width: 135.w,
+                    text: "Counter Offer",
+                    textStyle: style.bodySmall?.copyWith(
+                      color: AppColors.bgColor1,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    containerColor: AppColors.bgColor4,
+                    borderColor: AppColors.bgColor1,
+                    textColor: AppColors.bgColor1,
+                    onPressed: () {
+                      context.push(RouteName.jobCounterOfferOfferScreen);
+                    },
                   ),
-                  containerColor: AppColors.bgColor4,
-                  borderColor: AppColors.bgColor1,
-                  textColor: AppColors.bgColor1,
-                  onPressed: () {
-                    context.push(RouteName.jobCounterOfferOfferScreen);
-                  },
                 ),
-                CustomButton(
-                  padding: EdgeInsets.all(12.r),
-                  width: 135.w,
-                  text: 'Accept',
-                  textStyle: style.bodySmall?.copyWith(
-                    color: AppColors.bgColor4,
-                    fontWeight: FontWeight.bold,
+                SizedBox(width: 6.w),
+                Expanded(
+                  child: CustomButton(
+                    padding: EdgeInsets.all(12.r),
+                    width: 135.w,
+                    text: 'Accept',
+                    textStyle: style.bodySmall?.copyWith(
+                      color: AppColors.bgColor4,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    containerColor: AppColors.bgColor1,
+                    textColor: AppColors.onPrimary,
+                    isBig: false,
+                    onPressed: () {
+                      onConfirmAcceptanceTap(context);
+                    },
                   ),
-                  containerColor: AppColors.bgColor1,
-                  textColor: AppColors.onPrimary,
-                  isBig: false,
-                  onPressed: () {
-                    onConfirmAcceptanceTap(context);
-                  },
                 ),
               ],
             ),

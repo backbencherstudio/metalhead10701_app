@@ -6,7 +6,6 @@ import 'package:metal_head/core/constant/icons.dart';
 import 'package:metal_head/core/constant/images.dart';
 import 'package:metal_head/core/routes/route_name.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
-import 'package:metal_head/features/common_widgets/common_custom_header.dart';
 
 import 'widgets/personal_info_list.dart';
 

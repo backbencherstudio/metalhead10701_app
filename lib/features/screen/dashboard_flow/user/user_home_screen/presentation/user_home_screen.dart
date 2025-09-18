@@ -95,6 +95,9 @@ class UserHomeScreen extends StatelessWidget {
                 title: 'Jobs Near By You',
                 style: style,
                 showViewAll: true,
+                onTap: (){
+                  context.push(RouteName.browseJobScreen);
+                },
               ),
               Column(
                 children: List.generate(
