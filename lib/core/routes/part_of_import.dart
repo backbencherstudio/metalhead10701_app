@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/routes/route_name.dart';
 import 'package:metal_head/features/screen/after_accept_counter_offer/presentation/after_accept_counter_offer.dart';
+import 'package:metal_head/features/screen/browse_job_screen/presentation/browse_job_screen.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/user_home_screen.dart';
 import 'package:metal_head/features/screen/job_counter_offer_screen/presentation/counter_offer_accepted_screen.dart';
 import 'package:metal_head/features/screen/job_post_screen/presentation/job_post_screen.dart';
