@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:metal_head/core/services/api_services/shared_preference.dart';
+import 'package:metal_head/core/services/shared_preference/shared_preference.dart';
 
 // import '../../utils/utils.dart';
 import '../../utils/utils.dart';
@@ -35,6 +35,7 @@ class ApiServices {
           headers: headers ?? {
             'Authorization': 'Bearer ${await SharedPreference().getToken()}',
             'Content-Type': 'application/json',
+            '': 'application/json',
           },
           body: jsonEncode(body),
         );

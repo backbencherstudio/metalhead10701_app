@@ -7,11 +7,12 @@ import 'package:metal_head/core/constant/icons.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import '../../../../../core/repository/auth/auth_repository_implemented.dart';
 import '../../../../../core/routes/route_name.dart';
+import '../../../../../core/services/shared_preference/shared_preference.dart';
 import '../../login_screen/presentation/widgets/input_label_text.dart';
 import '../../splash/presentation/widgets/custom_button.dart';
 
 
-enum SingingCharacter { lafayette, jefferson }
+enum SingingCharacter { user, helper }
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({super.key});
@@ -39,6 +40,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     _passController = TextEditingController();
     _typeController = TextEditingController();
     _userNameController = TextEditingController();
+
+    _typeController.text = SingingCharacter.user.name.toString();
     super.initState();
   }
 
@@ -52,7 +55,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     _passController.dispose();
     _typeController.dispose();
   }
-  SingingCharacter? _character = SingingCharacter.lafayette;
+  SingingCharacter? _character = SingingCharacter.user;
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -196,6 +199,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               InputLabel(labelText: 'Password', optional: ' *', style: style),
               SizedBox(height: 8.h),
               TextFormField(
+                controller: _passController,
                 style: style.bodyMedium?.copyWith(
                   color: AppColors.headlineTextColor,
                 ),
@@ -216,7 +220,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 onChanged: (SingingCharacter? value) {
                   setState(() {
                     _character = value;
-                    _typeController.text = value.toString();
+                    _typeController.text = value!.name.toString();
+                    debugPrint(value.name.toString());
                   });
                 },
                 child: Row(
@@ -238,7 +243,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           ),
                         ),
                         leading: Radio<SingingCharacter>(
-                          value: SingingCharacter.lafayette,
+                          value: SingingCharacter.user,
                           fillColor: WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
                             if (states.contains(WidgetState.selected)) {
                               return AppColors.bgColor6;
@@ -264,7 +269,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           ),
                         ),
                         leading: Radio<SingingCharacter>(
-                          value: SingingCharacter.jefferson,
+                          value: SingingCharacter.helper,
                           fillColor: WidgetStateProperty.resolveWith<Color>((
                             Set<WidgetState> states,
                           ) {
@@ -306,8 +311,31 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               Center(child: CustomButton(
                 text: 'Sign Up',
                 textColor: AppColors.onPrimary,
-                onPressed: ()=>context.go(RouteName.verificationScreen),
-                isBig: true,)),
+                onPressed: () async {
+                  final isRegisterSuccess = await AuthRepoImplemented().registerService(
+                      _firstNameController.text + _lastNameController.text,
+                      _userNameController.text,
+                      _firstNameController.text,
+                      _lastNameController.text,
+                      _phoneNumberController.text,
+                      _typeController.text,
+                      _emailController.text,
+                      _passController.text
+                  );
+
+                  if(isRegisterSuccess) {
+                    await SharedPreference().setEmailId(_emailController.text);
+                    debugPrint("\n\n\n\n$isRegisterSuccess\n\n\n\n");
+                    context.go(RouteName.verificationScreen);
+                  }
+                  else {
+                    debugPrint("\n\n\n\n$isRegisterSuccess\n\n\n\n");
+                    Fluttertoast.showToast(msg: "Something went wrong");
+                  }
+                },
+                isBig: true,
+              )
+              ),
               SizedBox(height: 20.h),
 
               Row(
@@ -325,26 +353,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           fontWeight: FontWeight.w600
                       ),),
                     onPressed: () async {
-                      if(
-                      await AuthRepoImplemented().registerService(
-                        _firstNameController.text + _lastNameController.text,
-                        _userNameController.text,
-                        _firstNameController.text,
-                          _lastNameController.text,
-                        _phoneNumberController.text,
-                          _typeController.text,
-                          _emailController.text,
-                        _passController.text
-                      )
-                      ) {
-                        context.go(RouteName.loginScreen);
-                      }
-                      else {
-                        Fluttertoast.showToast(msg: "Something went wrong");
-                      }
+                      context.go(RouteName.loginScreen);
                     },
                   ),
-
                 ]
               ),
               SizedBox(height: 20.h),

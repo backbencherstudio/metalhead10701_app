@@ -1,4 +1,4 @@
-class userRegistryModel {
+class UserRegistryModel {
   String? username;
   String? name;
   String? firstName;
@@ -8,7 +8,7 @@ class userRegistryModel {
   String? phoneNumber;
   String? type;
 
-  userRegistryModel(
+  UserRegistryModel(
       {this.username,
         this.name,
         this.firstName,
@@ -18,7 +18,7 @@ class userRegistryModel {
         this.phoneNumber,
         this.type});
 
-  userRegistryModel.fromJson(Map<String, dynamic> json) {
+  UserRegistryModel.fromJson(Map<String, dynamic> json) {
     username = json['username'];
     name = json['name'];
     firstName = json['first_name'];

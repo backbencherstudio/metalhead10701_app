@@ -17,6 +17,22 @@ class SharedPreference {
     prefs.remove('auth_token');
   }
 
+  // EMAIL
+  Future<String?> getEmailId() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('email');
+  }
+
+  Future<void> setEmailId(String? id) async{
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('email', id ?? "No email_id");
+  }
+
+  Future<void> removeEmailId() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove('email');
+  }
+
   // GAME ID
   Future<String?> getGameId() async {
     final prefs = await SharedPreferences.getInstance();
