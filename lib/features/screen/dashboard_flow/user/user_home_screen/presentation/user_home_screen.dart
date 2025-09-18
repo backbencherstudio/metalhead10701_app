@@ -78,6 +78,9 @@ class UserHomeScreen extends StatelessWidget {
                 title: 'Job Categories',
                 style: style,
                 showViewAll: true,
+                onTap: (){
+                  context.push(RouteName.jobCategoriesScreen);
+                },
               ),
               SizedBox(height: 12.h),
               ...List.generate(3, (index) {

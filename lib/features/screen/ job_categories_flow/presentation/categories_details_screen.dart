@@ -6,19 +6,20 @@ import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 import 'package:metal_head/features/screen/dashboard_flow/data/model/job_model.dart';
+import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/models/job_type_model.dart';
 import 'package:metal_head/features/screen/search_flow/data/provider/search_controller.dart';
 import '../../../../core/constant/icons.dart';
 import '../../../../core/routes/route_name.dart';
 import '../../../common_widgets/custom_job_card.dart';
 
-class BrowseJobScreen extends ConsumerStatefulWidget {
-  const BrowseJobScreen({super.key});
+class CategoriesDetailsScreen extends ConsumerStatefulWidget {
+  const CategoriesDetailsScreen({super.key});
 
   @override
-  ConsumerState<BrowseJobScreen> createState() => _SearchScreenState();
+  ConsumerState<CategoriesDetailsScreen> createState() => _SearchScreenState();
 }
 
-class _SearchScreenState extends ConsumerState<BrowseJobScreen> {
+class _SearchScreenState extends ConsumerState<CategoriesDetailsScreen> {
   late TextEditingController _controller;
   late FocusNode _focusNode;
 
@@ -66,7 +67,7 @@ class _SearchScreenState extends ConsumerState<BrowseJobScreen> {
                 ),
                 Padding(
                   padding: EdgeInsets.all(12.r),
-                  child: Text("All Job", style: style.bodyLarge,),
+                  child: Text(jobTypes[0].jobTitle, style: style.bodyLarge,),
                 ),
               ],
             ),
@@ -124,7 +125,7 @@ class _SearchScreenState extends ConsumerState<BrowseJobScreen> {
                       width: 24.w,
                       colorFilter: ColorFilter.mode(AppColors.bgColor1, BlendMode.srcIn),
                     ),
-                    onTap: () => context.push(RouteName.filterScreen),
+                    onTap: () => context.push(RouteName.categoriesFilterScreen),
                   ),
                 ],
               ),
