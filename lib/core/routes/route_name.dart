@@ -39,6 +39,9 @@ class RouteName {
   static const String profileScreen = "/ProfileScreen";
   static const String personalInfoEditingScreen = "/PersonalInfoEditingScreen";
   static const String browseJobScreen = "/BrowseJobScreen";
+  static const String jobCategoriesScreen = "/JobCategoriesScreen";
+  static const String categoriesDetailsScreen = "/CategoriesDetailsScreen";
+  static const String categoriesFilterScreen = "/CategoriesFilterScreen";
 
 
   //Search Flow

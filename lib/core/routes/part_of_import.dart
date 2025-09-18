@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/routes/route_name.dart';
+import 'package:metal_head/features/screen/%20job_categories_flow/presentation/categories_details_screen.dart';
+import 'package:metal_head/features/screen/%20job_categories_flow/presentation/category_filter_screen.dart';
+import 'package:metal_head/features/screen/%20job_categories_flow/presentation/job_categories_screen.dart';
 import 'package:metal_head/features/screen/after_accept_counter_offer/presentation/after_accept_counter_offer.dart';
 import 'package:metal_head/features/screen/browse_job_screen/presentation/browse_job_screen.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/user_home_screen.dart';
