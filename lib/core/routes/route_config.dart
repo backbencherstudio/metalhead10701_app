@@ -2,8 +2,8 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    // initialLocation: RouteName.jobCategoriesScreen,
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.messageScreen,
+    // initialLocation: RouteName.splashScreen,
 
     routes: [
       //Bottom NavBar USER
@@ -37,8 +37,8 @@ class RouteConfig {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RouteName.msgScreen1,
-                builder: (context, state) => const UserHomeScreen(),
+                path: RouteName.messageScreen,
+                builder: (context, state) => const MessageScreen(),
               ),
             ],
           ),

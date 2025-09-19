@@ -134,6 +134,7 @@ class _SearchScreenState extends ConsumerState<CategoriesDetailsScreen> {
             // Job List
             Expanded(
               child: ListView.builder(
+                padding: EdgeInsets.zero,
                 itemCount: jobs.length, // Directly use 'jobs' list
                 itemBuilder: (context, index) => Padding(
                   padding: EdgeInsets.symmetric(vertical: 12.h),
