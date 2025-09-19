@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+import '../../../../../core/data/provider/store_cache.dart';
 import '../../../../../core/repository/auth/auth_repository_implemented.dart';
 import '../../../../../core/routes/route_name.dart';
 import '../../../../../core/services/shared_preference/shared_preference.dart';
@@ -20,7 +21,6 @@ class VerificationScreen extends StatefulWidget {
 
 class _VerificationScreenState extends State<VerificationScreen> {
   late TextEditingController _otpController;
-  late String? _givenEmail;
   @override
   void initState() {
     _otpController = TextEditingController();
@@ -36,7 +36,6 @@ class _VerificationScreenState extends State<VerificationScreen> {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
-    _givenEmail = await SharedPreference().getEmailId();
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -61,17 +60,23 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 ),
               ),
               SizedBox(height: 6.h),
-              Text(
-                'A verification code has been sent to your phone number: $_givenEmail. This code will expire in 2 minutes.',
-                style: style.bodySmall?.copyWith(
-                  color: AppColors.greyTextColor,
-                ),
+              Consumer(
+                builder: (_, ref, _) {
+                  final email = ref.watch(getEmailProvider);
+                  return Text(
+                    'A verification code has been sent to your mail address: $email. This code will expire in 2 minutes.',
+                    style: style.bodySmall?.copyWith(
+                      color: AppColors.greyTextColor,
+                    ),
+                  );
+                }
               ),
               SizedBox(height: 24.h),
 
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.h),
                 child: PinCodeTextField(
+                  controller: _otpController,
                   textStyle: style.headlineSmall?.copyWith(
                     color: AppColors.headlineTextColor,
                   ),
@@ -124,6 +129,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                         text: 'Verify',
                         textColor: AppColors.onPrimary,
                         onPressed: () async {
+                          debugPrint("\n\n\n\n${_otpController.text}\n\n\n\n");
                             final isMailVerified = await AuthRepoImplemented().verifyMailService(_otpController.text);
                             if(isMailVerified) {
                               context.go(RouteName.successScreen);
@@ -136,8 +142,8 @@ class _VerificationScreenState extends State<VerificationScreen> {
                         builder: (_, ref, _) {
                           final checkTimerFinished = ref.watch(countDownFinished);
                           return (checkTimerFinished) ? TextButton(
-                            onPressed: () {
-                              AuthRepoImplemented().resendOtpService(_givenEmail.toString());
+                            onPressed: () async {
+                              await AuthRepoImplemented().resendOtpService();
                               ref.read(countDownFinished.notifier).state = false;
                               ref.read(countdownTimerProvider.notifier).reset();
                             },

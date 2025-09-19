@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/constant/icons.dart';
+import 'package:metal_head/core/data/provider/store_cache.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import '../../../../../core/repository/auth/auth_repository_implemented.dart';
 import '../../../../../core/routes/route_name.dart';
@@ -69,14 +71,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 50.h),
-              Padding(
-                padding: EdgeInsets.all(8.r),
-                child: GestureDetector(
-                    onTap: (){
-                      Navigator.pop(context);
-                    },
-                    child: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.headlineTextColor,)),
-              ),
               SizedBox(height: 8.h),
               Text(
                 "Let's Create Account!",
@@ -308,32 +302,37 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               
               SizedBox(height: 20.h),
 
-              Center(child: CustomButton(
-                text: 'Sign Up',
-                textColor: AppColors.onPrimary,
-                onPressed: () async {
-                  final isRegisterSuccess = await AuthRepoImplemented().registerService(
-                      _firstNameController.text + _lastNameController.text,
-                      _userNameController.text,
-                      _firstNameController.text,
-                      _lastNameController.text,
-                      _phoneNumberController.text,
-                      _typeController.text,
-                      _emailController.text,
-                      _passController.text
-                  );
+              Center(child: Consumer(
+                builder: (_, ref, _) {
+                  return CustomButton(
+                    text: 'Sign Up',
+                    textColor: AppColors.onPrimary,
+                    onPressed: () async {
+                      final isRegisterSuccess = await AuthRepoImplemented().registerService(
+                          _firstNameController.text + _lastNameController.text,
+                          _userNameController.text,
+                          _firstNameController.text,
+                          _lastNameController.text,
+                          _phoneNumberController.text,
+                          _typeController.text,
+                          _emailController.text,
+                          _passController.text
+                      );
 
-                  if(isRegisterSuccess) {
-                    await SharedPreference().setEmailId(_emailController.text);
-                    debugPrint("\n\n\n\n$isRegisterSuccess\n\n\n\n");
-                    context.go(RouteName.verificationScreen);
-                  }
-                  else {
-                    debugPrint("\n\n\n\n$isRegisterSuccess\n\n\n\n");
-                    Fluttertoast.showToast(msg: "Something went wrong");
-                  }
-                },
-                isBig: true,
+                      if(isRegisterSuccess) {
+                        ref.read(getEmailProvider.notifier).state = _emailController.text;
+                        await SharedPreference().setEmailId(_emailController.text);
+                        debugPrint("\n\n\n\n${await SharedPreference().getEmailId()}\n\n\n\n");
+                        context.go(RouteName.verificationScreen);
+                      }
+                      else {
+                        debugPrint("\n\n\n\n$isRegisterSuccess\n\n\n\n");
+                        Fluttertoast.showToast(msg: "Something went wrong");
+                      }
+                    },
+                    isBig: true,
+                  );
+                }
               )
               ),
               SizedBox(height: 20.h),

@@ -42,9 +42,10 @@ class AuthRepoImplemented implements AuthRepository{
   // Verify Mail
   Future<bool> verifyMailService(String otp) async {
     try{
+      final email = await SharedPreference().getEmailId();
       final response = await ApiServices.instance.postData(
         body: {
-          "email": "bihevob488@ekuali.com",
+          "email": email,
           "token": otp
         },
         headers: {
@@ -66,8 +67,9 @@ class AuthRepoImplemented implements AuthRepository{
   }
 
   // Resend Otp
-  Future<bool> resendOtpService(String mail) async {
+  Future<bool> resendOtpService() async {
     try{
+      final mail = await SharedPreference().getEmailId();
       final response = await ApiServices.instance.postData(
         body: {
           "email": mail
@@ -99,14 +101,18 @@ class AuthRepoImplemented implements AuthRepository{
             "email": email,
             "password": password
           },
+        headers: {
+          'Content-Type': 'application/json',
+        },
       );
-      debugPrint(response);
+      Fluttertoast.showToast(msg: response['message']);
       if(response['success'] == true) {
-        await SharedPreference().setToken(response['authorization']['token']);
+        await SharedPreference().setToken(response['authorization']['access_token']);
         debugPrint("\n\n\nToken: ${await SharedPreference().getToken()}\n\n\n");
         return true;
       }
     }catch(e){
+      debugPrint("\n\n\nRepo Implemented: $e\n\n\n");
       return false;
     }
     return true;

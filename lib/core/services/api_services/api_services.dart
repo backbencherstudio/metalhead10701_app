@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:metal_head/core/services/shared_preference/shared_preference.dart';
 
@@ -35,7 +36,6 @@ class ApiServices {
           headers: headers ?? {
             'Authorization': 'Bearer ${await SharedPreference().getToken()}',
             'Content-Type': 'application/json',
-            '': 'application/json',
           },
           body: jsonEncode(body),
         );
