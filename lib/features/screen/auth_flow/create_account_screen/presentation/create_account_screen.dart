@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/constant/icons.dart';
+import 'package:metal_head/core/data/provider/store_cache.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
+import '../../../../../core/repository/auth/auth_repository_implemented.dart';
 import '../../../../../core/routes/route_name.dart';
+import '../../../../../core/services/shared_preference/shared_preference.dart';
 import '../../login_screen/presentation/widgets/input_label_text.dart';
 import '../../splash/presentation/widgets/custom_button.dart';
 
 
-enum SingingCharacter { lafayette, jefferson }
+enum SingingCharacter { user, helper }
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({super.key});
@@ -19,7 +24,40 @@ class CreateAccountScreen extends StatefulWidget {
 }
 
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
-  SingingCharacter? _character = SingingCharacter.lafayette;
+
+  late TextEditingController _firstNameController;
+  late TextEditingController _lastNameController;
+  late TextEditingController _phoneNumberController;
+  late TextEditingController _emailController;
+  late TextEditingController _passController;
+  late TextEditingController _typeController;
+  late TextEditingController _userNameController;
+
+  @override
+  void initState() {
+    _firstNameController = TextEditingController();
+    _lastNameController = TextEditingController();
+    _phoneNumberController = TextEditingController();
+    _emailController = TextEditingController();
+    _passController = TextEditingController();
+    _typeController = TextEditingController();
+    _userNameController = TextEditingController();
+
+    _typeController.text = SingingCharacter.user.name.toString();
+    super.initState();
+  }
+
+  @override
+  dispose(){
+    super.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _phoneNumberController.dispose();
+    _emailController.dispose();
+    _passController.dispose();
+    _typeController.dispose();
+  }
+  SingingCharacter? _character = SingingCharacter.user;
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -33,14 +71,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 50.h),
-              Padding(
-                padding: EdgeInsets.all(8.r),
-                child: GestureDetector(
-                    onTap: (){
-                      Navigator.pop(context);
-                    },
-                    child: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.headlineTextColor,)),
-              ),
               SizedBox(height: 8.h),
               Text(
                 "Let's Create Account!",
@@ -60,6 +90,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               InputLabel(labelText: 'First Name', optional: ' *', style: style),
               SizedBox(height: 8.h),
               TextFormField(
+                controller: _firstNameController,
                 style: style.bodyMedium?.copyWith(
                   color: AppColors.headlineTextColor,
                 ),
@@ -75,6 +106,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
               SizedBox(height: 8.h),
               TextFormField(
+                controller: _lastNameController,
                 style: style.bodyMedium?.copyWith(
                   color: AppColors.headlineTextColor,
                 ),
@@ -85,6 +117,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               InputLabel(labelText: 'Email', optional: ' *', style: style),
               SizedBox(height: 8.h),
               TextFormField(
+                controller: _emailController,
                 style: style.bodyMedium?.copyWith(
                   color: AppColors.headlineTextColor,
                 ),
@@ -99,6 +132,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
               SizedBox(height: 8.h),
               TextFormField(
+                controller: _phoneNumberController,
                 style: style.bodyMedium?.copyWith(
                   color: AppColors.headlineTextColor,
                 ),
@@ -148,6 +182,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               InputLabel(labelText: 'User Name', optional: ' *', style: style),
               SizedBox(height: 8.h),
               TextFormField(
+                controller: _userNameController,
                 style: style.bodyMedium?.copyWith(
                   color: AppColors.headlineTextColor,
                 ),
@@ -158,6 +193,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               InputLabel(labelText: 'Password', optional: ' *', style: style),
               SizedBox(height: 8.h),
               TextFormField(
+                controller: _passController,
                 style: style.bodyMedium?.copyWith(
                   color: AppColors.headlineTextColor,
                 ),
@@ -178,6 +214,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 onChanged: (SingingCharacter? value) {
                   setState(() {
                     _character = value;
+                    _typeController.text = value!.name.toString();
+                    debugPrint(value.name.toString());
                   });
                 },
                 child: Row(
@@ -199,7 +237,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           ),
                         ),
                         leading: Radio<SingingCharacter>(
-                          value: SingingCharacter.lafayette,
+                          value: SingingCharacter.user,
                           fillColor: WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
                             if (states.contains(WidgetState.selected)) {
                               return AppColors.bgColor6;
@@ -225,7 +263,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           ),
                         ),
                         leading: Radio<SingingCharacter>(
-                          value: SingingCharacter.jefferson,
+                          value: SingingCharacter.helper,
                           fillColor: WidgetStateProperty.resolveWith<Color>((
                             Set<WidgetState> states,
                           ) {
@@ -264,11 +302,39 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               
               SizedBox(height: 20.h),
 
-              Center(child: CustomButton(
-                text: 'Sign Up',
-                textColor: AppColors.onPrimary,
-                onPressed: ()=>context.go(RouteName.verificationScreen),
-                isBig: true,)),
+              Center(child: Consumer(
+                builder: (_, ref, _) {
+                  return CustomButton(
+                    text: 'Sign Up',
+                    textColor: AppColors.onPrimary,
+                    onPressed: () async {
+                      final isRegisterSuccess = await AuthRepoImplemented().registerService(
+                          _firstNameController.text + _lastNameController.text,
+                          _userNameController.text,
+                          _firstNameController.text,
+                          _lastNameController.text,
+                          _phoneNumberController.text,
+                          _typeController.text,
+                          _emailController.text,
+                          _passController.text
+                      );
+
+                      if(isRegisterSuccess) {
+                        ref.read(getEmailProvider.notifier).state = _emailController.text;
+                        await SharedPreference().setEmailId(_emailController.text);
+                        debugPrint("\n\n\n\n${await SharedPreference().getEmailId()}\n\n\n\n");
+                        context.go(RouteName.verificationScreen);
+                      }
+                      else {
+                        debugPrint("\n\n\n\n$isRegisterSuccess\n\n\n\n");
+                        Fluttertoast.showToast(msg: "Something went wrong");
+                      }
+                    },
+                    isBig: true,
+                  );
+                }
+              )
+              ),
               SizedBox(height: 20.h),
 
               Row(
@@ -285,9 +351,10 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           color: AppColors.bgColor6,
                           fontWeight: FontWeight.w600
                       ),),
-                    onPressed: ()=>context.go(RouteName.loginScreen),
+                    onPressed: () async {
+                      context.go(RouteName.loginScreen);
+                    },
                   ),
-
                 ]
               ),
               SizedBox(height: 20.h),

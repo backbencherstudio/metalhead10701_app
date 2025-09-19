@@ -6,7 +6,12 @@
 // import 'package:intl/intl.dart';
 // import '../theme/theme_extension/app_colors.dart';
 
-// class Utils {
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+class Utils {
 //   static Widget customAppBar({
 //     String? leadingImageAddress,
 //     String? title,
@@ -221,20 +226,20 @@
 //     return months[month - 1];
 //   }
 
-//   // static Future<bool> isOnline() async {
-//   //   try {
-//   //     final result = await Connectivity().checkConnectivity();
-//   //     if (result.contains(ConnectivityResult.wifi) ||
-//   //         result.contains(ConnectivityResult.mobile) ||
-//   //         result.contains(ConnectivityResult.ethernet)) {
-//   //       return true;
-//   //     } else {
-//   //       return false;
-//   //     }
-//   //   } on PlatformException catch (e) {
-//   //     throw Exception('Couldn\'t check connectivity status: $e');
-//   //   }
-//   // }
+  static Future<bool> isOnline() async {
+    try {
+      final result = await Connectivity().checkConnectivity();
+      if (result.contains(ConnectivityResult.wifi) ||
+          result.contains(ConnectivityResult.mobile) ||
+          result.contains(ConnectivityResult.ethernet)) {
+        return true;
+      } else {
+        return false;
+      }
+    } on PlatformException catch (e) {
+      throw Exception('Couldn\'t check connectivity status: $e');
+    }
+  }
 
 //   static void alertOfflineActivity() {
 //     Fluttertoast.showToast(
@@ -303,14 +308,14 @@
 //     );
 //   }
 
-//   static Future<bool?> showErrorToast({required String message}) {
-//     return Fluttertoast.showToast(
-//       msg: message,
-//       backgroundColor: Colors.red,
-//       textColor: Colors.white,
-//     );
-//   }
+  static Future<bool?> showErrorToast({required String message}) {
+    return Fluttertoast.showToast(
+      msg: message,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+    );
+  }
 
 
 
-// }
+}

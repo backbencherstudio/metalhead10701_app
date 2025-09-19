@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/screen/auth_flow/login_screen/presentation/widgets/check_box.dart';
+import '../../../../../core/repository/auth/auth_repository_implemented.dart';
 import '../../../../../core/routes/route_name.dart';
 import '../../create_account_screen/presentation/widgets/input_label_text.dart';
 import '../../splash/presentation/widgets/custom_button.dart';
@@ -15,6 +16,22 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  late TextEditingController _emailController;
+  late TextEditingController _passController;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController = TextEditingController();
+    _passController = TextEditingController();
+  }
+
+  @override
+  dispose(){
+    _emailController.dispose();
+    _passController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -27,10 +44,6 @@ class _LoginScreenState extends State<LoginScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 50.h),
-            Padding(
-              padding: EdgeInsets.all(8.r),
-              child: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.headlineTextColor,),
-            ),
             SizedBox(height: 8.h),
             Text(
               "Log in",
@@ -50,6 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
             InputLabel(labelText: 'User Name or Email', optional: ' *', style: style),
             SizedBox(height: 8.h),
             TextFormField(
+              controller: _emailController,
               style: style.bodyMedium?.copyWith(
                 color: AppColors.headlineTextColor,
               ),
@@ -59,6 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
             InputLabel(labelText: 'Password', style: style),
             SizedBox(height: 8.h),
             TextFormField(
+              controller: _passController,
               style: style.bodyMedium?.copyWith(
                 color: AppColors.headlineTextColor,
               ),
@@ -81,8 +96,14 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(height: 20.h),
             Center(child: CustomButton(text: 'Log In',
               textColor: AppColors.onPrimary,
-              onPressed: () {
-                context.go(RouteName.userHomeScreen);
+              onPressed: () async {
+              debugPrint(_emailController.text);
+              debugPrint(_passController.text);
+                final isLoginSuccess = await AuthRepoImplemented().loginService(_emailController.text, _passController.text);
+                debugPrint(isLoginSuccess.toString());
+                if(isLoginSuccess) {
+                  context.go(RouteName.userHomeScreen);
+                }
               },
               isBig: true,)),
             SizedBox(height: 24.h),
