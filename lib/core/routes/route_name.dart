@@ -42,6 +42,7 @@ class RouteName {
   static const String jobCategoriesScreen = "/JobCategoriesScreen";
   static const String categoriesDetailsScreen = "/CategoriesDetailsScreen";
   static const String categoriesFilterScreen = "/CategoriesFilterScreen";
+  static const String messageScreen = "/MessageScreen";
 
 
   //Search Flow

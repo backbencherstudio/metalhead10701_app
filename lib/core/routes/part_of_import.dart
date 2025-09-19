@@ -9,6 +9,7 @@ import 'package:metal_head/features/screen/browse_job_screen/presentation/browse
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/user_home_screen.dart';
 import 'package:metal_head/features/screen/job_counter_offer_screen/presentation/counter_offer_accepted_screen.dart';
 import 'package:metal_head/features/screen/job_post_screen/presentation/job_post_screen.dart';
+import 'package:metal_head/features/screen/message_screen_flow/presentation/message_screen.dart';
 import 'package:metal_head/features/screen/profile_screen/presentation/personal_info_editing_screen.dart';
 import 'package:metal_head/features/screen/profile_screen/presentation/profile_screen.dart';
 import '../../features/screen/after_accept_counter_offer/presentation/after_accept_job_user_side.dart';

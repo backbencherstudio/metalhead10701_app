@@ -78,6 +78,7 @@ class _SearchScreenState extends ConsumerState<JobCategoriesScreen> {
             ),
             Expanded(
               child: ListView(
+                padding: EdgeInsets.zero,
                 children: List.generate(jobTypes.length, (index) {
                   return Column(
                     children: [
