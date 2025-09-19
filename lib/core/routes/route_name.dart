@@ -30,6 +30,20 @@ class RouteName {
   static const String msgScreen2 = "/MsgScreen2";
   static const String profileScreen2 = "/ProfileScreen2";
 
+
+  static const String jobCounterOfferOfferScreen = "/JobCounterOfferOfferScreen";
+  static const String afterAcceptCounterOffer = "/AfterAcceptCounterOffer";
+  static const String afterAcceptJobUserSide = "/AfterAcceptJobUserSide";
+  static const String jobPostScreen = "/JobPostScreen";
+  static const String counterOfferAcceptedScreen = "/CounterOfferAcceptedScreen";
+  static const String profileScreen = "/ProfileScreen";
+  static const String personalInfoEditingScreen = "/PersonalInfoEditingScreen";
+  static const String browseJobScreen = "/BrowseJobScreen";
+  static const String jobCategoriesScreen = "/JobCategoriesScreen";
+  static const String categoriesDetailsScreen = "/CategoriesDetailsScreen";
+  static const String categoriesFilterScreen = "/CategoriesFilterScreen";
+
+
   //Search Flow
   static const String searchScreen = "/SearchScreen";
   static const String filterScreen = "/FilterScreen";

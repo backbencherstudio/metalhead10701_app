@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/routes/route_name.dart';
+import 'package:metal_head/features/screen/%20job_categories_flow/presentation/categories_details_screen.dart';
+import 'package:metal_head/features/screen/%20job_categories_flow/presentation/category_filter_screen.dart';
+import 'package:metal_head/features/screen/%20job_categories_flow/presentation/job_categories_screen.dart';
+import 'package:metal_head/features/screen/after_accept_counter_offer/presentation/after_accept_counter_offer.dart';
+import 'package:metal_head/features/screen/browse_job_screen/presentation/browse_job_screen.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/user_home_screen.dart';
+import 'package:metal_head/features/screen/job_counter_offer_screen/presentation/counter_offer_accepted_screen.dart';
+import 'package:metal_head/features/screen/job_post_screen/presentation/job_post_screen.dart';
+import 'package:metal_head/features/screen/profile_screen/presentation/personal_info_editing_screen.dart';
+import 'package:metal_head/features/screen/profile_screen/presentation/profile_screen.dart';
+import '../../features/screen/after_accept_counter_offer/presentation/after_accept_job_user_side.dart';
 import '../../features/screen/auth_flow/complete_profile_setup_screen/presentation/complete_profile_setup_screen.dart';
 import '../../features/screen/auth_flow/create_account_screen/presentation/create_account_screen.dart';
 import '../../features/screen/auth_flow/forgot_screen/presentation/forgot_screen.dart';
@@ -14,6 +24,7 @@ import '../../features/screen/auth_flow/success_screen/presentation/success_scre
 import '../../features/screen/auth_flow/verification_screen/presentation/verification_screen.dart';
 import '../../features/screen/dashboard_flow/common/job_details_screen/presentation/job_details_screen.dart';
 import '../../features/screen/dashboard_flow/helper/helper_home_screen/presentation/helper_home_screen.dart';
+import '../../features/screen/job_counter_offer_screen/presentation/job_counter_offer_screen.dart';
 import '../../features/screen/search_flow/presentation/filter_screen.dart';
 import '../../features/screen/search_flow/presentation/search_screen.dart';
 import '../utils/common_widget/nav_bar/bottom_navbar.dart';

@@ -107,6 +107,9 @@ class HelperHomeScreen extends StatelessWidget {
                   title: 'Job Categories',
                   style: style,
                   showViewAll: true,
+                  onTap: (){
+                    // Added job Categories
+                  },
                 ),
                 SizedBox(height: 12.h),
                 ...List.generate(jobTypes.length, (index) {
@@ -123,6 +126,9 @@ class HelperHomeScreen extends StatelessWidget {
                   title: 'Jobs Near By You',
                   style: style,
                   showViewAll: true,
+                  onTap: (){
+                    context.push(RouteName.browseJobScreen);
+                  },
                 ),
                 Column(
                   children: List.generate(3, (jobIndex)=>Padding(

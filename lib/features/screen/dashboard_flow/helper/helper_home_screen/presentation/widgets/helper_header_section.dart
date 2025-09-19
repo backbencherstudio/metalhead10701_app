@@ -54,12 +54,11 @@ class HelperHeaderSection extends StatelessWidget {
                       final currentMode = ref.watch(isUserMode);
                       return CustomButton(
                         text: 'Helper Mode',
-                        textColor: AppColors.whiteTextColor,
                         onPressed: () {
                           ref.read(isUserMode.notifier).state = !currentMode;
                           context.go(RouteName.userHomeScreen);
                         },
-                        width: 98.w,
+                        width: 100.w,
                         padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
                         textStyle: style.labelSmall?.copyWith(
                           color: AppColors.whiteTextColor,

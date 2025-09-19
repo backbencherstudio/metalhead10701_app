@@ -14,10 +14,23 @@ class AppIcons {
   static const String movingSvg = '$iconPath/package_moving.svg';
   static const String cleaningSvg = '$iconPath/cleaning_bucket.svg';
   static const String notificationSvg = '$iconPath/notification.svg';
+  static const String notification2Svg = '$iconPath/notification_2.svg';
   static const String moneySvg = '$iconPath/money_bag.svg';
   static const String starSvg = '$iconPath/star.svg';
   static const String filesSvg = '$iconPath/files.svg';
   static const String alertSvg = '$iconPath/alert_circle.svg';
+  static const String dollarSvg = '$iconPath/dollar.svg';
+  static const String menuSvg = '$iconPath/menu_circle.svg';
+  static const String uploadSvg = '$iconPath/upload.svg';
+  static const String checkMarkSvg = '$iconPath/checkmark_circle.svg';
+  static const String creditSvg = '$iconPath/credit_card.svg';
+  static const String idSvg = '$iconPath/id.svg';
+  static const String jobSearchSvg = '$iconPath/job_search.svg';
+  static const String logoutSvg = '$iconPath/logout.svg';
+  static const String newJobSvg = '$iconPath/new_job.svg';
+  static const String pencilEditSvg = '$iconPath/pencil_edit.svg';
+  static const String arrowRightSvg = '$iconPath/arrowRightSvg.svg';
+  static const String trashSvg = '$iconPath/trash.svg';
 
 
   // bottom navbar

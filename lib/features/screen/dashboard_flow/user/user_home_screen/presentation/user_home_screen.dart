@@ -78,6 +78,9 @@ class UserHomeScreen extends StatelessWidget {
                 title: 'Job Categories',
                 style: style,
                 showViewAll: true,
+                onTap: (){
+                  context.push(RouteName.jobCategoriesScreen);
+                },
               ),
               SizedBox(height: 12.h),
               ...List.generate(3, (index) {
@@ -95,6 +98,9 @@ class UserHomeScreen extends StatelessWidget {
                 title: 'Jobs Near By You',
                 style: style,
                 showViewAll: true,
+                onTap: (){
+                  context.push(RouteName.browseJobScreen);
+                },
               ),
               Column(
                 children: List.generate(

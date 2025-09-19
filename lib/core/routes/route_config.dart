@@ -2,6 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
+    // initialLocation: RouteName.jobCategoriesScreen,
     initialLocation: RouteName.splashScreen,
 
     routes: [
@@ -44,14 +45,13 @@ class RouteConfig {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RouteName.profileScreen1,
-                builder: (context, state) => const UserHomeScreen(),
+                path: RouteName.profileScreen,
+                builder: (context, state) => const ProfileScreen(),
               ),
             ],
           ),
         ],
       ),
-
 
       //Bottom NavBar Helper
       StatefulShellRoute.indexedStack(
@@ -150,6 +150,27 @@ class RouteConfig {
           return const MaterialPage(child: JobDetailsScreen());
         },
       ),
+      GoRoute(
+        name: RouteName.jobCounterOfferOfferScreen,
+        path: RouteName.jobCounterOfferOfferScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: JobCounterOfferOfferScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.afterAcceptCounterOffer,
+        path: RouteName.afterAcceptCounterOffer,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AfterAcceptCounterOffer());
+        },
+      ),
+      GoRoute(
+        name: RouteName.afterAcceptJobUserSide,
+        path: RouteName.afterAcceptJobUserSide,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AfterAcceptJobUserSide());
+        },
+      ),
 
       GoRoute(
         name: RouteName.loginScreen,
@@ -218,16 +239,71 @@ class RouteConfig {
       ),
 
       GoRoute(
+        name: RouteName.jobPostScreen,
+        path: RouteName.jobPostScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: JobPostScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.counterOfferAcceptedScreen,
+        path: RouteName.counterOfferAcceptedScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: CounterOfferAcceptedScreen());
+        },
+      ),
+
+      GoRoute(
         name: RouteName.searchScreen,
         path: RouteName.searchScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: SearchScreen());
         },
-      ),GoRoute(
+      ),
+
+      GoRoute(
         name: RouteName.filterScreen,
         path: RouteName.filterScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: FilterScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.personalInfoEditingScreen,
+        path: RouteName.personalInfoEditingScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: PersonalInfoEditingScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.browseJobScreen,
+        path: RouteName.browseJobScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: BrowseJobScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.jobCategoriesScreen,
+        path: RouteName.jobCategoriesScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: JobCategoriesScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.categoriesFilterScreen,
+        path: RouteName.categoriesFilterScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: CategoriesFilterScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.categoriesDetailsScreen,
+        path: RouteName.categoriesDetailsScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: CategoriesDetailsScreen());
         },
       ),
 
