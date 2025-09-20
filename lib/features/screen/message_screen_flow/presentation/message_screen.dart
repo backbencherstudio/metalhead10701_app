@@ -314,7 +314,10 @@ class _MessageScreenState extends ConsumerState<MessageScreen> {
                               ),
                             ),
                             onTap: () {
-
+                              context.push(
+                                RouteName.chatConversationScreen,
+                                extra: item, // Pass the entire MessageItem object
+                              );
                             },
                           ),
                         );

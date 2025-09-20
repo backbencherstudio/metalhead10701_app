@@ -306,6 +306,20 @@ class RouteConfig {
           return const MaterialPage(child: CategoriesDetailsScreen());
         },
       ),
+      GoRoute(
+        name: RouteName.chatConversationScreen,
+        path: RouteName.chatConversationScreen,
+        builder: (context, state) {
+          final item = state.extra as MessageItem?;
+          if (item == null) {
+            return Scaffold(
+              body: Center(child: Text('No chat data')),
+            );
+          }
+          return ChatConversationScreen(messageItem: item);
+        },
+      ),
+
 
       // GoRoute(
       //   name: RouteName.ebookPlay,
