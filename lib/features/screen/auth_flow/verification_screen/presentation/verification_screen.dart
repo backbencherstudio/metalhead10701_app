@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+import '../../../../../core/data/provider/store_cache.dart';
+import '../../../../../core/repository/auth/auth_repository_implemented.dart';
 import '../../../../../core/routes/route_name.dart';
+import '../../../../../core/services/shared_preference/shared_preference.dart';
 import '../../../../../core/theme/theme_extension/app_colors.dart';
 import '../../splash/presentation/widgets/custom_button.dart';
+import '../provider/countDown.dart';
 
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
@@ -15,6 +20,19 @@ class VerificationScreen extends StatefulWidget {
 }
 
 class _VerificationScreenState extends State<VerificationScreen> {
+  late TextEditingController _otpController;
+  @override
+  void initState() {
+    _otpController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _otpController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -42,21 +60,27 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 ),
               ),
               SizedBox(height: 6.h),
-              Text(
-                'A verification code has been sent to your phone number: Josephine_Towne@hotmail.com. This code will expire in 1 minutes.',
-                style: style.bodySmall?.copyWith(
-                  color: AppColors.greyTextColor,
-                ),
+              Consumer(
+                builder: (_, ref, _) {
+                  final email = ref.watch(getEmailProvider);
+                  return Text(
+                    'A verification code has been sent to your mail address: $email. This code will expire in 2 minutes.',
+                    style: style.bodySmall?.copyWith(
+                      color: AppColors.greyTextColor,
+                    ),
+                  );
+                }
               ),
               SizedBox(height: 24.h),
 
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.h),
                 child: PinCodeTextField(
+                  controller: _otpController,
                   textStyle: style.headlineSmall?.copyWith(
                     color: AppColors.headlineTextColor,
                   ),
-                  length: 4,
+                  length: 6,
                   obscureText: false,
                   animationType: AnimationType.fade,
                   animationDuration: Duration(milliseconds: 300),
@@ -71,7 +95,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   ),
                   appContext: context,
                   validator: (String? value) {
-                    if (value == null || value.length < 4) {
+                    if (value == null || value.length < 6) {
                       return 'Enter a valid OTP';
                     }
                     return null;
@@ -80,12 +104,17 @@ class _VerificationScreenState extends State<VerificationScreen> {
               ),
               SizedBox(height: 8.h),
               Center(
-                child: Text(
-                  'This OTP will be available during 00:59sec',
-                  style: style.bodySmall?.copyWith(
-                    color: AppColors.greyTextColor,
-                    fontWeight: FontWeight.w400,
-                  ),
+                child: Consumer(
+                  builder: (_, ref, _) {
+                    final timer = ref.watch(countdownTimerProvider);
+                    return Text(
+                      'This OTP will be available during $timer sec',
+                      style: style.bodySmall?.copyWith(
+                        color: AppColors.greyTextColor,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    );
+                  }
                 ),
               ),
               Center(
@@ -99,19 +128,34 @@ class _VerificationScreenState extends State<VerificationScreen> {
                       CustomButton(
                         text: 'Verify',
                         textColor: AppColors.onPrimary,
-                        onPressed: () => context.go(RouteName.successScreen),
+                        onPressed: () async {
+                          debugPrint("\n\n\n\n${_otpController.text}\n\n\n\n");
+                            final isMailVerified = await AuthRepoImplemented().verifyMailService(_otpController.text);
+                            if(isMailVerified) {
+                              context.go(RouteName.successScreen);
+                            }
+                        },
                         isBig: true,
                       ),
                       SizedBox(height: 8.w),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Resend code',
-                          style: style.bodySmall?.copyWith(
-                            color: AppColors.redTextColor,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                      Consumer(
+                        builder: (_, ref, _) {
+                          final checkTimerFinished = ref.watch(countDownFinished);
+                          return (checkTimerFinished) ? TextButton(
+                            onPressed: () async {
+                              await AuthRepoImplemented().resendOtpService();
+                              ref.read(countDownFinished.notifier).state = false;
+                              ref.read(countdownTimerProvider.notifier).reset();
+                            },
+                            child: Text(
+                              'Resend code',
+                              style: style.bodySmall?.copyWith(
+                                color: AppColors.redTextColor,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ) : SizedBox();
+                        }
                       ),
                     ],
                   ),
