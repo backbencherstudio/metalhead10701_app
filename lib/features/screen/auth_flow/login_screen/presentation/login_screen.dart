@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:metal_head/core/data/provider/userController.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/screen/auth_flow/login_screen/presentation/widgets/check_box.dart';
+import '../../../../../core/data/provider/loading_provider.dart';
 import '../../../../../core/repository/auth/auth_repository_implemented.dart';
+import '../../../../../core/repository/home/home_repository_implemented.dart';
 import '../../../../../core/routes/route_name.dart';
 import '../../create_account_screen/presentation/widgets/input_label_text.dart';
 import '../../splash/presentation/widgets/custom_button.dart';
@@ -94,18 +98,30 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             SizedBox(height: 20.h),
-            Center(child: CustomButton(text: 'Log In',
-              textColor: AppColors.onPrimary,
-              onPressed: () async {
-              debugPrint(_emailController.text);
-              debugPrint(_passController.text);
-                final isLoginSuccess = await AuthRepoImplemented().loginService(_emailController.text, _passController.text);
-                debugPrint(isLoginSuccess.toString());
-                if(isLoginSuccess) {
-                  context.go(RouteName.userHomeScreen);
-                }
-              },
-              isBig: true,)),
+            Center(child: Consumer(
+              builder: (_, ref, _) {
+                final isLoading = ref.watch(loadingProvider);
+                return isLoading ? const CircularProgressIndicator(
+                  color: Colors.red,
+                ) : CustomButton(text: 'Log In',
+                  textColor: AppColors.onPrimary,
+                  onPressed: () async {
+                  ref.read(loadingProvider.notifier).state = true;
+                  debugPrint(_emailController.text);
+                  debugPrint(_passController.text);
+                    final isLoginSuccess = await AuthRepoImplemented().loginService(_emailController.text, _passController.text);
+                    debugPrint(isLoginSuccess.toString());
+                    if(isLoginSuccess) {
+                      final user = await HomeRepoImplemented().loadUser();
+                      debugPrint("\n\n\n\n$user\n\n\n\n");
+                      ref.read(userProvider.notifier).state = user;
+                      context.go(RouteName.userHomeScreen);
+                    }
+                  ref.read(loadingProvider.notifier).state = false;
+                  },
+                  isBig: true,);
+              }
+            )),
             SizedBox(height: 24.h),
 
             TextButton(onPressed: ()=>context.go(RouteName.forgotUserScreen), child: Text("Forgot Username?", style: style.labelLarge?.copyWith(color: AppColors.headlineTextColor),)),

@@ -309,7 +309,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     textColor: AppColors.onPrimary,
                     onPressed: () async {
                       final isRegisterSuccess = await AuthRepoImplemented().registerService(
-                          _firstNameController.text + _lastNameController.text,
+                          "${_firstNameController.text} ${_lastNameController.text}",
                           _userNameController.text,
                           _firstNameController.text,
                           _lastNameController.text,

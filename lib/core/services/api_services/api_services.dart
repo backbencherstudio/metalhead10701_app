@@ -1,9 +1,6 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:metal_head/core/services/shared_preference/shared_preference.dart';
-
-// import '../../utils/utils.dart';
 import '../../utils/utils.dart';
 import 'api_endpoints.dart';
 
@@ -19,6 +16,47 @@ class ApiServices {
       return jsonDecode(response.body);
     } else {
       throw Exception('Error: ${response.statusCode}, ${response.body}');
+    }
+  }
+
+  /// multipart post request service
+  Future<dynamic> postMultipartData({
+    required String endPoint,
+    required Map<String, String> fields,
+    List<http.MultipartFile>? files,
+    Map<String, String>? headers,
+  }) async {
+    try {
+      final isOnline = await Utils.isOnline();
+      if (!isOnline) {
+        Utils.showErrorToast(
+          message: "Device is Offline, Please connect to internet.",
+        );
+        throw Exception('Device is Offline, Please connect to internet.');
+      }
+
+      var uri = Uri.parse('${ApiEndPoints.baseUrl}/$endPoint');
+      var request = http.MultipartRequest('POST', uri);
+
+      request.headers.addAll(headers ?? {
+        'Authorization': 'Bearer ${await SharedPreference().getToken()}',
+        // Do NOT include 'Content-Type' here; MultipartRequest handles it
+      });
+
+      // Add text fields
+      request.fields.addAll(fields);
+
+      // Add file fields if present
+      if (files != null && files.isNotEmpty) {
+        request.files.addAll(files);
+      }
+
+      var streamedResponse = await request.send();
+      var response = await http.Response.fromStream(streamedResponse);
+
+      return _handleResponse(response);
+    } catch (e) {
+      throw Exception("Failed to send data: $e");
     }
   }
 
@@ -47,7 +85,6 @@ class ApiServices {
         throw Exception('Device is Offline, Please connect to internet.');
       }
     } catch (e) {
-      Utils.showErrorToast(message: "Failed to send data.");
       throw Exception("Failed to send data: $e");
     }
   }
@@ -55,16 +92,28 @@ class ApiServices {
   /// http get request service
   Future<dynamic> getData({
     required String endPoint,
-    required Map<String, String> headers,
+    Map<String, String>? headers,
   }) async {
     try {
-      final response = await http.get(
-        Uri.parse('${ApiEndPoints.baseUrl}/$endPoint'),
-        headers: headers,
-      );
-      return _handleResponse(response);
+      final isOnline = await Utils.isOnline();
+      if(isOnline) {
+        final response = await http.get(
+          Uri.parse('${ApiEndPoints.baseUrl}/$endPoint'),
+          headers: headers ?? {
+            'Authorization': 'Bearer ${await SharedPreference().getToken()}',
+            'Content-Type': 'application/json',
+          },
+        );
+        return _handleResponse(response);
+      }
+      else {
+        Utils.showErrorToast(
+          message: "Device is Offline, Please connect to internet.",
+        );
+        throw Exception('Device is Offline, Please connect to internet.');
+      }
     } catch (e) {
-      throw Exception("Failed to send data: $e");
+      throw Exception("Failed to get data: $e");
     }
   }
 

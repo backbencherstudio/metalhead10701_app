@@ -14,13 +14,16 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   Future<void> _moveToNextScreen(BuildContext context) async {
     await Future.delayed(const Duration(seconds: 1));
+    if (!mounted) return;
     context.pushReplacement(RouteName.splashScreen2);
   }
 
   @override
   void initState() {
     super.initState();
-    _moveToNextScreen(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _moveToNextScreen(context);
+    });
   }
 
   @override

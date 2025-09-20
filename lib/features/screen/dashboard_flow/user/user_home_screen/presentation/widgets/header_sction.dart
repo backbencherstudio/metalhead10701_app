@@ -6,17 +6,19 @@ import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/constant/icons.dart';
 import 'package:metal_head/core/routes/route_name.dart';
 import 'package:metal_head/features/screen/dashboard_flow/data/provider/mode_selection.dart';
+import '../../../../../../../core/data/provider/userController.dart';
 import '../../../../../../../core/theme/theme_extension/app_colors.dart';
 import '../../../../../../common_widgets/common_search_bar.dart';
 import '../../../../../auth_flow/splash/presentation/widgets/custom_button.dart';
 
-class HeaderSection extends StatelessWidget {
+class HeaderSection extends ConsumerWidget {
   const HeaderSection({super.key, required this.style});
 
   final TextTheme style;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final userData = ref.watch(userProvider);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -37,7 +39,7 @@ class HeaderSection extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'John Doe',
+                      userData?.username ?? "N/A",
                       style: style.bodyLarge?.copyWith(
                         color: AppColors.headlineTextColor,
                       ),

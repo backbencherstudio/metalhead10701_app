@@ -1,5 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:metal_head/core/constant/icons.dart';
@@ -9,6 +10,8 @@ import 'package:metal_head/features/screen/after_accept_counter_offer/presentati
 import 'package:metal_head/features/screen/auth_flow/create_account_screen/presentation/widgets/input_label_text.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 
+import '../provider/toggle_provider.dart';
+
 class JobPostScreen extends StatefulWidget {
   const JobPostScreen({super.key});
 
@@ -17,6 +20,34 @@ class JobPostScreen extends StatefulWidget {
 }
 
 class _JobPostScreenState extends State<JobPostScreen> {
+  late TextEditingController titleController;
+  late TextEditingController categoryController;
+  late TextEditingController startTimeController;
+  late TextEditingController endTimeController;
+  late TextEditingController priceController;
+  late TextEditingController paymentTypeController;
+  late TextEditingController locationController;
+  late TextEditingController estimatedTimeController;
+  late TextEditingController jobDescriptionController;
+  late List<TextEditingController> jobRequirementsControllers;
+  late List<TextEditingController> importantNotesControllers;
+
+  @override
+  void initState() {
+    titleController = TextEditingController();
+    categoryController = TextEditingController();
+    startTimeController = TextEditingController();
+    endTimeController = TextEditingController();
+    priceController = TextEditingController();
+    paymentTypeController = TextEditingController();
+    locationController = TextEditingController();
+    estimatedTimeController = TextEditingController();
+    jobDescriptionController = TextEditingController();
+    jobRequirementsControllers = List.generate(3, (index) => TextEditingController());
+    importantNotesControllers = List.generate(3, (index) => TextEditingController());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -258,8 +289,8 @@ class _JobPostScreenState extends State<JobPostScreen> {
                     CustomJobTitle(
                       icon: SvgPicture.asset(
                         AppIcons.requirementIcon,
-                        height: 24,
-                        width: 24,
+                        height: 24.h,
+                        width: 24.w,
                       ),
                       title: 'Job Requirements',
                       style: style,
@@ -267,45 +298,56 @@ class _JobPostScreenState extends State<JobPostScreen> {
                     SizedBox(height: 14.h),
                     Divider(height: 1.h, color: AppColors.borderColor),
                     SizedBox(height: 12.h),
-                    InputLabel(
-                      labelText: 'Title and description',
-                      style: style,
-                    ),
-                    SizedBox(height: 12.h),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Enter job title',
-                        hintStyle: style.bodyMedium?.copyWith(
-                          color: AppColors.inputTextColor,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
+                    Consumer(
+                      builder: (_, ref, _) {
+                        final requirementsNumber = ref.watch(jobRequirementsNumberProvider);
+                        //final notesNumber = ref.watch(notesNumberProvider);
+                        return Column(children: List.generate(requirementsNumber, (index)=> Column(
+                          children: [
+                            InputLabel(
+                              labelText: 'Title and description',
+                              style: style,
+                            ),
+                            SizedBox(height: 12.h),
+                            TextFormField(
+                              decoration: InputDecoration(
+                                hintText: 'Enter job title',
+                                hintStyle: style.bodyMedium?.copyWith(
+                                  color: AppColors.inputTextColor,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
 
-                    SizedBox(height: 12.h),
-                    TextFormField(
-                      style: style.bodyMedium?.copyWith(
-                        color: AppColors.headlineTextColor,
-                      ),
-                      maxLines: 5,
-                      decoration: InputDecoration(
-                        hintText: 'Enter job description',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.r),
-                          borderSide: BorderSide(color: AppColors.borderColor),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.r),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.r),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.r),
-                        ),
-                      ),
+                            SizedBox(height: 12.h),
+                            TextFormField(
+                              style: style.bodyMedium?.copyWith(
+                                color: AppColors.headlineTextColor,
+                              ),
+                              maxLines: 5,
+                              decoration: InputDecoration(
+                                hintText: 'Enter job description',
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                  borderSide: BorderSide(color: AppColors.borderColor),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                        )
+                        );
+                      }
                     ),
-
                     SizedBox(height: 14.h),
                     Container(
                       width: double.infinity,
