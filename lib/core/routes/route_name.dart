@@ -44,6 +44,7 @@ class RouteName {
   static const String categoriesFilterScreen = "/CategoriesFilterScreen";
   static const String messageScreen = "/MessageScreen";
   static const String chatConversationScreen = "/ChatConversationScreen";
+  static const String imageShowScreen = "/ImageShowScreen";
 
 
   //Search Flow

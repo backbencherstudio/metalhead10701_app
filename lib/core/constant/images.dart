@@ -8,6 +8,11 @@ class AppImages {
   static const String logowhite = '$imagePath/logowhite.png';
   static const String mainLogoWhite = '$imagePath/mainLogo_white.png';
   static const String profilePng = '$imagePath/profile.png';
+  static const String messageImg = '$imagePath/messageImg.png';
+  static const String pic1 = '$imagePath/pic1.jpg';
+  static const String pic2 = '$imagePath/pic2.jpg';
+  static const String pic3 = '$imagePath/pic3.jpg';
+  static const String pic4 = '$imagePath/pic4.jpg';
 
   //Navbar Icons
   static const String connection = '$imagePath/connection.png';

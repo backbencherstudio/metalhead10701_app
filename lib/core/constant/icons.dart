@@ -38,6 +38,8 @@ class AppIcons {
   static const String attachmentSvg = '$iconPath/attachment.svg';
   static const String micSvg = '$iconPath/mic.svg';
   static const String sendSvg = '$iconPath/arrowUp.svg';
+  static const String copySvg = '$iconPath/copysvg.svg';
+  static const String downloadSvg = '$iconPath/download.svg';
 
 
   // bottom navbar

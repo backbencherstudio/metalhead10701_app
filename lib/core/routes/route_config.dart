@@ -2,8 +2,8 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.messageScreen,
-    // initialLocation: RouteName.splashScreen,
+    // initialLocation: RouteName.messageScreen,
+    initialLocation: RouteName.splashScreen,
 
     routes: [
       //Bottom NavBar USER
@@ -306,6 +306,21 @@ class RouteConfig {
           return const MaterialPage(child: CategoriesDetailsScreen());
         },
       ),
+
+      GoRoute(
+        name: RouteName.imageShowScreen,
+        path: RouteName.imageShowScreen,
+        pageBuilder: (context, state) {
+          final images = state.extra as List<String>;
+          return MaterialPage(child: ImageShowScreen(images: images));
+        },
+      ),
+
+
+
+
+
+
       GoRoute(
         name: RouteName.chatConversationScreen,
         path: RouteName.chatConversationScreen,

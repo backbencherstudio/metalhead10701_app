@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:metal_head/core/constant/images.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
+import 'package:metal_head/features/screen/message_screen_flow/presentation/widgets/image_message.dart';
+import 'widgets/message_alert_dialog.dart';
 import '../../profile_screen/presentation/widgets/message_input_field.dart';
 import '../model/message_item_model.dart';
 
@@ -20,46 +23,48 @@ class ChatConversationScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-        Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-        child: Row(
-          children: [
-            GestureDetector(
-              onTap: () => Navigator.pop(context),
-              child: Icon(
-                Icons.arrow_back_ios,
-                size: 24,
-                color: AppColors.headlineTextColor,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      size: 24,
+                      color: AppColors.headlineTextColor,
+                    ),
+                  ),
+                  SizedBox(width: 8.w),
+                  CircleAvatar(
+                    radius: 22.r,
+                    backgroundImage: NetworkImage(avatar),
+                  ),
+                  SizedBox(width: 10.w),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: style.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.headlineTextColor,
+                        ),
+                      ),
+                      Text(
+                        isOnline ? 'Online' : 'Active 1h Ago',
+                        style: style.labelMedium?.copyWith(
+                          color: isOnline
+                              ? AppColors.bgColor7
+                              : AppColors.greyTextColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            SizedBox(width: 8.w),
-            CircleAvatar(
-              radius: 22.r,
-              backgroundImage: NetworkImage(avatar),
-            ),
-            SizedBox(width: 10.w),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: style.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.headlineTextColor,
-                  ),
-                ),
-                Text(
-                  isOnline ? 'Online' : 'Active 1h Ago',
-                  style: style.labelMedium?.copyWith(
-                    color: isOnline ? AppColors.bgColor7 : AppColors.greyTextColor,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
 
             Expanded(
               child: ListView(
@@ -75,45 +80,50 @@ class ChatConversationScreen extends StatelessWidget {
                       ),
                       SizedBox(width: 6.w),
                       Flexible(
-                        child: Container(
-                          padding: EdgeInsets.all(12.w),
-                          decoration: BoxDecoration(
-                            color: AppColors.bgColor4,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(16.r),
-                              topRight: Radius.circular(16.r),
-                              bottomRight: Radius.circular(16.r),
+                        child: GestureDetector(
+                          onLongPress: () {
+                            onMessageLongTap(context);
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(12.w),
+                            decoration: BoxDecoration(
+                              color: AppColors.bgColor4,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16.r),
+                                topRight: Radius.circular(16.r),
+                                bottomRight: Radius.circular(16.r),
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Christy Bergstrom',
-                                style: style.bodySmall?.copyWith(
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.headlineTextColor,
-                                ),
-                              ),
-                              SizedBox(height: 4.h),
-                              Text(
-                                'Lorem ipsum dolor sit amet consectetur. Nunc placerat vitae viverra leo blandit non interdum a asdhasf asfha fhas fhaa afashg haafh afsioahs fasfh afsaf fafasfas asfas aefasfas areafafas asfasfas asfasfasf sef f',
-                                style: style.bodySmall?.copyWith(
-                                  color: AppColors.greyTextColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              SizedBox(height: 8.h),
-                              Align(
-                                alignment: Alignment.bottomRight,
-                                child: Text(
-                                  '10:00 AM',
-                                  style: style.labelSmall?.copyWith(
-                                    color: AppColors.greyTextColor2,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Christy Bergstrom',
+                                  style: style.bodySmall?.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.headlineTextColor,
                                   ),
                                 ),
-                              ),
-                            ],
+                                SizedBox(height: 4.h),
+                                Text(
+                                  'Lorem ipsum dolor sit amet consectetur. Nunc placerat vitae viverra leo blandit non interdum a asdhasf asfha fhas fhaa afashg haafh afsioahs fasfh afsaf fafasfas asfas aefasfas areafafas asfasfas asfasfasf sef f',
+                                  style: style.bodySmall?.copyWith(
+                                    color: AppColors.greyTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                SizedBox(height: 8.h),
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Text(
+                                    '10:00 AM',
+                                    style: style.labelSmall?.copyWith(
+                                      color: AppColors.greyTextColor2,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -255,6 +265,19 @@ class ChatConversationScreen extends StatelessWidget {
                       SizedBox(width: 32.w),
                     ],
                   ),
+
+                  SizedBox(height: 12.h),
+                  ImageMessage(
+                    style: Theme.of(context).textTheme,
+                    images: [AppImages.pic1],
+                  ),
+                  SizedBox(height: 12.h),
+                  ImageMessage(
+                    style: Theme.of(context).textTheme,
+                    images: [AppImages.pic1, AppImages.pic2, AppImages.pic3],
+                  )
+
+
                 ],
               ),
             ),

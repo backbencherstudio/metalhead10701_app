@@ -31,11 +31,12 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
-  dispose(){
+  dispose() {
     _emailController.dispose();
     _passController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -58,13 +59,15 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(height: 6.h),
             Text(
               'Nice to have you back!',
-              style: style.bodySmall?.copyWith(
-                color: AppColors.greyTextColor,
-              ),
+              style: style.bodySmall?.copyWith(color: AppColors.greyTextColor),
             ),
             SizedBox(height: 20.h),
 
-            InputLabel(labelText: 'User Name or Email', optional: ' *', style: style),
+            InputLabel(
+              labelText: 'User Name or Email',
+              optional: ' *',
+              style: style,
+            ),
             SizedBox(height: 8.h),
             TextFormField(
               controller: _emailController,
@@ -94,71 +97,126 @@ class _LoginScreenState extends State<LoginScreen> {
             Row(
               children: [
                 CheckBox(),
-                Text("Keep me signed in", style: style.labelLarge?.copyWith(color: AppColors.headlineTextColor),)
+                Text(
+                  "Keep me signed in",
+                  style: style.labelLarge?.copyWith(
+                    color: AppColors.headlineTextColor,
+                  ),
+                ),
               ],
             ),
             SizedBox(height: 20.h),
-            Center(child: Consumer(
-              builder: (_, ref, _) {
-                final isLoading = ref.watch(loadingProvider);
-                return isLoading ? const CircularProgressIndicator(
-                  color: Colors.red,
-                ) : CustomButton(text: 'Log In',
-                  textColor: AppColors.onPrimary,
-                  onPressed: () async {
-                  ref.read(loadingProvider.notifier).state = true;
-                  debugPrint(_emailController.text);
-                  debugPrint(_passController.text);
-                    final isLoginSuccess = await AuthRepoImplemented().loginService(_emailController.text, _passController.text);
-                    debugPrint(isLoginSuccess.toString());
-                    if(isLoginSuccess) {
-                      final user = await HomeRepoImplemented().loadUser();
-                      debugPrint("\n\n\n\n$user\n\n\n\n");
-                      ref.read(userProvider.notifier).state = user;
-                      context.go(RouteName.userHomeScreen);
-                    }
-                  ref.read(loadingProvider.notifier).state = false;
-                  },
-                  isBig: true,);
-              }
-            )),
+            Center(
+              child: Consumer(
+                builder: (_, ref, _) {
+                  final isLoading = ref.watch(loadingProvider);
+                  return isLoading
+                      ? const CircularProgressIndicator(color: Colors.red)
+                      : CustomButton(
+                          text: 'Log In',
+                          textColor: AppColors.onPrimary,
+                          onPressed: (){
+                            context.go(RouteName.userHomeScreen);
+                          },
+                          // onPressed: () async {
+                          //   ref.read(loadingProvider.notifier).state = true;
+                          //   debugPrint(_emailController.text);
+                          //   debugPrint(_passController.text);
+                          //   final isLoginSuccess = await AuthRepoImplemented()
+                          //       .loginService(
+                          //         _emailController.text,
+                          //         _passController.text,
+                          //       );
+                          //   debugPrint(isLoginSuccess.toString());
+                          //   if (isLoginSuccess) {
+                          //     final user = await HomeRepoImplemented()
+                          //         .loadUser();
+                          //     debugPrint("\n\n\n\n$user\n\n\n\n");
+                          //     ref.read(userProvider.notifier).state = user;
+                          //     context.go(RouteName.userHomeScreen);
+                          //   }
+                          //   ref.read(loadingProvider.notifier).state = false;
+                          // },
+                          isBig: true,
+                        );
+                },
+              ),
+            ),
             SizedBox(height: 24.h),
 
-            TextButton(onPressed: ()=>context.go(RouteName.forgotUserScreen), child: Text("Forgot Username?", style: style.labelLarge?.copyWith(color: AppColors.headlineTextColor),)),
-            TextButton(onPressed: ()=>context.go(RouteName.forgotPassScreen), child: Text("Forgot Password?", style: style.labelLarge?.copyWith(color: AppColors.headlineTextColor),)),
+            TextButton(
+              onPressed: () => context.go(RouteName.forgotUserScreen),
+              child: Text(
+                "Forgot Username?",
+                style: style.labelLarge?.copyWith(
+                  color: AppColors.headlineTextColor,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () => context.go(RouteName.forgotPassScreen),
+              child: Text(
+                "Forgot Password?",
+                style: style.labelLarge?.copyWith(
+                  color: AppColors.headlineTextColor,
+                ),
+              ),
+            ),
             Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Don\'t have account?',style: style.bodySmall?.copyWith(
-                  color: AppColors.headlineTextColor,
-                  fontWeight: FontWeight.w500
-                ),),
+                Text(
+                  'Don\'t have account?',
+                  style: style.bodySmall?.copyWith(
+                    color: AppColors.headlineTextColor,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
                 SizedBox(width: 4.w),
                 TextButton(
-                  onPressed: ()=>context.go(RouteName.createAccountScreen),
+                  onPressed: () => context.go(RouteName.createAccountScreen),
                   child: Text(
-                  'Create Account',
-                  style: style.labelMedium?.copyWith(
+                    'Create Account',
+                    style: style.labelMedium?.copyWith(
                       color: AppColors.bgColor6,
-                      fontWeight: FontWeight.w600
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
-                ),
-                )
-
-              ]
+              ],
             ),
             Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("About Us", style: style.labelMedium?.copyWith(color: AppColors.greyTextColor2),),
-                Text("Email Support", style: style.labelMedium?.copyWith(color: AppColors.greyTextColor2),),
-                Text("Terms and Services", style: style.labelMedium?.copyWith(color: AppColors.greyTextColor2),),
-                Text("Guidelines", style: style.labelMedium?.copyWith(color: AppColors.greyTextColor2),)
+                Text(
+                  "About Us",
+                  style: style.labelMedium?.copyWith(
+                    color: AppColors.greyTextColor2,
+                  ),
+                ),
+                Text(
+                  "Email Support",
+                  style: style.labelMedium?.copyWith(
+                    color: AppColors.greyTextColor2,
+                  ),
+                ),
+                Text(
+                  "Terms and Services",
+                  style: style.labelMedium?.copyWith(
+                    color: AppColors.greyTextColor2,
+                  ),
+                ),
+                Text(
+                  "Guidelines",
+                  style: style.labelMedium?.copyWith(
+                    color: AppColors.greyTextColor2,
+                  ),
+                ),
               ],
             ),
-            SizedBox(height: 20.h,)
+            SizedBox(height: 20.h),
           ],
         ),
       ),
