@@ -133,10 +133,11 @@ class _SearchScreenState extends ConsumerState<BrowseJobScreen> {
             // Job List
             Expanded(
               child: ListView.builder(
-                itemCount: jobs.length, // Directly use 'jobs' list
+                padding: EdgeInsets.zero,
+                itemCount: jobs.length,
                 itemBuilder: (context, index) => Padding(
                   padding: EdgeInsets.symmetric(vertical: 12.h),
-                  child: CustomJobCard(job: jobs[index]), // Display job card
+                  child: CustomJobCard(job: jobs[index]),
                 ),
               ),
             ),

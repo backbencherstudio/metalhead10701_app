@@ -31,6 +31,13 @@ class AppIcons {
   static const String pencilEditSvg = '$iconPath/pencil_edit.svg';
   static const String arrowRightSvg = '$iconPath/arrowRightSvg.svg';
   static const String trashSvg = '$iconPath/trash.svg';
+  static const String messageSvg = '$iconPath/message.svg';
+  static const String deleteSvg = '$iconPath/delete.svg';
+  static const String doubleTickSvg = '$iconPath/tick.svg';
+  static const String person1Svg = '$iconPath/person_i.svg';
+  static const String attachmentSvg = '$iconPath/attachment.svg';
+  static const String micSvg = '$iconPath/mic.svg';
+  static const String sendSvg = '$iconPath/arrowUp.svg';
 
 
   // bottom navbar
