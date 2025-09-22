@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,14 +13,14 @@ import '../../../../core/constant/icons.dart';
 import '../../../../core/routes/route_name.dart';
 import '../../../common_widgets/custom_job_card.dart';
 
-class BrowseJobScreen extends ConsumerStatefulWidget {
-  const BrowseJobScreen({super.key});
+class JobNearByYouScreen extends ConsumerStatefulWidget {
+  const JobNearByYouScreen({super.key});
 
   @override
-  ConsumerState<BrowseJobScreen> createState() => _SearchScreenState();
+  ConsumerState<JobNearByYouScreen> createState() => _JobNearByYouScreenState();
 }
 
-class _SearchScreenState extends ConsumerState<BrowseJobScreen> {
+class _JobNearByYouScreenState extends ConsumerState<JobNearByYouScreen> {
   late TextEditingController _controller;
   late FocusNode _focusNode;
 
@@ -66,7 +68,7 @@ class _SearchScreenState extends ConsumerState<BrowseJobScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.all(12.r),
-                    child: Text("All Job", style: style.bodyLarge,),
+                    child: Text("Job Near By You", style: style.bodyLarge,),
                   ),
                 ],
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/theme/theme_extension/app_colors.dart';
 
 class CommonCheckBox extends ConsumerWidget {
@@ -21,6 +22,7 @@ class CommonCheckBox extends ConsumerWidget {
     }
 
     return Checkbox(
+      side: BorderSide(color: AppColors.redTextColor, width: 1.w),
       checkColor: AppColors.onPrimary,
       fillColor: WidgetStateProperty.resolveWith(getColor),
       value: isChecked,

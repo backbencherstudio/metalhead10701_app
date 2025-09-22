@@ -22,54 +22,55 @@ class HeaderSection extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 14.h),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Welcome',
-                      style: style.labelMedium?.copyWith(
-                        color: AppColors.greyTextColor,
-                        fontWeight: FontWeight.w400,
-                      ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Welcome',
+                    style: style.labelMedium?.copyWith(
+                      color: AppColors.greyTextColor,
+                      fontWeight: FontWeight.w400,
                     ),
-                    Text(
-                      userData?.username ?? "N/A",
-                      style: style.bodyLarge?.copyWith(
-                        color: AppColors.headlineTextColor,
-                      ),
+                  ),
+                  Text(
+                    userData?.username ?? "N/A",
+                    style: style.bodyLarge?.copyWith(
+                      color: AppColors.headlineTextColor,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Consumer(
-                builder: (_, ref, _) {
-                  final currentMode = ref.watch(isUserMode);
-                  return CustomButton(
-                    text: 'User Mode',
-                    textColor: AppColors.whiteTextColor,
-                    onPressed: () {
-                      ref.read(isUserMode.notifier).state = !currentMode;
-                      context.go(RouteName.helperHomeScreen);
-                    },
-                    width: 90.w,
-                    padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
-                    textStyle: style.labelSmall?.copyWith(
-                      color: AppColors.whiteTextColor,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  );
-                }
-              ),
-              SizedBox(width: 12.w),
-             SvgPicture.asset(AppIcons.notificationSvg,height: 24.h,width: 24.w,)
-            ],
-          ),
+            ),
+            Consumer(
+              builder: (_, ref, _) {
+                final currentMode = ref.watch(isUserMode);
+                return CustomButton(
+                  text: 'User Mode',
+                  textColor: AppColors.whiteTextColor,
+                  onPressed: () {
+                    ref.read(isUserMode.notifier).state = !currentMode;
+                    context.go(RouteName.helperHomeScreen);
+                  },
+                  width: 90.w,
+                  padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
+                  textStyle: style.labelSmall?.copyWith(
+                    color: AppColors.whiteTextColor,
+                    fontWeight: FontWeight.w500,
+                  ),
+                );
+              }
+            ),
+            SizedBox(width: 12.w),
+           GestureDetector(
+               onTap: (){
+                 context.push(RouteName.notificationScreen);
+               },
+               child: SvgPicture.asset(AppIcons.notificationSvg,height: 24.h,width: 24.w,))
+          ],
         ),
         SizedBox(height: 16.h),
       ],
