@@ -22,133 +22,140 @@ class HelperHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Column(
             children: [
-              SizedBox(height: 50.h),
               HelperHeaderSection(style: style),
-              TextFormField(
-                onTap: () => context.push(RouteName.searchScreen),
-                style: style.bodyMedium?.copyWith(
-                  color: AppColors.headlineTextColor,
-                ),
-                decoration: InputDecoration(
-                  prefixIcon: Padding(
-                    padding: EdgeInsets.only(left: 16.w, right: 8.w),
-                    child: SvgPicture.asset(
-                      AppIcons.searchSvg,
-                      height: 24.h,
-                      width: 24.w,
-                    ),
-                  ),
-                  prefixIconColor: AppColors.greyTextColor,
-                  hintText: 'Start typing',
-                ),
-              ),
-                SizedBox(height: 16.h),
-                FindJobSection(style: style),
-                SizedBox(height: 24.h),
-
-                ContainerBox(style: style),
-                SizedBox(height: 12.h),
-                Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: ContainerBox(
-                        title: '2',
-                        subtitle: "Today's Job",
-                        titleColor: AppColors.bgColor5,
-                        color: AppColors.bgColor5.withAlpha(20),
-                        image: AppIcons.filesSvg,
-                        imgSize: 32.w,
-                        style: style,
-                      ),
-                    ),
-                    SizedBox(width: 12.w),
-                    Expanded(
-                      child: ContainerBox(
-                        title: '4.8',
-                        subtitle: 'Rating',
-                        titleColor: AppColors.bgColor8,
-                        color: AppColors.bgColor8.withAlpha(20),
-                        image: AppIcons.starSvg,
-                        imgSize: 32.w,
-                        style: style,
-                      ),
-                    ),
-                  ],
-                ),
-
-                SizedBox(height: 16.h),
-                SectionTitle(
-                  style: style,
-                  title: 'My Earnings',
-                  showViewAll: false,
-                ),
-                LineChartSample2(),
-                SizedBox(height: 16.h),
-                SectionTitle(
-                  style: style,
-                  title: 'Upcoming Jobs',
-                  showViewAll: false,
-                ),
-                Column(
-                  children: List.generate(1, (jobIndex)=>Padding(
-                    padding: EdgeInsets.all(12.r),
-                    child: CustomJobCard(job: jobs[jobIndex]),
-                  )),
-                ),
-                SizedBox(height: 12.h),
-
-                SectionTitle(
-                  title: 'Job Categories',
-                  style: style,
-                  showViewAll: true,
-                  onTap: (){
-                    // Added job Categories
-                  },
-                ),
-                SizedBox(height: 12.h),
-                ...List.generate(jobTypes.length, (index) {
-                  return Column(
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
                     children: [
-                      JobItems(style: style, job: jobTypes[index]),
-                      if (index != jobs.length - 1) SizedBox(height: 12.h),
+                      TextFormField(
+                        onTap: () => context.push(RouteName.searchScreen),
+                        style: style.bodyMedium?.copyWith(
+                          color: AppColors.headlineTextColor,
+                        ),
+                        decoration: InputDecoration(
+                          prefixIcon: Padding(
+                            padding: EdgeInsets.only(left: 16.w, right: 8.w),
+                            child: SvgPicture.asset(
+                              AppIcons.searchSvg,
+                              height: 24.h,
+                              width: 24.w,
+                            ),
+                          ),
+                          prefixIconColor: AppColors.greyTextColor,
+                          hintText: 'Start typing',
+                        ),
+                      ),
+                      SizedBox(height: 16.h),
+                      FindJobSection(style: style),
+                      SizedBox(height: 24.h),
+        
+                      ContainerBox(style: style),
+                      SizedBox(height: 12.h),
+                      Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: ContainerBox(
+                              title: '2',
+                              subtitle: "Today's Job",
+                              titleColor: AppColors.bgColor5,
+                              color: AppColors.bgColor5.withAlpha(20),
+                              image: AppIcons.filesSvg,
+                              imgSize: 32.w,
+                              style: style,
+                            ),
+                          ),
+                          SizedBox(width: 12.w),
+                          Expanded(
+                            child: ContainerBox(
+                              title: '4.8',
+                              subtitle: 'Rating',
+                              titleColor: AppColors.bgColor8,
+                              color: AppColors.bgColor8.withAlpha(20),
+                              image: AppIcons.starSvg,
+                              imgSize: 32.w,
+                              style: style,
+                            ),
+                          ),
+                        ],
+                      ),
+        
+                      SizedBox(height: 16.h),
+                      SectionTitle(
+                        style: style,
+                        title: 'My Earnings',
+                        showViewAll: false,
+                      ),
+                      LineChartSample2(),
+                      SizedBox(height: 16.h),
+                      SectionTitle(
+                        style: style,
+                        title: 'Upcoming Jobs',
+                        showViewAll: false,
+                      ),
+                      Column(
+                        children: List.generate(1, (jobIndex)=>Padding(
+                          padding: EdgeInsets.all(12.r),
+                          child: CustomJobCard(job: jobs[jobIndex]),
+                        )),
+                      ),
+                      SizedBox(height: 12.h),
+        
+                      SectionTitle(
+                        title: 'Job Categories',
+                        style: style,
+                        showViewAll: true,
+                        onTap: (){
+                          // Added job Categories
+                        },
+                      ),
+                      SizedBox(height: 12.h),
+                      ...List.generate(jobTypes.length, (index) {
+                        return Column(
+                          children: [
+                            JobItems(style: style, job: jobTypes[index]),
+                            if (index != jobs.length - 1) SizedBox(height: 12.h),
+                          ],
+                        );
+                      }),
+        
+                      SizedBox(height: 24.h),
+                      SectionTitle(
+                        title: 'Jobs Near By You',
+                        style: style,
+                        showViewAll: true,
+                        onTap: (){
+                          context.push(RouteName.jobNearByYouScreen);
+                        },
+                      ),
+                      Column(
+                        children: List.generate(3, (jobIndex)=>Padding(
+                          padding: EdgeInsets.all(12.r),
+                          child: CustomJobCard(job: jobs[jobIndex]),
+                        )),
+                      ),
+                      SizedBox(height: 24.h,),
+                      SectionTitle(
+                        title: 'Urgent and High-priority',
+                        style: style,
+                        showViewAll: true,
+                      ),
+                      Column(
+                        children: List.generate(3, (jobIndex)=>Padding(
+                          padding: EdgeInsets.all(12.r),
+                          child: CustomJobCard(job: urgentJobs[jobIndex]),
+                        )),
+        
+                      ),
                     ],
-                  );
-                }),
-
-                SizedBox(height: 24.h),
-                SectionTitle(
-                  title: 'Jobs Near By You',
-                  style: style,
-                  showViewAll: true,
-                  onTap: (){
-                    context.push(RouteName.browseJobScreen);
-                  },
+                  ),
                 ),
-                Column(
-                  children: List.generate(3, (jobIndex)=>Padding(
-                    padding: EdgeInsets.all(12.r),
-                    child: CustomJobCard(job: jobs[jobIndex]),
-                  )),
-                ),
-                SizedBox(height: 24.h,),
-                SectionTitle(
-                  title: 'Urgent and High-priority',
-                  style: style,
-                  showViewAll: true,
-                ),
-                Column(
-                  children: List.generate(3, (jobIndex)=>Padding(
-                    padding: EdgeInsets.all(12.r),
-                    child: CustomJobCard(job: urgentJobs[jobIndex]),
-                  )),
-
-                ),
+              )
             ],
           ),
         ),

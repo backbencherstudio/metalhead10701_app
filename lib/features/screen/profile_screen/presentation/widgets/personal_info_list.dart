@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/constant/icons.dart';
 import 'package:metal_head/core/routes/route_name.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
+import 'package:metal_head/features/screen/job_management_flow/presentation/job_management_screen.dart';
 
 class PersonalInfoListScreen extends StatelessWidget {
   const PersonalInfoListScreen({super.key});
@@ -26,7 +27,12 @@ class PersonalInfoListScreen extends StatelessWidget {
         'title': 'Job Management',
         'leading': AppIcons.newJobSvg,
         'trailing': AppIcons.arrowRightSvg,
-        'onTap': () {},
+        'onTap': () {
+          //context.push(RouteName.jobManagementScreen);
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> JobManagementScreen(
+            isBack: true,
+          )));
+        },
       },
 
       {

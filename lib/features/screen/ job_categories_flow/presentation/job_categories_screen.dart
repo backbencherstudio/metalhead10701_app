@@ -47,56 +47,57 @@ class _SearchScreenState extends ConsumerState<JobCategoriesScreen> {
     final jobList = isSuggestion ? filteredSuggestions : filteredJobs;
 
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          children: [
-            SizedBox(height: 50.h),
-            Row(
-              children: [
-                InkWell(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.r),
-                    child: Icon(
-                      Icons.arrow_back_ios,
-                      color: AppColors.headlineTextColor2,
-                    ),
-                  ),
-                  onTap: () => context.pop(),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(12.r),
-                  child: Text(
-                    "Categories",
-                    style: style.bodyLarge?.copyWith(
-                      color: AppColors.headlineTextColor5,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: List.generate(jobTypes.length, (index) {
-                  return Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          context.push(
-                            RouteName.categoriesDetailsScreen,
-                          );
-                        },
-                        child: JobItems(style: style, job: jobTypes[index]),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  InkWell(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.r),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: AppColors.headlineTextColor2,
                       ),
-                      if (index != jobTypes.length - 1) SizedBox(height: 12.h),
-                    ],
-                  );
-                }),
+                    ),
+                    onTap: () => context.pop(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(12.r),
+                    child: Text(
+                      "Categories",
+                      style: style.bodyLarge?.copyWith(
+                        color: AppColors.headlineTextColor5,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: List.generate(jobTypes.length, (index) {
+                    return Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            context.push(
+                              RouteName.categoriesDetailsScreen,
+                            );
+                          },
+                          child: JobItems(style: style, job: jobTypes[index]),
+                        ),
+                        if (index != jobTypes.length - 1) SizedBox(height: 12.h),
+                      ],
+                    );
+                  }),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

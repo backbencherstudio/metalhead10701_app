@@ -2,7 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.messageScreen,
+    initialLocation: RouteName.userHomeScreen,
     // initialLocation: RouteName.splashScreen,
 
     routes: [
@@ -29,8 +29,8 @@ class RouteConfig {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RouteName.jobScreen1,
-                builder: (context, state) => const UserHomeScreen(),
+                path: RouteName.jobManagementScreen,
+                builder: (context, state) => const JobManagementScreen(),
               ),
             ],
           ),
@@ -293,6 +293,21 @@ class RouteConfig {
         },
       ),
       GoRoute(
+        name: RouteName.jobNearByYouScreen,
+        path: RouteName.jobNearByYouScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: JobNearByYouScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.jobManagementScreen,
+        path: RouteName.jobManagementScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: JobManagementScreen());
+        },
+      ),
+      GoRoute(
         name: RouteName.categoriesFilterScreen,
         path: RouteName.categoriesFilterScreen,
         pageBuilder: (context, state) {
@@ -306,6 +321,23 @@ class RouteConfig {
           return const MaterialPage(child: CategoriesDetailsScreen());
         },
       ),
+      GoRoute(
+        name: RouteName.notificationScreen,
+        path: RouteName.notificationScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: NotificationScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.imageShowScreen,
+        path: RouteName.imageShowScreen,
+        pageBuilder: (context, state) {
+          final images = state.extra as List<String>;
+          return MaterialPage(child: ImageShowScreen(images: images));
+        },
+      ),
+
       GoRoute(
         name: RouteName.chatConversationScreen,
         path: RouteName.chatConversationScreen,

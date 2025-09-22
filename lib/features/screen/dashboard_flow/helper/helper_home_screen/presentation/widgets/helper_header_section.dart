@@ -18,68 +18,70 @@ class HelperHeaderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 14.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Hi, Josephine",
-                      style: style.bodyLarge?.copyWith(
-                        color: AppColors.headlineTextColor,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Hi, Josephine",
+                    style: style.bodyLarge?.copyWith(
+                      color: AppColors.headlineTextColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Text(
+                    'Here’s what’s happening today',
+                    style: style.labelMedium?.copyWith(
+                      color: AppColors.greyTextColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              children: [
+                Consumer(
+                  builder: (_, ref, _) {
+                    final currentMode = ref.watch(isUserMode);
+                    return CustomButton(
+                      text: 'Helper Mode',
+                      onPressed: () {
+                        ref.read(isUserMode.notifier).state = !currentMode;
+                        context.go(RouteName.userHomeScreen);
+                      },
+                      width: 100.w,
+                      padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
+                      textStyle: style.labelSmall?.copyWith(
+                        color: AppColors.whiteTextColor,
                         fontWeight: FontWeight.w500,
                       ),
-                    ),
-                    Text(
-                      'Here’s what’s happening today',
-                      style: style.labelMedium?.copyWith(
-                        color: AppColors.greyTextColor,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
+                    );
+                  }
                 ),
-              ),
-              Row(
-                children: [
-                  Consumer(
-                    builder: (_, ref, _) {
-                      final currentMode = ref.watch(isUserMode);
-                      return CustomButton(
-                        text: 'Helper Mode',
-                        onPressed: () {
-                          ref.read(isUserMode.notifier).state = !currentMode;
-                          context.go(RouteName.userHomeScreen);
-                        },
-                        width: 100.w,
-                        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
-                        textStyle: style.labelSmall?.copyWith(
-                          color: AppColors.whiteTextColor,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      );
-                    }
-                  ),
-                  SizedBox(width: 12.w),
-                  SvgPicture.asset(
+                SizedBox(width: 12.w),
+                GestureDetector(
+                  onTap: (){
+                   context.push(RouteName.notificationScreen);
+                  },
+                  child: SvgPicture.asset(
                     AppIcons.notificationSvg,
                     height: 24.h,
                     width: 24.w,
                   ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 16.h),
-        ],
-      ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        SizedBox(height: 16.h),
+      ],
     );
   }
 }
