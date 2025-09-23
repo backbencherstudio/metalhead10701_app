@@ -2,7 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.userHomeScreen,
+    initialLocation: RouteName.splashScreen,
     // initialLocation: RouteName.splashScreen,
 
     routes: [
@@ -326,6 +326,22 @@ class RouteConfig {
         path: RouteName.notificationScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: NotificationScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.editJobManagementScreen,
+        path: RouteName.editJobManagementScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: EditJobManagementScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.jobHistoryScreen,
+        path: RouteName.jobHistoryScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: JobHistoryScreen());
         },
       ),
 

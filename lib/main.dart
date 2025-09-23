@@ -24,14 +24,14 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
-  static const double deviceWidth = 375.0;
-  static const double deviceHeight = 812.0;
+  static const double deviceWidth = 360.0;
+  static const double deviceHeight = 800.0;
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     return ScreenUtilInit(
       designSize: const Size(deviceWidth, deviceHeight),
       minTextAdapt: true,

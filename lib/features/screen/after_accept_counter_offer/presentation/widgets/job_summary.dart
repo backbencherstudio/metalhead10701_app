@@ -180,7 +180,7 @@ class JobSummary extends StatelessWidget {
         SizedBox(height: 8.h),
         Text(
           textAlign: TextAlign.center,
-          'View Helper Profile',
+          'View Client Profile',
           style: style.bodyMedium?.copyWith(
             color: AppColors.bgColor1,
             fontWeight: FontWeight.w500,

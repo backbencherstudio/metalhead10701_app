@@ -39,7 +39,9 @@ class PersonalInfoListScreen extends StatelessWidget {
         'title': 'Job History',
         'leading': AppIcons.jobSearchSvg,
         'trailing': AppIcons.arrowRightSvg,
-        'onTap': () {},
+        'onTap': () {
+          context.push(RouteName.jobHistoryScreen);
+        },
       },
 
       {

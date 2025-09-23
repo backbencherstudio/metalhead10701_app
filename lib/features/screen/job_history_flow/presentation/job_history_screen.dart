@@ -11,14 +11,14 @@ import '../../../../core/constant/icons.dart';
 import '../../../../core/routes/route_name.dart';
 import '../../../common_widgets/custom_job_card.dart';
 
-class BrowseJobScreen extends ConsumerStatefulWidget {
-  const BrowseJobScreen({super.key});
+class JobHistoryScreen extends ConsumerStatefulWidget {
+  const JobHistoryScreen({super.key});
 
   @override
-  ConsumerState<BrowseJobScreen> createState() => _BrowseJobScreenState();
+  ConsumerState<JobHistoryScreen> createState() => _JobHistoryScreenState();
 }
 
-class _BrowseJobScreenState extends ConsumerState<BrowseJobScreen> {
+class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
   late TextEditingController _controller;
   late FocusNode _focusNode;
 
@@ -60,21 +60,22 @@ class _BrowseJobScreenState extends ConsumerState<BrowseJobScreen> {
                   InkWell(
                     child: Padding(
                       padding: EdgeInsets.all(8.r),
-                      child: Icon(Icons.arrow_back_ios, color: AppColors.headlineTextColor2,),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: AppColors.headlineTextColor2,
+                      ),
                     ),
-                    onTap: ()=> context.pop(),
+                    onTap: () => context.pop(),
                   ),
                   Padding(
                     padding: EdgeInsets.all(12.r),
-                    child: Text("All Job", style: style.bodyLarge,),
+                    child: Text("My Job History", style: style.bodyLarge),
                   ),
                 ],
               ),
-              SizedBox(
-                height: 16.h,
-              ),
+              SizedBox(height: 16.h),
               Padding(
-                padding:  EdgeInsets.symmetric(vertical: 8.r),
+                padding: EdgeInsets.symmetric(vertical: 8.r),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -91,23 +92,43 @@ class _BrowseJobScreenState extends ConsumerState<BrowseJobScreen> {
                           return SizedBox(
                             height: 400.h,
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 16.w,
+                                vertical: 8.h,
+                              ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: [
-                                  Center(child: Text("Sort By", style: style.headlineMedium)),
+                                  Center(
+                                    child: Text(
+                                      "Sort By",
+                                      style: style.headlineMedium,
+                                    ),
+                                  ),
                                   ListTile(
                                     title: Text("Location: nearest first"),
-                                    trailing: Icon(Icons.check, color: AppColors.headlineTextColor),
+                                    trailing: Icon(
+                                      Icons.check,
+                                      color: AppColors.headlineTextColor,
+                                    ),
                                   ),
-                                  ListTile(title: Text("Rating: the best first")),
-                                  ListTile(title: Text("Price: from low to high")),
-                                  ListTile(title: Text("Alphabet: from A to Z")),
-                                  CustomButton(
-                                    text: "Save",
-                                    isBig: true,
-                                    onPressed: () => context.pop(),
+                                  ListTile(
+                                    title: Text("Rating: the best first"),
+                                  ),
+                                  ListTile(
+                                    title: Text("Price: from low to high"),
+                                  ),
+                                  ListTile(
+                                    title: Text("Alphabet: from A to Z"),
+                                  ),
+                                  Center(
+                                    child: CustomButton(
+                                      text: "Save",
+                                      isBig: true,
+                                      onPressed: () => context.pop(),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -116,20 +137,28 @@ class _BrowseJobScreenState extends ConsumerState<BrowseJobScreen> {
                         },
                       ),
                     ),
-                    Text("Sort By", style: style.bodyMedium?.copyWith(color: AppColors.greyTextColor)),
+                    Text(
+                      "Sort By",
+                      style: style.bodyMedium?.copyWith(
+                        color: AppColors.greyTextColor,
+                      ),
+                    ),
                     InkWell(
                       child: SvgPicture.asset(
                         AppIcons.filterIcon,
                         height: 24.h,
                         width: 24.w,
-                        colorFilter: ColorFilter.mode(AppColors.bgColor1, BlendMode.srcIn),
+                        colorFilter: ColorFilter.mode(
+                          AppColors.bgColor1,
+                          BlendMode.srcIn,
+                        ),
                       ),
                       onTap: () => context.push(RouteName.filterScreen),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 8.h,),
+              SizedBox(height: 8.h),
 
               // Job List
               Expanded(

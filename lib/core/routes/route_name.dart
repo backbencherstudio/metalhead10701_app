@@ -48,6 +48,8 @@ class RouteName {
   static const String notificationScreen = "/NotificationScreen";
   static const String jobNearByYouScreen = "/JobNearByYouScreen";
   static const String jobManagementScreen = "/JobManagementScreen";
+  static const String editJobManagementScreen = "/EditJobManagementScreen";
+  static const String jobHistoryScreen = "/JobHistoryScreen";
 
 
   //Search Flow

@@ -6,10 +6,10 @@ import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 import 'package:metal_head/features/screen/dashboard_flow/data/model/job_model.dart';
+import 'package:metal_head/features/screen/job_management_flow/presentation/widgets/custom_job_management_card.dart';
 import 'package:metal_head/features/screen/search_flow/data/provider/search_controller.dart';
 import '../../../../core/constant/icons.dart';
 import '../../../../core/routes/route_name.dart';
-import '../../../common_widgets/custom_job_card.dart';
 
 class JobManagementScreen extends ConsumerStatefulWidget {
   final bool isBack;
@@ -128,10 +128,12 @@ class _JobManagementScreenState extends ConsumerState<JobManagementScreen> {
                                   ListTile(
                                     title: Text("Alphabet: from A to Z"),
                                   ),
-                                  CustomButton(
-                                    text: "Save",
-                                    isBig: true,
-                                    onPressed: () => context.pop(),
+                                  Center(
+                                    child: CustomButton(
+                                      text: "Save",
+                                      isBig: true,
+                                      onPressed: () => context.pop(),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -170,7 +172,7 @@ class _JobManagementScreenState extends ConsumerState<JobManagementScreen> {
                   itemCount: jobs.length,
                   itemBuilder: (context, index) => Padding(
                     padding: EdgeInsets.symmetric(vertical: 12.h),
-                    child: CustomJobCard(job: jobs[index]),
+                    child: CustomJobManagementCard(job: jobs[index]),
                   ),
                 ),
               ),

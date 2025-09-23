@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:metal_head/features/common_widgets/custom_counter_offer_card.dart';
 import 'package:metal_head/features/screen/dashboard_flow/data/model/job_model.dart';
+import 'package:metal_head/features/screen/dashboard_flow/data/provider/mode_selection.dart';
+import 'package:metal_head/features/screen/dashboard_flow/helper/helper_home_screen/presentation/helper_home_screen.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/widgets/header_sction.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/widgets/job_items.dart';
 import 'package:metal_head/features/screen/dashboard_flow/user/user_home_screen/presentation/widgets/post_job_section.dart';
@@ -15,13 +18,13 @@ import '../../../../../common_widgets/custom_job_card.dart';
 import '../../../data/model/offer_model.dart';
 import '../models/job_type_model.dart';
 
-class UserHomeScreen extends StatelessWidget {
+class UserHomeScreen extends ConsumerWidget {
   const UserHomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final style = Theme.of(context).textTheme;
-    return Scaffold(
+    return ref.watch(isUserMode) ? Scaffold(
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -138,6 +141,6 @@ class UserHomeScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ) : helperphase(context);
   }
 }

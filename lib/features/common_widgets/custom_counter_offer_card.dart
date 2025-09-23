@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 import 'package:metal_head/features/screen/dashboard_flow/data/model/offer_model.dart';
+import '../../core/routes/route_name.dart';
 import '../../core/theme/theme_extension/app_colors.dart';
 import '../screen/dashboard_flow/data/model/job_model.dart';
 
@@ -68,7 +70,7 @@ class CustomCounterOfferCard extends StatelessWidget {
                 textColor: AppColors.onPrimary,
                 isBig: false,
                 onPressed: () {
-                  // LOGIC
+                  context.push(RouteName.afterAcceptCounterOffer);
                 },
               ),
             ],

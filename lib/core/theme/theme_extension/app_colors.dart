@@ -40,6 +40,7 @@ class AppColors {
   static const Color greyTextColor = Color(0xff6B7280);
   static const Color lightGreyTextColor = Color(0xff6B7280);
   static const Color greyTextColor2 = Color(0xff5B5F5F);
+  static const Color greyTextColor3 = Color(0xff6D6D6D);
   static const Color redTextColor = Color(0xffFF6B6B);
   static const Color redTextColor2 = Color(0xffE3342F);
   static const Color redTextColor3 = Color(0xffD53636);
@@ -64,6 +65,7 @@ class AppColors {
 
 static const Color borderColor = Color(0xffE1E1E1);
 static const Color borderColor2 = Color(0xffCFD2D2);
+static const Color borderColor3 = Color(0xffE7E7E7);
 static const Color jobCardBorderColor = Color.fromRGBO(255, 107, 107, 0.13);
 static const Color jobCardColor = Color(0xFFFFF8F8);
 static const Color iconBorderColor = Color(0xff28303F);

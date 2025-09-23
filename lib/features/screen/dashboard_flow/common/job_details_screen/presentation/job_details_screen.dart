@@ -21,60 +21,67 @@ class JobDetailsScreen extends ConsumerWidget {
     final style = Theme.of(context).textTheme;
     final currentJob = ref.watch(selectedJob) ?? jobs[0];
     return Scaffold(
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Column(
             children: [
-              SizedBox(height: 50.h),
               CommonCustomHeader(title: "Job Details",),
               SizedBox(height: 24.h,),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: AppColors.jobCardColor,
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(8.r),
-                  child: Text(currentJob.name, style: style.headlineSmall,),
-                ),
-              ),
-              SizedBox(height: 16.h,),
-              Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-                    decoration: BoxDecoration(
-                      color: AppColors.greyTextColor.withValues(alpha: 0.05),
-                      borderRadius: BorderRadius.circular(16.r)
-                    ),
-                    child: Text("job ID: ${currentJob.id}", style: style.bodySmall,),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column( 
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: AppColors.jobCardColor,
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.r),
+                          child: Text(currentJob.name, style: style.headlineSmall,),
+                        ),
+                      ),
+                      SizedBox(height: 16.h,),
+                      Row(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                            decoration: BoxDecoration(
+                              color: AppColors.greyTextColor.withValues(alpha: 0.05),
+                              borderRadius: BorderRadius.circular(16.r)
+                            ),
+                            child: Text("job ID: ${currentJob.id}", style: style.bodySmall,),
+                          ),
+                          SizedBox(width: 8.w,),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                            decoration: BoxDecoration(
+                                color: AppColors.statusContainerColor.withValues(alpha: 0.1),
+                                borderRadius: BorderRadius.circular(16.r)
+                            ),
+                            child: Text(currentJob.status, style: style.bodySmall?.copyWith(color: AppColors.statusContainerColor),),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 44.h,),
+                      JobSummery(job: currentJob),
+                      SizedBox(height: 32.h,),
+                      JobDescription(job: currentJob,),
+                      SizedBox(height: 32.h,),
+                      ContactInfo(job: currentJob,),
+                      SizedBox(height: 32.h,),
+                      JobRequirements(job: currentJob,),
+                      SizedBox(height: 32.h,),
+                      ImportantNotes(job: currentJob,),
+                      SizedBox(height: 32.h,),
+                      PhotoSection(job: currentJob,),
+                      SizedBox(height: 100.h,),
+                    ],
                   ),
-                  SizedBox(width: 8.w,),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-                    decoration: BoxDecoration(
-                        color: AppColors.statusContainerColor.withValues(alpha: 0.1),
-                        borderRadius: BorderRadius.circular(16.r)
-                    ),
-                    child: Text(currentJob.status, style: style.bodySmall?.copyWith(color: AppColors.statusContainerColor),),
-                  ),
-                ],
-              ),
-              SizedBox(height: 44.h,),
-              JobSummery(job: currentJob),
-              SizedBox(height: 32.h,),
-              JobDescription(job: currentJob,),
-              SizedBox(height: 32.h,),
-              ContactInfo(job: currentJob,),
-              SizedBox(height: 32.h,),
-              JobRequirements(job: currentJob,),
-              SizedBox(height: 32.h,),
-              ImportantNotes(job: currentJob,),
-              SizedBox(height: 32.h,),
-              PhotoSection(job: currentJob,),
-              SizedBox(height: 100.h,)
+                ),
+              )
             ],
           ),
         ),
