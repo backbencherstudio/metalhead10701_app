@@ -9,6 +9,7 @@ import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/screen/after_accept_counter_offer/presentation/widgets/custom_job_title.dart';
 import 'package:metal_head/features/screen/auth_flow/create_account_screen/presentation/widgets/input_label_text.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
+import '../../../common_widgets/alert_dialogs/job_post_successfully_dialog.dart';
 import '../provider/toggle_provider.dart';
 
 class JobPostScreen extends StatefulWidget {
@@ -760,7 +761,7 @@ class _JobPostScreenState extends State<JobPostScreen> {
                                             .read(notesNumberProvider.notifier)
                                             .state =
                                         1;
-                                    //onJobPostSuccessfullyTap(context);
+                                    onJobPostSuccessfullyTap(context);
                                   },
                                   padding: EdgeInsets.symmetric(
                                     horizontal: 24.w,
