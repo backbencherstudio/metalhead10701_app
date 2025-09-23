@@ -52,134 +52,156 @@ class _JobManagementScreenState extends ConsumerState<JobManagementScreen> {
     final jobList = isSuggestion ? filteredSuggestions : filteredJobs;
 
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  widget.isBack
-                      ? IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(Icons.arrow_back_ios),
-                        )
-                      : IconButton(
-                          onPressed: () {
-                            context.go(RouteName.userHomeScreen);
-                          },
-                          icon: const Icon(Icons.arrow_back_ios),
-                        ),
-                  Padding(
-                    padding: EdgeInsets.all(12.r),
-                    child: Text("Job Management", style: style.bodyLarge),
-                  ),
-                ],
-              ),
-              SizedBox(height: 16.h),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.r),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      child: SvgPicture.asset(
-                        AppIcons.connectionIcon,
-                        height: 24.h,
-                        width: 24.w,
-                      ),
-                      onTap: () async => await showModalBottomSheet(
-                        context: context,
-                        backgroundColor: AppColors.whiteTextColor,
-                        builder: (BuildContext context) {
-                          return SizedBox(
-                            height: 400.h,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 16.w,
-                                vertical: 8.h,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Center(
-                                    child: Text(
-                                      "Sort By",
-                                      style: style.headlineMedium,
-                                    ),
-                                  ),
-                                  ListTile(
-                                    title: Text("Location: nearest first"),
-                                    trailing: Icon(
-                                      Icons.check,
-                                      color: AppColors.headlineTextColor,
-                                    ),
-                                  ),
-                                  ListTile(
-                                    title: Text("Rating: the best first"),
-                                  ),
-                                  ListTile(
-                                    title: Text("Price: from low to high"),
-                                  ),
-                                  ListTile(
-                                    title: Text("Alphabet: from A to Z"),
-                                  ),
-                                  Center(
-                                    child: CustomButton(
-                                      text: "Save",
-                                      isBig: true,
-                                      onPressed: () => context.pop(),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    Text(
-                      "Sort By",
-                      style: style.bodyMedium?.copyWith(
-                        color: AppColors.greyTextColor,
-                      ),
-                    ),
-                    InkWell(
-                      child: SvgPicture.asset(
-                        AppIcons.filterIcon,
-                        height: 24.h,
-                        width: 24.w,
-                        colorFilter: ColorFilter.mode(
-                          AppColors.bgColor1,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                      onTap: () => context.push(RouteName.filterScreen),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 8.h),
+      body: JobPageBody(context, isBack: widget.isBack)
+    );
+  }
+}
+class JobManagementScreenProfile extends StatefulWidget {
+  final bool isBack;
+  const JobManagementScreenProfile({super.key,  this.isBack = false} );
 
-              // Job List
-              Expanded(
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: jobs.length,
-                  itemBuilder: (context, index) => Padding(
-                    padding: EdgeInsets.symmetric(vertical: 12.h),
-                    child: CustomJobManagementCard(job: jobs[index]),
-                  ),
-                ),
+  @override
+  State<JobManagementScreenProfile> createState() => _JobManagementScreenProfileState();
+}
+
+class _JobManagementScreenProfileState extends State<JobManagementScreenProfile> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: JobPageBody(context, isBack: widget.isBack)
+    );
+  }
+}
+
+
+Widget JobPageBody (BuildContext context, {required bool isBack}){
+  final style = Theme.of(context).textTheme;
+  return  SafeArea(
+    child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              isBack
+                  ? IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back_ios),
+              )
+                  : IconButton(
+                onPressed: () {
+                  context.go(RouteName.userHomeScreen);
+                },
+                icon: const Icon(Icons.arrow_back_ios),
+              ),
+              Padding(
+                padding: EdgeInsets.all(12.r),
+                child: Text("Job Management", style: style.bodyLarge),
               ),
             ],
           ),
-        ),
+          SizedBox(height: 16.h),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 8.r),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                  child: SvgPicture.asset(
+                    AppIcons.connectionIcon,
+                    height: 24.h,
+                    width: 24.w,
+                  ),
+                  onTap: () async => await showModalBottomSheet(
+                    context: context,
+                    backgroundColor: AppColors.whiteTextColor,
+                    builder: (BuildContext context) {
+                      return SizedBox(
+                        height: 400.h,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16.w,
+                            vertical: 8.h,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment:
+                            MainAxisAlignment.spaceAround,
+                            children: [
+                              Center(
+                                child: Text(
+                                  "Sort By",
+                                  style: style.headlineMedium,
+                                ),
+                              ),
+                              ListTile(
+                                title: Text("Location: nearest first"),
+                                trailing: Icon(
+                                  Icons.check,
+                                  color: AppColors.headlineTextColor,
+                                ),
+                              ),
+                              ListTile(
+                                title: Text("Rating: the best first"),
+                              ),
+                              ListTile(
+                                title: Text("Price: from low to high"),
+                              ),
+                              ListTile(
+                                title: Text("Alphabet: from A to Z"),
+                              ),
+                              Center(
+                                child: CustomButton(
+                                  text: "Save",
+                                  isBig: true,
+                                  onPressed: () => context.pop(),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Text(
+                  "Sort By",
+                  style: style.bodyMedium?.copyWith(
+                    color: AppColors.greyTextColor,
+                  ),
+                ),
+                InkWell(
+                  child: SvgPicture.asset(
+                    AppIcons.filterIcon,
+                    height: 24.h,
+                    width: 24.w,
+                    colorFilter: ColorFilter.mode(
+                      AppColors.bgColor1,
+                      BlendMode.srcIn,
+                    ),
+                  ),
+                  onTap: () => context.push(RouteName.filterScreen),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 8.h),
+
+          // Job List
+          Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.zero,
+              itemCount: jobs.length,
+              itemBuilder: (context, index) => Padding(
+                padding: EdgeInsets.symmetric(vertical: 12.h),
+                child: CustomJobManagementCard(job: jobs[index]),
+              ),
+            ),
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
 }

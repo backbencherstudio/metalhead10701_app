@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/constant/icons.dart';
+import 'package:metal_head/core/routes/route_name.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 
@@ -69,7 +71,7 @@ void onJobPostSuccessfullyTap(BuildContext context) {
                     ),
                     borderColor: AppColors.greyTextColor,
                     onPressed: () {
-                      Navigator.of(context, rootNavigator: true).pop();
+                     context.go(RouteName.userHomeScreen);
                     },
                   ),
                   SizedBox(width: 5.w),

@@ -23,15 +23,15 @@ class PersonalInfoListScreen extends StatelessWidget {
           context.push(RouteName.personalInfoEditingScreen);
         },
       },
+
+
       {
         'title': 'Job Management',
         'leading': AppIcons.newJobSvg,
         'trailing': AppIcons.arrowRightSvg,
         'onTap': () {
-          //context.push(RouteName.jobManagementScreen);
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> JobManagementScreen(
-            isBack: true,
-          )));
+          context.push(RouteName.jobManagementScreenProfile);
+
         },
       },
 
@@ -62,7 +62,9 @@ class PersonalInfoListScreen extends StatelessWidget {
         'title': 'Log out',
         'leading': AppIcons.logoutSvg,
         'trailing': AppIcons.arrowRightSvg,
-        'onTap': () {},
+        'onTap': () {
+          context.push(RouteName.loginScreen);
+        },
       },
       // Add more items as needed...
     ];

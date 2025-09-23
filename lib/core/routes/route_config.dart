@@ -3,8 +3,8 @@ part of 'part_of_import.dart';
 class RouteConfig {
   GoRouter goRouter = GoRouter(
     initialLocation: RouteName.splashScreen,
-    // initialLocation: RouteName.splashScreen,
 
+    // initialLocation: RouteName.splashScreen,
     routes: [
       //Bottom NavBar USER
       StatefulShellRoute.indexedStack(
@@ -73,30 +73,30 @@ class RouteConfig {
               ),
             ],
           ),
-          StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: RouteName.jobScreen2,
-                builder: (context, state) => const HelperHomeScreen(),
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: RouteName.msgScreen2,
-                builder: (context, state) => const HelperHomeScreen(),
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: RouteName.profileScreen2,
-                builder: (context, state) => const HelperHomeScreen(),
-              ),
-            ],
-          ),
+          // StatefulShellBranch(
+          //   routes: [
+          //     GoRoute(
+          //       path: RouteName.jobScreen2,
+          //       builder: (context, state) => const HelperHomeScreen(),
+          //     ),
+          //   ],
+          // ),
+          // StatefulShellBranch(
+          //   routes: [
+          //     GoRoute(
+          //       path: RouteName.msgScreen2,
+          //       builder: (context, state) => const HelperHomeScreen(),
+          //     ),
+          //   ],
+          // ),
+          // StatefulShellBranch(
+          //   routes: [
+          //     GoRoute(
+          //       path: RouteName.profileScreen2,
+          //       builder: (context, state) => const HelperHomeScreen(),
+          //     ),
+          //   ],
+          // ),
         ],
       ),
 
@@ -155,6 +155,14 @@ class RouteConfig {
         path: RouteName.jobCounterOfferOfferScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: JobCounterOfferOfferScreen());
+        },
+      ),
+
+      GoRoute(
+        name: RouteName.jobManagementScreenProfile,
+        path: RouteName.jobManagementScreenProfile,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: JobManagementScreenProfile());
         },
       ),
       GoRoute(
@@ -360,14 +368,11 @@ class RouteConfig {
         builder: (context, state) {
           final item = state.extra as MessageItem?;
           if (item == null) {
-            return Scaffold(
-              body: Center(child: Text('No chat data')),
-            );
+            return Scaffold(body: Center(child: Text('No chat data')));
           }
           return ChatConversationScreen(messageItem: item);
         },
       ),
-
 
       // GoRoute(
       //   name: RouteName.ebookPlay,
