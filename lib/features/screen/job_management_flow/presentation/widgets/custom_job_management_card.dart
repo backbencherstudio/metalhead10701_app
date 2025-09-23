@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:metal_head/core/constant/icons.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 import 'package:metal_head/features/screen/dashboard_flow/data/model/job_model.dart';
 
 import '../../../../../core/routes/route_name.dart';
 import '../../../../../core/theme/theme_extension/app_colors.dart';
-import '../../../../common_widgets/alert_dialogs/confirm_job_acceptance_dialog.dart';
 import '../../../dashboard_flow/common/job_details_screen/data/provider/selectedJobProvider.dart';
+import 'delete_job_post_dialog.dart';
 
-class CustomJobCard extends ConsumerWidget {
+class CustomJobManagementCard extends ConsumerWidget {
   final JobModel job;
-  const CustomJobCard({super.key, required this.job});
+  const CustomJobManagementCard({super.key, required this.job});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,9 +24,9 @@ class CustomJobCard extends ConsumerWidget {
     final startTime = timeFormat.format(job.startTime);
     final endTime = timeFormat.format(job.endTime);
     return GestureDetector(
-      onTap: (){
-        ref.read(selectedJob.notifier).state = job;
-        context.push(RouteName.jobDetailsScreen);
+      onTap: () {
+        // ref.read(selectedJob.notifier).state = job;
+        // context.push(RouteName.jobDetailsScreen);
       },
       child: Container(
         padding: EdgeInsets.all(16.r),
@@ -44,9 +46,28 @@ class CustomJobCard extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              job.name,
-              style: style.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    job.name,
+                    style: style.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+                GestureDetector(
+                  onTap: () {
+                   context.push(RouteName.editJobManagementScreen);
+                  },
+                  child: SvgPicture.asset(
+                    AppIcons.pencilEditSvg,
+                    width: 24.w,
+                    height: 24.h,
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: 8.h),
             RichText(
@@ -54,7 +75,9 @@ class CustomJobCard extends ConsumerWidget {
                 children: [
                   TextSpan(
                     text: "\$${job.price} ",
-                    style: style.bodySmall?.copyWith(fontWeight: FontWeight.bold),
+                    style: style.bodySmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   TextSpan(
                     text: "| ${job.type} | ${job.bargainStatus}",
@@ -112,7 +135,10 @@ class CustomJobCard extends ConsumerWidget {
             SizedBox(height: 10.h),
             Row(
               children: [
-                Icon(Icons.location_on_outlined, color: AppColors.greyTextColor),
+                Icon(
+                  Icons.location_on_outlined,
+                  color: AppColors.greyTextColor,
+                ),
                 Text(
                   job.location,
                   style: style.bodySmall?.copyWith(
@@ -130,7 +156,7 @@ class CustomJobCard extends ConsumerWidget {
                   child: CustomButton(
                     padding: EdgeInsets.all(12.r),
                     width: 135.w,
-                    text: "Counter Offer",
+                    text: "Delete Job",
                     textStyle: style.bodySmall?.copyWith(
                       color: AppColors.bgColor1,
                       fontWeight: FontWeight.bold,
@@ -139,7 +165,7 @@ class CustomJobCard extends ConsumerWidget {
                     borderColor: AppColors.bgColor1,
                     textColor: AppColors.bgColor1,
                     onPressed: () {
-                      context.push(RouteName.jobCounterOfferOfferScreen);
+                      onDeleteJobPostTap(context);
                     },
                   ),
                 ),
@@ -148,7 +174,7 @@ class CustomJobCard extends ConsumerWidget {
                   child: CustomButton(
                     padding: EdgeInsets.all(12.r),
                     width: 135.w,
-                    text: 'Accept',
+                    text: 'View Details',
                     textStyle: style.bodySmall?.copyWith(
                       color: AppColors.bgColor4,
                       fontWeight: FontWeight.bold,
@@ -157,7 +183,8 @@ class CustomJobCard extends ConsumerWidget {
                     textColor: AppColors.onPrimary,
                     isBig: false,
                     onPressed: () {
-                      onConfirmAcceptanceTap(context);
+                      ref.read(selectedJob.notifier).state = job;
+                      context.push(RouteName.jobDetailsScreen);
                     },
                   ),
                 ),

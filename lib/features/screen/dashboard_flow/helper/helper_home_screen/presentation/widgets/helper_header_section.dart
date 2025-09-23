@@ -54,7 +54,7 @@ class HelperHeaderSection extends StatelessWidget {
                       text: 'Helper Mode',
                       onPressed: () {
                         ref.read(isUserMode.notifier).state = !currentMode;
-                        context.go(RouteName.userHomeScreen);
+                        // context.go(RouteName.userHomeScreen);
                       },
                       width: 100.w,
                       padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),

@@ -53,7 +53,7 @@ class HeaderSection extends ConsumerWidget {
                   textColor: AppColors.whiteTextColor,
                   onPressed: () {
                     ref.read(isUserMode.notifier).state = !currentMode;
-                    context.go(RouteName.helperHomeScreen);
+                   // context.go(RouteName.helperHomeScreen);
                   },
                   width: 90.w,
                   padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),

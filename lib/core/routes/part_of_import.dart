@@ -26,6 +26,8 @@ import '../../features/screen/auth_flow/verification_screen/presentation/verific
 import '../../features/screen/dashboard_flow/common/job_details_screen/presentation/job_details_screen.dart';
 import '../../features/screen/dashboard_flow/helper/helper_home_screen/presentation/helper_home_screen.dart';
 import '../../features/screen/job_counter_offer_screen/presentation/job_counter_offer_screen.dart';
+import '../../features/screen/job_history_flow/presentation/job_history_screen.dart';
+import '../../features/screen/job_management_flow/presentation/edit_job_management.dart';
 import '../../features/screen/job_management_flow/presentation/job_management_screen.dart';
 import '../../features/screen/job_near_by_you_flow/presentation/job_near_by_you_screen.dart';
 import '../../features/screen/message_screen_flow/model/message_item_model.dart';
