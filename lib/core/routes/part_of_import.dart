@@ -35,6 +35,8 @@ import '../../features/screen/message_screen_flow/presentation/chat_conversation
 import '../../features/screen/message_screen_flow/presentation/image_show_screen.dart';
 import '../../features/screen/message_screen_flow/presentation/widgets/message_alert_dialog.dart';
 import '../../features/screen/notification_flow/presentation/notification_screen.dart';
+import '../../features/screen/payment_screen/presentation/add_credit_card_screen.dart';
+import '../../features/screen/payment_screen/presentation/payment_setting_screen.dart';
 import '../../features/screen/search_flow/presentation/filter_screen.dart';
 import '../../features/screen/search_flow/presentation/search_screen.dart';
 import '../utils/common_widget/nav_bar/bottom_navbar.dart';

@@ -51,6 +51,8 @@ class RouteName {
   static const String jobManagementScreenProfile = "/JobManagementScreenProfile";
   static const String editJobManagementScreen = "/EditJobManagementScreen";
   static const String jobHistoryScreen = "/JobHistoryScreen";
+  static const String paymentSettingScreen = "/PaymentSettingScreen";
+  static const String addCreditCardScreen = "/AddCreditCardScreen";
 
 
   //Search Flow
