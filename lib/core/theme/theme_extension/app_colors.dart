@@ -36,6 +36,7 @@ class AppColors {
   static const Color headlineTextColor3 = Color(0xff000000);
   static const Color headlineTextColor4 = Color(0xff0B0B0B);
   static const Color headlineTextColor5 = Color(0xff202020);
+  static const Color headlineTextColor6 = Color(0xff151515);
   static const Color blackHeadline = Color(0xff2F3131);
   static const Color greyTextColor = Color(0xff6B7280);
   static const Color lightGreyTextColor = Color(0xff6B7280);
@@ -47,6 +48,7 @@ class AppColors {
   static const Color whiteTextColor = Color(0xffFFFFFF);
   static const Color inputTextColor = Color(0xffAEB2B2);
   static const Color greenTextColor = Color(0xFF38C172);
+  static const Color greenTextColor2 = Color(0xFF267F50);
   static const Color yellowTextColor = Color(0xFFFFCC00);
 
 

@@ -2,7 +2,7 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.paymentSettingScreen,
 
     // initialLocation: RouteName.splashScreen,
     routes: [
@@ -322,6 +322,30 @@ class RouteConfig {
           return const MaterialPage(child: CategoriesFilterScreen());
         },
       ),
+
+      ///////Payment Screens
+
+
+      GoRoute(
+        name: RouteName.paymentSettingScreen,
+        path: RouteName.paymentSettingScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: PaymentSettingScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.addCreditCardScreen,
+        path: RouteName.addCreditCardScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AddCreditCardScreen());
+        },
+      ),
+
+
+      /////// End of Payment Screens
+
+
+
       GoRoute(
         name: RouteName.categoriesDetailsScreen,
         path: RouteName.categoriesDetailsScreen,
@@ -329,6 +353,7 @@ class RouteConfig {
           return const MaterialPage(child: CategoriesDetailsScreen());
         },
       ),
+
       GoRoute(
         name: RouteName.notificationScreen,
         path: RouteName.notificationScreen,

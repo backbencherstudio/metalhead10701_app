@@ -41,6 +41,8 @@ class AppIcons {
   static const String sendSvg = '$iconPath/arrowUp.svg';
   static const String copySvg = '$iconPath/copysvg.svg';
   static const String downloadSvg = '$iconPath/download.svg';
+  static const String creditCardAdd = '$iconPath/credit_card_add.svg';
+  static const String paymentMethodsSvg = '$iconPath/payment_methods.svg';
 
 
   // bottom navbar
