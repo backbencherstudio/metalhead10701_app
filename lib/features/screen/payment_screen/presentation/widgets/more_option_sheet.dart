@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/theme/theme_extension/app_colors.dart';
+import 'delete_card.dart';
 
 void showMoreSheet(BuildContext context) {
   showModalBottomSheet(
@@ -46,7 +47,7 @@ void showMoreSheet(BuildContext context) {
               ),),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
-
+                onDeleteCardTap(context);
               },
             ),
           ],

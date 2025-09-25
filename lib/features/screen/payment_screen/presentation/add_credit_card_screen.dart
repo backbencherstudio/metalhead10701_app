@@ -5,6 +5,21 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theme/theme_extension/app_colors.dart';
 import '../../auth_flow/create_account_screen/presentation/widgets/input_label_text.dart';
 
+class AddCardList {
+  final String cardNumber;
+  final String cardHolderName;
+  final String expirationDate;
+  final String cvv;
+
+  AddCardList({required this.cardNumber, required this.cardHolderName, required this.expirationDate, required this.cvv});
+
+
+
+}
+
+List<AddCardList> addCardList = [];
+
+
 class AddCreditCardScreen extends StatefulWidget {
   const AddCreditCardScreen({super.key});
 
@@ -13,6 +28,11 @@ class AddCreditCardScreen extends StatefulWidget {
 }
 
 class _AddCreditCardScreenState extends State<AddCreditCardScreen> {
+  final TextEditingController _cardNumberController = TextEditingController();
+  final TextEditingController _cardHolderNameController = TextEditingController();
+  final TextEditingController _expirationDateController = TextEditingController();
+  final TextEditingController _cvvController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
@@ -42,6 +62,9 @@ class _AddCreditCardScreenState extends State<AddCreditCardScreen> {
                   ),
                   TextButton(
                     onPressed: (){
+                      addCardList.add(
+                          AddCardList(cardNumber: _cardNumberController.text, cardHolderName: _cardHolderNameController.text, expirationDate: _expirationDateController.text, cvv: _cvvController.text)
+                      );
                       context.pop();
                     },
                     child: Text(
@@ -68,6 +91,7 @@ class _AddCreditCardScreenState extends State<AddCreditCardScreen> {
                           InputLabel(labelText: 'Cardholder name', style: style),
                           SizedBox(height: 8.h),
                           TextFormField(
+                            controller: _cardHolderNameController,
                             decoration: InputDecoration(
                               hintText: 'josephine',
                             ),
@@ -77,6 +101,7 @@ class _AddCreditCardScreenState extends State<AddCreditCardScreen> {
                           InputLabel(labelText: 'Card Number', style: style),
                           SizedBox(height: 8.h),
                           TextFormField(
+                            controller: _cardNumberController,
                             decoration: InputDecoration(
                               hintText: '**** **** **** ****',
                             ),
@@ -95,6 +120,7 @@ class _AddCreditCardScreenState extends State<AddCreditCardScreen> {
                                     ),
                                     SizedBox(height: 8.h),
                                     TextFormField(
+                                      controller: _expirationDateController,
                                       style: style.bodyMedium?.copyWith(
                                         color: AppColors.headlineTextColor,
                                       ),
@@ -116,6 +142,7 @@ class _AddCreditCardScreenState extends State<AddCreditCardScreen> {
                                     ),
                                     SizedBox(height: 8.h),
                                     TextFormField(
+                                      controller: _cvvController,
                                       style: style.bodyMedium?.copyWith(
                                         color: AppColors.headlineTextColor,
                                       ),

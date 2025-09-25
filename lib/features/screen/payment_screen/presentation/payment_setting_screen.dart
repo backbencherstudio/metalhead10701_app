@@ -76,7 +76,7 @@ class PaymentSettingScreen extends StatelessWidget {
                               ),
                             ),
                             trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
+                              mainAxisSize: MainAxisSize.min, 
                               children: [
                                 Text(
                                   'Default',
