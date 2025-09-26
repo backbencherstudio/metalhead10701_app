@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:metal_head/core/constant/icons.dart';
+import 'package:go_router/go_router.dart';
 import 'package:metal_head/core/theme/theme_extension/app_colors.dart';
 import 'package:metal_head/features/screen/auth_flow/splash/presentation/widgets/custom_button.dart';
 
-void onDeleteCardTap(BuildContext context) {
+import '../../../../../core/routes/route_name.dart';
+import '../../riverpod/payment_card_provider.dart';
+
+void onDeleteCardTap(BuildContext context, int index) {
   showDialog(
     context: context,
     builder: (_) {
@@ -35,18 +38,25 @@ void onDeleteCardTap(BuildContext context) {
                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
 
-                  CustomButton(
-                    text: 'Yes, delete card',
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 24.w,
-                      vertical: 12.h,
-                    ),
-                    textColor: AppColors.whiteTextColor,
-                    containerColor: AppColors.bgColor9,
-                    onPressed: () {
-                      Navigator.of(context, rootNavigator: true).pop();
-                    },
+                  Consumer(
+                    builder: (context,ref,_) {
+                     // final cardList = ref.watch(cardProvider);
+                      return CustomButton(
+                        text: 'Yes, delete card',
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 24.w,
+                          vertical: 12.h,
+                        ),
+                        textColor: AppColors.whiteTextColor,
+                        containerColor: AppColors.bgColor9,
+                        onPressed: () {
+                          ref.read(cardProvider.notifier).deleteCard(index);
+                          Navigator.of(context, rootNavigator: true).pop();
+                          context.go(RouteName.paymentSettingScreen);
+                        },
+                      );
+                    }
                   ),
 
                   SizedBox(height: 5.w),

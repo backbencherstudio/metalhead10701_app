@@ -2,9 +2,9 @@ part of 'part_of_import.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.paymentSettingScreen,
+    // initialLocation: RouteName.paymentSettingScreen,
 
-    // initialLocation: RouteName.splashScreen,
+    initialLocation: RouteName.splashScreen,
     routes: [
       //Bottom NavBar USER
       StatefulShellRoute.indexedStack(
@@ -330,7 +330,7 @@ class RouteConfig {
         name: RouteName.paymentSettingScreen,
         path: RouteName.paymentSettingScreen,
         pageBuilder: (context, state) {
-          return const MaterialPage(child: PaymentSettingScreen());
+          return  MaterialPage(child: PaymentSettingScreen());
         },
       ),
       GoRoute(

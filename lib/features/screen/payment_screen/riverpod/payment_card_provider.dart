@@ -1,42 +1,43 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Card {
+class AddCardList {
   final String cardNumber;
-  final bool isDefault;
+  final String cardHolderName;
+  final String expirationDate;
+  final String cvv;
 
-  Card({required this.cardNumber, this.isDefault = true});
-
-  // Add the copyWith method
-  Card copyWith({String? cardNumber, bool? isDefault}) {
-    return Card(
-      cardNumber: cardNumber ?? this.cardNumber,
-      isDefault: isDefault ?? this.isDefault,
-    );
-  }
+  AddCardList({
+    required this.cardNumber,
+    required this.cardHolderName,
+    required this.expirationDate,
+    required this.cvv,
+  });
 }
 
+class CardNotifier extends StateNotifier<List<AddCardList>> {
+  CardNotifier() : super([]);
 
-class PaymentCardNotifier extends StateNotifier<List<Card>> {
-  PaymentCardNotifier() : super([]);
-
-  // Add card to the list
-  void addCard(Card card) {
+  // Method to add a new card
+  void addCard(AddCardList card) {
     state = [...state, card];
   }
 
-  // Mark a card as default
-  void setDefaultCard(String cardNumber) {
+  // Method to delete a card (for future use)
+  void deleteCard(int index) {
+    state = [...state]..removeAt(index);
+  }
+
+  void updateCard(int index, AddCardList updatedCard) {
     state = [
-      for (final card in state)
-        if (card.cardNumber == cardNumber)
-          Card(cardNumber: card.cardNumber, isDefault: true)
-        else
-          card.copyWith(isDefault: false),
+      for (int i = 0; i < state.length; i++)
+        if (i == index) updatedCard else state[i]
     ];
   }
 }
 
-final paymentCardProvider =
-StateNotifierProvider<PaymentCardNotifier, List<Card>>((ref) {
-  return PaymentCardNotifier();
-});
+
+
+// The provider for the state
+final cardProvider = StateNotifierProvider<CardNotifier, List<AddCardList>>(
+      (ref) => CardNotifier(),
+);

@@ -56,7 +56,7 @@ class PersonalInfoListScreen extends StatelessWidget {
         'leading': AppIcons.creditSvg,
         'trailing': AppIcons.arrowRightSvg,
         'onTap': () {
-          context.push(RouteName.paymentSettingScreen);
+          context.go(RouteName.paymentSettingScreen);
         },
       },
 
